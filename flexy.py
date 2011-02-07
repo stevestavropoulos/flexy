@@ -5,7 +5,7 @@
 #
 #   Version 0.2
 #
-#   Copyright 2006,2009 Steve Stavropoulos <steve@math.upatras.gr>
+#   Copyright 2006,2009,2011 Steve Stavropoulos <steve@math.upatras.gr>
 #
 #   This file is part of Flexy.
 #
