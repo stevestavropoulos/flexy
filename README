@@ -1,0 +1,11 @@
+Flexy - A tool to inflect and in other ways "flex" words
+
+and
+
+greek.py - Rules for inflection of greek words based on http://www.komvos.edu.gr/dictionaries/triantafyllidis/TriLegent.htm
+Adjectives: http://www.komvos.edu.gr/dictionaries/triantafyllidis/epitheta_metoches.htm
+Nouns: http://www.komvos.edu.gr/dictionaries/triantafyllidis/ousiastika.htm
+Verbs: http://www.komvos.edu.gr/dictionaries/triantafyllidis/P__1.htm
+http://www.komvos.edu.gr/dictionaries/triantafyllidis/P__2_1.htm
+etc.
+
