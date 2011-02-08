@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-7 -*-
+# -*- coding: utf-8 -*-
 #
 #   Copyright 2006,2009,2011 Steve Stavropoulos <steve@math.upatras.gr>
 #
@@ -29,24 +29,24 @@ def translateback(alist, word):
 	return word
 
 wordencoding = [
-	{'from': 'αί', 'to': 'a'},
-	{'from': 'ού', 'to': 'b'},
-	{'from': 'εί', 'to': 'c'},
-	{'from': 'οί', 'to': 'd'},
-	{'from': 'εύ', 'to': 'e'},
-	{'from': 'αύ', 'to': 'f'},
+	{'from': 'Ξ±Ξ―', 'to': 'a'},
+	{'from': 'ΞΏΟ', 'to': 'b'},
+	{'from': 'ΞµΞ―', 'to': 'c'},
+	{'from': 'ΞΏΞ―', 'to': 'd'},
+	{'from': 'ΞµΟ', 'to': 'e'},
+	{'from': 'Ξ±Ο', 'to': 'f'},
 
-	{'from': 'αι', 'to': 'k'},
-	{'from': 'ου', 'to': 'l'},
-	{'from': 'ει', 'to': 'm'},
-	{'from': 'οι', 'to': 'n'},
-	{'from': 'ευ', 'to': 'o'},
-	{'from': 'αυ', 'to': 'p'},
+	{'from': 'Ξ±ΞΉ', 'to': 'k'},
+	{'from': 'ΞΏΟ…', 'to': 'l'},
+	{'from': 'ΞµΞΉ', 'to': 'm'},
+	{'from': 'ΞΏΞΉ', 'to': 'n'},
+	{'from': 'ΞµΟ…', 'to': 'o'},
+	{'from': 'Ξ±Ο…', 'to': 'p'},
 ]
-tonismenafwnhenta = 'abcdefάέήύίόώΐΰ';
-atonafwnhenta = 'klmnopαεηυιοωϊϋ';
+tonismenafwnhenta = 'abcdefΞ¬Ξ­Ξ®ΟΞ―ΟΟΞΞ°';
+atonafwnhenta = 'klmnopΞ±ΞµΞ·Ο…ΞΉΞΏΟ‰ΟΟ‹';
 fwnhenta = tonismenafwnhenta + atonafwnhenta;
-symfwna = 'βγδζθκλμνξπρστφχψ';
+symfwna = 'Ξ²Ξ³Ξ΄Ξ¶ΞΈΞΊΞ»ΞΌΞ½ΞΎΟ€ΟΟƒΟ„Ο†Ο‡Ο';
 
 tonismenofwnhen = '[' + tonismenafwnhenta + ']'
 atonofwnhen = '[' + atonafwnhenta + ']'
@@ -100,23 +100,23 @@ rule = {
 	'O1':
 	{0:
 		{
-			'match': 'άς$',
+			'match': 'Ξ¬Ο‚$',
 			'actions':
 				[
 				{
-					'replace': 'άς',
+					'replace': 'Ξ¬Ο‚',
 					'restype': 'OusEnOnom',
 				},
 				{
-					'replace': 'ά',
+					'replace': 'Ξ¬',
 					'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
 				},
 				{
-					'replace': 'άδες',
+					'replace': 'Ξ¬Ξ΄ΞµΟ‚',
 					'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
 				},
 				{
-					'replace': 'άδων',
+					'replace': 'Ξ¬Ξ΄Ο‰Ξ½',
 					'restype': 'OusPlGen',
 				},
 				]
@@ -125,23 +125,23 @@ rule = {
 	'O2':
 	{0:
 		{
-			'match': 'ας$',
+			'match': 'Ξ±Ο‚$',
 			'actions':
 				[
 				{
-					'replace': 'ας',
+					'replace': 'Ξ±Ο‚',
 					'restype': 'OusEnOnom',
 				},
 				{
-					'replace': 'α',
+					'replace': 'Ξ±',
 					'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
 				},
 				{
-					'replace': 'ες',
+					'replace': 'ΞµΟ‚',
 					'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
 				},
 				{
-					'replace': 'ων',
+					'replace': 'Ο‰Ξ½',
 					'restype': 'OusPlGen',
 				},
 				]
@@ -150,23 +150,23 @@ rule = {
 	'O3':
 	{0:
 		{
-			'match': 'ας$',
+			'match': 'Ξ±Ο‚$',
 			'actions':
 				[
 				{
-					'replace': 'ας',
+					'replace': 'Ξ±Ο‚',
 					'restype': 'OusEnOnom',
 				},
 				{
-					'replace': 'α',
+					'replace': 'Ξ±',
 					'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
 				},
 				{
-					'replace': 'ες',
+					'replace': 'ΞµΟ‚',
 					'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
 				},
 				{
-					'replace': 'ων',
+					'replace': 'Ο‰Ξ½',
 					'restype': 'OusPlGen',
 					'callfunc': transfertonos,
 				},
@@ -176,28 +176,28 @@ rule = {
 	'O3a':
 	{0:
 		{
-			'match': 'ας$',
+			'match': 'Ξ±Ο‚$',
 			'actions':
 				[
 				{
-					'replace': 'ας',
+					'replace': 'Ξ±Ο‚',
 					'restype': 'OusEnOnom',
 				},
 				{
-					'replace': 'ος',
+					'replace': 'ΞΏΟ‚',
 					'restype': 'OusEnGen',
 					'callfunc': transfertonos,
 				},
 				{
-					'replace': 'α',
+					'replace': 'Ξ±',
 					'restype': ['OusEnGen' 'OusEnAit', 'OusEnKlit'],
 				},
 				{
-					'replace': 'ες',
+					'replace': 'ΞµΟ‚',
 					'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
 				},
 				{
-					'replace': 'ων',
+					'replace': 'Ο‰Ξ½',
 					'restype': 'OusPlGen',
 					'callfunc': transfertonos,
 				},
@@ -207,24 +207,24 @@ rule = {
 	'O4':
 	{0:
 		{
-			'match': 'ας$',
+			'match': 'Ξ±Ο‚$',
 			'actions':
 				[
 				{
-					'replace': 'ας',
+					'replace': 'Ξ±Ο‚',
 					'restype': 'OusEnOnom',
 				},
 				{
-					'replace': 'α',
+					'replace': 'Ξ±',
 					'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
 				},
 				{
-					'replace': 'αδες',
+					'replace': 'Ξ±Ξ΄ΞµΟ‚',
 					'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
 					'callfunc': transfertonos,
 				},
 				{
-					'replace': 'αδων',
+					'replace': 'Ξ±Ξ΄Ο‰Ξ½',
 					'restype': 'OusPlGen',
 					'callfunc': transfertonos,
 				},
@@ -233,23 +233,23 @@ rule = {
 	},
 	'O5':
 	{
-		'match': 'ας$',
+		'match': 'Ξ±Ο‚$',
 		'actions':
 			[
 			{
-				'replace': 'ας',
+				'replace': 'Ξ±Ο‚',
 				'restype': 'OusEnOnom',
 			},
 			{
-				'replace': 'α',
+				'replace': 'Ξ±',
 				'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
 			},
 			{
-				'replace': 'ες',
+				'replace': 'ΞµΟ‚',
 				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
 			},
 			{
-				'replace': 'ων',
+				'replace': 'Ο‰Ξ½',
 				'restype': 'OusPlGen',
 				'callfunc': transfertonos,
 			},
@@ -258,24 +258,24 @@ rule = {
 	'O5a':
 	{0:
 		{
-			'match': '[^(?:αντ)]ας$',
-			'search': 'ας$',
+			'match': '[^(?:Ξ±Ξ½Ο„)]Ξ±Ο‚$',
+			'search': 'Ξ±Ο‚$',
 			'actions':
 				[
 				{
-					'replace': 'ας',
+					'replace': 'Ξ±Ο‚',
 					'restype': 'OusEnOnom',
 				},
 				{
-					'replace': 'α',
+					'replace': 'Ξ±',
 					'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
 				},
 				{
-					'replace': 'αντες',
+					'replace': 'Ξ±Ξ½Ο„ΞµΟ‚',
 					'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
 				},
 				{
-					'replace': 'αντων',
+					'replace': 'Ξ±Ξ½Ο„Ο‰Ξ½',
 					'restype': 'OusPlGen',
 					'callfunc': transfertonos,
 				},
@@ -283,23 +283,23 @@ rule = {
 		},
 1:
 		{
-			'match': 'αντας$',
+			'match': 'Ξ±Ξ½Ο„Ξ±Ο‚$',
 			'actions':
 				[
 				{
-					'replace': 'αντας',
+					'replace': 'Ξ±Ξ½Ο„Ξ±Ο‚',
 					'restype': 'OusEnOnom',
 				},
 				{
-					'replace': 'αντα',
+					'replace': 'Ξ±Ξ½Ο„Ξ±',
 					'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
 				},
 				{
-					'replace': 'αντες',
+					'replace': 'Ξ±Ξ½Ο„ΞµΟ‚',
 					'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
 				},
 				{
-					'replace': 'αντων',
+					'replace': 'Ξ±Ξ½Ο„Ο‰Ξ½',
 					'restype': 'OusPlGen',
 					'callfunc': transfertonos,
 				},
@@ -309,24 +309,24 @@ rule = {
 	'O6':
 	{0:
 		{
-			'match': 'ας$',
+			'match': 'Ξ±Ο‚$',
 			'actions':
 				[
 				{
-					'replace': 'ας',
+					'replace': 'Ξ±Ο‚',
 					'restype': 'OusEnOnom',
 				},
 				{
-					'replace': 'α',
+					'replace': 'Ξ±',
 					'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
 				},
 				{
-					'replace': 'αδες',
+					'replace': 'Ξ±Ξ΄ΞµΟ‚',
 					'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
 					'callfunc': transfertonostwice,
 				},
 				{
-					'replace': 'αδων',
+					'replace': 'Ξ±Ξ΄Ο‰Ξ½',
 					'restype': 'OusPlGen',
 					'callfunc': transfertonostwice,
 				},
@@ -336,67 +336,67 @@ rule = {
 	'P1':
 	{0:
 		{
-			'match': 'ώνω$',
+			'match': 'ΟΞ½Ο‰$',
 			'actions':
 				[
 				{
-					'replace': 'ώνω',
+					'replace': 'ΟΞ½Ο‰',
 					'restype': ['RhmEnergEnestOristEgw', 'RhmEnergEnestYpotEgw'],
 				},
 				{
-					'replace': 'ώνεις',
+					'replace': 'ΟΞ½ΞµΞΉΟ‚',
 					'restype': ['RhmEnergEnestOristEsy', 'RhmEnergEnestYpotEsy'],
 				},
 				{
-					'replace': 'ώνει',
+					'replace': 'ΟΞ½ΞµΞΉ',
 					'restype': ['RhmEnergEnestOristAytos', 'RhmEnergEnestYpotAytos'],
 				},
 				{
-					'replace': 'ώνουμε',
+					'replace': 'ΟΞ½ΞΏΟ…ΞΌΞµ',
 					'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis'],
 				},
 				{
-					'replace': 'ώνετε',
+					'replace': 'ΟΞ½ΞµΟ„Ξµ',
 					'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis'],
 				},
 				{
-					'replace': 'ώνουν',
+					'replace': 'ΟΞ½ΞΏΟ…Ξ½',
 					'restype': ['RhmEnergEnestOristAytoi', 'RhmEnergEnestYpotAytoi'],
 				},
 				{
-					'replace': 'ώνε',
+					'replace': 'ΟΞ½Ξµ',
 					'restype': 'RhmEnergEnestProstEsy',
 					'callfunc': transfertonosup,
 				},
 				{
-					'replace': 'ώνοντας',
+					'replace': 'ΟΞ½ΞΏΞ½Ο„Ξ±Ο‚',
 					'restype': 'RhmEnergEnestMetox',
 				},
 				{
-					'replace': 'ώνα',
+					'replace': 'ΟΞ½Ξ±',
 					'restype': 'RhmEnergPrtOristEgw',
 					'callfunc': transfertonosup,
 				},
 				{
-					'replace': 'ώνες',
+					'replace': 'ΟΞ½ΞµΟ‚',
 					'restype': 'RhmEnergPrtOristEsy',
 					'callfunc': transfertonosup,
 				},
 				{
-					'replace': 'ώνε',
+					'replace': 'ΟΞ½Ξµ',
 					'restype': 'RhmEnergPrtOristAytos',
 					'callfunc': transfertonosup,
 				},
 				{
-					'replace': 'ώναμε',
+					'replace': 'ΟΞ½Ξ±ΞΌΞµ',
 					'restype': 'RhmEnergPrtOristEmeis',
 				},
 				{
-					'replace': 'ώνατε',
+					'replace': 'ΟΞ½Ξ±Ο„Ξµ',
 					'restype': 'RhmEnergPrtOristEseis',
 				},
 				{
-					'replace': 'ώναν',
+					'replace': 'ΟΞ½Ξ±Ξ½',
 					'restype': 'RhmEnergPrtOristAytoi',
 					'callfunc': transfertonosup,
 				},
@@ -406,51 +406,51 @@ rule = {
 	'P3':
 	{0:
 		{
-			'match': 'ω$',
+			'match': 'Ο‰$',
 			'actions':
 				[
 				{
-					'replace': 'ω',
+					'replace': 'Ο‰',
 					'restype': ['RhmEnergEnestOristEgw', 'RhmEnergEnestYpotEgw'],
 				},
 				{
-					'replace': 'εις',
+					'replace': 'ΞµΞΉΟ‚',
 					'restype': ['RhmEnergEnestOristEsy', 'RhmEnergEnestYpotEsy'],
 				},
 				{
-					'replace': 'ει',
+					'replace': 'ΞµΞΉ',
 					'restype': ['RhmEnergEnestOristAytos', 'RhmEnergEnestYpotAytos'],
 				},
 				{
-					'replace': 'ουμε',
+					'replace': 'ΞΏΟ…ΞΌΞµ',
 					'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis'],
 				},
 				{
-					'replace': 'ετε',
+					'replace': 'ΞµΟ„Ξµ',
 					'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis'],
 				},
 				{
-					'replace': 'ουν',
+					'replace': 'ΞΏΟ…Ξ½',
 					'restype': ['RhmEnergEnestOristAytoi', 'RhmEnergEnestYpotAytoi'],
 				},
 				{
-					'replace': 'ε',
+					'replace': 'Ξµ',
 					'restype': 'RhmEnergEnestProstEsy',
 					'callfunc': transfertonosup,
 				},
 				{
-					'replace': 'ετε',
+					'replace': 'ΞµΟ„Ξµ',
 					'restype': 'RhmEnergEnestProstEseis',
 				},
 				{
-					'replace': 'οντας',
+					'replace': 'ΞΏΞ½Ο„Ξ±Ο‚',
 					'restype': 'RhmEnergEnestMetox',
 				},
 				{
-					'replace': 'α',
+					'replace': 'Ξ±',
 					'match2' : '^%s*%s' % (symfwno, tonismenofwnhen),
 					'search2': '^',
-					'replace2': 'ε',
+					'replace2': 'Ξµ',
 					'restype': 'RhmEnergParatOristEgw',
 					'callfunc': transfertonosup,
 				},

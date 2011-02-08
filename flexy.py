@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: iso-8859-7 -*-
+# -*- coding: utf-8 -*-
 #
 #   Flexy - Tool to inflect and in other ways "flex" words
 #
