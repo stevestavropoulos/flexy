@@ -9,3 +9,7 @@ Verbs: http://www.komvos.edu.gr/dictionaries/triantafyllidis/P__1.htm
 http://www.komvos.edu.gr/dictionaries/triantafyllidis/P__2_1.htm
 etc.
 
+USAGE
+
+./flexy.py <word> <rule id> [<rules filename>]
+
