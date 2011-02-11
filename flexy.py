@@ -48,7 +48,7 @@ if 'actions' in curule:
 	curule = {0: curule}
 if 'preaction' in locals():
 	word = preaction(word)
-for variation, detail in curule.iteritems():
+for variationkey, detail in curule.iteritems():
 	matchpattern = defsearchy = getRE(detail['match'])
 	if 'search' in detail:
 		defsearchy = getRE(detail['search'])
@@ -60,18 +60,15 @@ for variation, detail in curule.iteritems():
 			searchkey = 'search' + i
 			matchkey = 'match' + i
 			replacekey = 'replace' + i
+			searchy = defsearchy
 			if searchkey in action:
 				searchy = getRE(action[searchkey])
-			else:
-				searchy = defsearchy
+			doreplace = True
 			if matchkey in action:
-				if getRE(action[matchkey]).search(word):
-					dosub = True
-				else:
-					dosub = False
-			else:
-				dosub = True
-			if dosub:
+				doreplace = False
+				if getRE(action[matchkey]).search(new):
+					doreplace = True
+			if doreplace:
 				if replacekey in action:
 					new = searchy.sub(action[replacekey], new)
 		if 'callfunc' in action:
