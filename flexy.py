@@ -32,6 +32,11 @@ if len(sys.argv) > 3:
 	filename = sys.argv[3]
 else:
 	filename = 'greek.py'
+
+if len(sys.argv) < 3:
+	print('Usage: ', sys.argv[0], ' <word> <rule id>')
+	sys.exit(1)
+
 word = sys.argv[1]
 variation = sys.argv[2]
 if not filename or not os.path.isfile(filename):
