@@ -22,6 +22,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with Flexy.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import print_function
 import os, re, sys, string
 
 def getRE(patttern):
@@ -34,13 +35,13 @@ else:
 word = sys.argv[1]
 variation = sys.argv[2]
 if not filename or not os.path.isfile(filename):
-	print 'Filename', filename, "doesn't exist!"
+	print('Filename', filename, "doesn't exist!")
 	sys.exit(1)
 else:
 	execfile(filename)
 
 if variation not in rule:
-	print "I don't know how to do technique", variation
+	print("I don't know how to do technique", variation)
 	sys.exit(2)
 
 curule = rule[variation]
@@ -78,5 +79,5 @@ for variationkey, detail in curule.iteritems():
 		if isinstance(action['restype'], basestring):
 			action['restype'] = [action['restype']]
 		for result in action['restype']:
-			print new, result
+			print(new, result)
 sys.exit(0)
