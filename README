@@ -9,5 +9,5 @@ Verbs: http://www.greek-language.gr/greekLang/modern_greek/tools/lexica/rimatiko
 
 USAGE
 
-./flexy.py <word> <rule id> [<rules filename>]
+./run.sh <word> <rule id> [<rules filename>]
 
