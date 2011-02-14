@@ -8,7 +8,7 @@ def tr(fr, to, word):
 	new = []
 	for letter in word:
 		pos = fr.find(letter)
-		if pos:
+		if pos != -1:
 			new.append(to[pos])
 	return ''.join(new)
     
