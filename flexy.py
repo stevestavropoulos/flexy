@@ -3,7 +3,7 @@
 #
 #   Flexy - Tool to inflect and in other ways "flex" words
 #
-#   Version 0.2
+#   Version 0.3pre
 #
 #   Copyright 2006,2009,2011 Steve Stavropoulos <steve@math.upatras.gr>
 #
@@ -25,17 +25,15 @@
 from __future__ import print_function
 import os, re, sys, string
 
-def getRE(patttern):
-	return re.compile(patttern, re.I | re.L)
+execfile('utils.py')
 
+filename = 'greek.py'
 if len(sys.argv) > 3:
 	filename = sys.argv[3]
-else:
-	filename = 'greek.py'
 
 if len(sys.argv) < 3:
 	print('Usage: ', sys.argv[0], ' <word> <rule id>')
-	sys.exit(1)
+	sys.exit(2)
 
 word = sys.argv[1]
 variation = sys.argv[2]

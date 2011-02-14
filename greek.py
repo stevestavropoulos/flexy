@@ -81,11 +81,11 @@ def _transfertonos(word, direction):
 	symplegma = symplegmare.match(word)
 	if symplegma:
 		if direction == 'down':
-			paliostonos = symplegma.group(2).translate(string.maketrans(tonismenafwnhenta, atonafwnhenta))
-			neostonos = symplegma.group(4).translate(string.maketrans(atonafwnhenta, tonismenafwnhenta))
+			paliostonos = tr(tonismenafwnhenta, atonafwnhenta, symplegma.group(2))
+			neostonos = tr(atonafwnhenta, tonismenafwnhenta, symplegma.group(4))
 		else:
-			paliostonos = symplegma.group(4).translate(string.maketrans(tonismenafwnhenta, atonafwnhenta))
-			neostonos = symplegma.group(2).translate(string.maketrans(atonafwnhenta, tonismenafwnhenta))
+			paliostonos = tr(tonismenafwnhenta, atonafwnhenta, symplegma.group(4))
+			neostonos = tr(atonafwnhenta, tonismenafwnhenta, symplegma.group(2))
 	else:
 		return word # No match, no accent, do nothing more
 	if direction == 'down':
@@ -93,7 +93,6 @@ def _transfertonos(word, direction):
 	else:
 		word = symplegma.group(1) + neostonos + symplegma.group(3) + paliostonos + symplegma.group(5)
 	return word
-
 
 
 rule = {
