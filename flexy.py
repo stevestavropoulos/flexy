@@ -32,20 +32,17 @@ if len(sys.argv) > 3:
 	filename = sys.argv[3]
 
 if len(sys.argv) < 3:
-	print('Usage: ', sys.argv[0], ' <word> <rule id>')
-	sys.exit(2)
+	die('Usage: %s <word> <rule id>' % sys.argv[0], 3)
 
 word = sys.argv[1]
 variation = sys.argv[2]
 if not filename or not os.path.isfile(filename):
-	print('Filename', filename, "doesn't exist!")
-	sys.exit(1)
+	die("Filename %s doesn't exist!" % filename, 4)
 else:
 	execfile(filename)
 
 if variation not in rule:
-	print("I don't know how to do technique", variation)
-	sys.exit(2)
+	die("I don't know how to do technique %s" % variation, 5)
 
 curule = rule[variation]
 if 'actions' in curule:

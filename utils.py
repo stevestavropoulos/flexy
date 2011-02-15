@@ -12,4 +12,7 @@ def tr(fr, to, word):
 			new.append(to[pos])
 	return ''.join(new)
     
+def die(msg, exitcode=1):
+	print(msg)
+	sys.exit(exitcode)
 
