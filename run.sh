@@ -5,7 +5,7 @@ utfconvert='iconv -t utf-8 -f iso-8859-7'
 mkdir -p .stage/
 
 for i in flexy.py greek.py utils.py; do
-	cat $i | sed -e '1,10s/utf-8/iso-8859-7/' | $isoconvert > .stage/$i
+	cat $i | sed -e '1,2s/utf-8/iso-8859-7/' | $isoconvert > .stage/$i
 done
 
 cd .stage/
