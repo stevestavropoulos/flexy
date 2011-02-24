@@ -12,6 +12,6 @@ cd .stage/
 chmod 755 flexy.py
 
 set -o pipefail
-./flexy.py `echo "$@" | $isoconvert` | $utfconvert
+./flexy.py `echo "$@" | $isoconvert` 2>&1 | $utfconvert
 
 exit $?

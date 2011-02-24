@@ -87,6 +87,7 @@ def _transfertonos(word, direction):
 			paliostonos = tr(tonismenafwnhenta, atonafwnhenta, symplegma.group(4))
 			neostonos = tr(atonafwnhenta, tonismenafwnhenta, symplegma.group(2))
 	else:
+		print('Could not detect ascent in %s (original: %s)' % (word, postaction(word)), file=sys.stderr)
 		return word # No match, no accent, do nothing more
 	if direction == 'down':
 		word = symplegma.group(1) + paliostonos + symplegma.group(3) + neostonos + symplegma.group(5)
@@ -321,34 +322,34 @@ rule = {
 			},
 			]
 	},
-	'P1':
+	'P1': # Κλειδώνω
 	{
 		'match': 'ώνω$',
 		'actions':
 			[
 			{
 				'replace': 'ώνω',
-				'restype': ['RhmEnergEnestOristEgw', 'RhmEnergEnestYpotEgw'],
+				'restype': ['RhmEnergEnestOristEgw', 'RhmEnergEnestYpotEgw', 'RhmEnergE3akolMellEgw'],
 			},
 			{
 				'replace': 'ώνεις',
-				'restype': ['RhmEnergEnestOristEsy', 'RhmEnergEnestYpotEsy'],
+				'restype': ['RhmEnergEnestOristEsy', 'RhmEnergEnestYpotEsy', 'RhmEnergE3akolMellEsy'],
 			},
 			{
 				'replace': 'ώνει',
-				'restype': ['RhmEnergEnestOristAytos', 'RhmEnergEnestYpotAytos'],
+				'restype': ['RhmEnergEnestOristAytos', 'RhmEnergEnestYpotAytos', 'RhmEnergE3akolMellAytos'],
 			},
 			{
 				'replace': 'ώνουμε',
-				'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis'],
+				'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis', 'RhmEnergE3akolMellEmeis'],
 			},
 			{
 				'replace': 'ώνετε',
-				'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis'],
+				'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis', 'RhmEnergE3akolMellEseis'],
 			},
 			{
 				'replace': 'ώνουν',
-				'restype': ['RhmEnergEnestOristAytoi', 'RhmEnergEnestYpotAytoi'],
+				'restype': ['RhmEnergEnestOristAytoi', 'RhmEnergEnestYpotAytoi', 'RhmEnergE3akolMellAytoi'],
 			},
 			{
 				'replace': 'ώνε',
@@ -384,6 +385,164 @@ rule = {
 			},
 			{
 				'replace': 'ώναν',
+				'restype': 'RhmEnergPrtOristAytoi',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'ώσα',
+				'restype': 'RhmEnergAorOristEgw',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'ώσες',
+				'restype': 'RhmEnergAorOristEsy',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'ώσε',
+				'restype': 'RhmEnergAorOristAytos',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'ώσαμε',
+				'restype': 'RhmEnergAorOristEmeis',
+			},
+			{
+				'replace': 'ώσατε',
+				'restype': 'RhmEnergAorOristEseis',
+			},
+			{
+				'replace': 'ώσαν',
+				'restype': 'RhmEnergAorOristAytoi',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'ώσω',
+				'restype': ['RhmEnergAorYpotEgw', 'RhmEnergStigmMellEgw'],
+			},
+			{
+				'replace': 'ώσεις',
+				'restype': ['RhmEnergAorYpotEsy', 'RhmEnergStigmMellEsy'],
+			},
+			{
+				'replace': 'ώσει',
+				'restype': ['RhmEnergAorYpotAytos', 'RhmEnergAorApar', 'RhmEnergStigmMellAytos'],
+			},
+			{ # Same with above
+				'replace': 'ώσει',
+				'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'],
+			},
+			{ # Variation of above
+				'replace': 'ωμένο',
+				'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'],
+			},
+			{
+				'replace': 'ώσουμε',
+				'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
+			},
+			{
+				'replace': 'ώσετε',
+				'restype': ['RhmEnergAorYpotEseis', 'RhmEnergStigmMellEseis'],
+			},
+			{
+				'replace': 'ώσουν',
+				'restype': ['RhmEnergAorYpotAytoi', 'RhmEnergStigmMellAytoi'],
+			},
+			{
+				'replace': 'ώσε',
+				'restype': 'RhmEnergAorProstEgw',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'ώστε',
+				'restype': 'RhmEnergAorProstEmeis',
+			},
+			{
+				'replace': 'ώσει',
+				'restype': ['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'],
+			},
+			{ # Same with above for Ypotaktikh
+				'replace': 'ώσει',
+				'restype': ['RhmEnergPrkYpotEgw', 'RhmEnergPrkYpotEsy', 'RhmEnergPrkYpotAytos', 'RhmEnergPrkYpotEmeis', 'RhmEnergPrkYpotEseis', 'RhmEnergPrkYpotAytoi'],
+			},
+			{ # Same with above for Syntelesmenos Mellontas
+				'replace': 'ώσει',
+				'restype': ['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
+			},
+			# End of Energhtikh Fwnh
+			]
+	},
+	'P2': # Δροσίζω
+	{
+		'match': 'ίζω$',
+		'actions':
+			[
+			{
+				'replace': 'ίζω',
+				'restype': ['RhmEnergEnestOristEgw', 'RhmEnergEnestYpotEgw'],
+			},
+			{
+				'replace': 'ίζεις',
+				'restype': ['RhmEnergEnestOristEsy', 'RhmEnergEnestYpotEsy'],
+			},
+			{
+				'replace': 'ίζει',
+				'restype': ['RhmEnergEnestOristAytos', 'RhmEnergEnestYpotAytos'],
+			},
+			{
+				'replace': 'ίζουμε',
+				'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis'],
+			},
+			{
+				'replace': 'ίζομε',
+				'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis'],
+			},
+			{
+				'replace': 'ίζετε',
+				'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis'],
+			},
+			{
+				'replace': 'ίζουν',
+				'restype': ['RhmEnergEnestOristAytoi', 'RhmEnergEnestYpotAytoi'],
+			},
+			{
+				'replace': 'ίζε',
+				'restype': 'RhmEnergEnestProstEsy',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'ίζετε',
+				'restype': 'RhmEnergEnestProstEseis',
+			},
+			{
+				'replace': 'ίζοντας',
+				'restype': 'RhmEnergEnestMetox',
+			},
+			{
+				'replace': 'ίζα',
+				'restype': 'RhmEnergPrtOristEgw',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'ίζες',
+				'restype': 'RhmEnergPrtOristEsy',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'ίζε',
+				'restype': 'RhmEnergPrtOristAytos',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'ίζαμε',
+				'restype': 'RhmEnergPrtOristEmeis',
+			},
+			{
+				'replace': 'ίζατε',
+				'restype': 'RhmEnergPrtOristEseis',
+			},
+			{
+				'replace': 'ίζαν',
 				'restype': 'RhmEnergPrtOristAytoi',
 				'callfunc': transfertonosup,
 			},
