@@ -9,7 +9,7 @@ Verbs: http://www.greek-language.gr/greekLang/modern_greek/tools/lexica/rimatiko
 
 USAGE
 
-./run.sh [-f <rules filename>] <word> <rule id>
+./run.sh [<options>] <word> <rule id>
 
 Options:
   --version             show program's version number and exit

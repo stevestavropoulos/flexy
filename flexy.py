@@ -29,7 +29,7 @@ from optparse import OptionParser
 version="0.3pre"
 execfile('utils.py')
 
-usage = "Usage: %prog [-f <rules filename>] <word> <rule id>"
+usage = "Usage: %prog [<options>] <word> <rule id>"
 parser = OptionParser(usage=usage, version="%%prog %s" % version)
 parser.add_option("-f", "--file", dest="filename", default='greek.py',
                   help="use FILE for rules definitions", metavar="FILE")
