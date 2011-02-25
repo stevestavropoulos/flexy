@@ -24,22 +24,26 @@
 
 from __future__ import print_function
 import os, re, sys, string
+from optparse import OptionParser
 
+version="0.3pre"
 execfile('utils.py')
 
-filename = 'greek.py'
-if len(sys.argv) > 3:
-	filename = sys.argv[3]
+usage = "Usage: %prog [-f <rules filename>] <word> <rule id>"
+parser = OptionParser(usage=usage, version="%%prog %s" % version)
+parser.add_option("-f", "--file", dest="filename", default='greek.py',
+                  help="use FILE for rules definitions", metavar="FILE")
+(options, args) = parser.parse_args()
 
-if len(sys.argv) < 3:
-	die('Usage: %s <word> <rule id>' % sys.argv[0], 3)
-
-word = sys.argv[1]
-variation = sys.argv[2]
-if not filename or not os.path.isfile(filename):
-	die("Filename %s doesn't exist!" % filename, 4)
+if len(args) < 2:
+	parser.error("Incorrect number of arguments")
+if not os.path.isfile(options.filename):
+	die("File %s doesn't exist!" % options.filename, 4)
 else:
-	execfile(filename)
+	execfile(options.filename)
+
+word = args[0]
+variation = args[1]
 
 if variation not in rule:
 	die("I don't know how to do technique %s" % variation, 5)

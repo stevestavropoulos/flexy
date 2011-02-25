@@ -9,5 +9,10 @@ Verbs: http://www.greek-language.gr/greekLang/modern_greek/tools/lexica/rimatiko
 
 USAGE
 
-./run.sh <word> <rule id> [<rules filename>]
+./run.sh [-f <rules filename>] <word> <rule id>
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -f FILE, --file=FILE  use FILE for rules definitions
 
