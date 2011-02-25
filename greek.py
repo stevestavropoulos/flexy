@@ -469,10 +469,159 @@ rule = {
 				'replace': 'ώσει',
 				'restype': ['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
 			},
+			{ # Variation of the above
+				'replace': 'ωμένο',
+				'restype': ['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
+			},
 			# End of Energhtikh Fwnh
+			{
+				'replace': 'ώνομαι',
+				'restype': ['RhmPathEnestOristEgw', 'RhmPathE3akolMellEgw'],
+			},
+			{
+				'replace': 'ώνεσαι',
+				'restype': ['RhmPathEnestOristEsy', 'RhmPathE3akolMellEsy'],
+			},
+			{
+				'replace': 'ώνου',
+				'restype': 'RhmPathEnestYpotEsy',
+			},
+			{
+				'replace': 'ώνεται',
+				'restype': ['RhmPathEnestOristAytos', 'RhmPathE3akolMellAytos'],
+			},
+			{
+				'replace': 'ωνόμαστε',
+				'restype': ['RhmPathEnestOristEmeis', 'RhmPathE3akolMellEmeis'],
+			},
+			{
+				'replace': 'ώνεστε',
+				'restype': ['RhmPathEnestOristEseis', 'RhmPathEnestYpotEseis', 'RhmPathE3akolMellEseis'],
+			},
+			{
+				'replace': 'ώνονται',
+				'restype': ['RhmPathEnestOristAytoi', 'RhmPathE3akolMellAytoi'],
+			},
+			{
+				'replace': 'ωνόμουν',
+				'restype': 'RhmPathPrtOristEgw',
+			},
+			{
+				'replace': 'ωνόσουν',
+				'restype': 'RhmPathPrtOristEsy',
+			},
+			{
+				'replace': 'ωνόταν',
+				'restype': 'RhmPathPrtOristAytos',
+			},
+			{
+				'replace': 'ωνόμασταν',
+				'restype': 'RhmPathPrtOristEmeis',
+			},
+			{
+				'replace': 'ωνόσασταν',
+				'restype': 'RhmPathPrtOristEseis',
+			},
+			{
+				'replace': 'ώνονταν',
+				'restype': 'RhmPathPrtOristAytoi',
+			},
+			{
+				'replace': 'ώθηκα',
+				'restype': 'RhmPathAorOristEgw',
+			},
+			{
+				'replace': 'ώθηκες',
+				'restype': 'RhmPathAorOristEsy',
+			},
+			{
+				'replace': 'ώθηκε',
+				'restype': 'RhmPathAorOristAytos',
+			},
+			{
+				'replace': 'ωθήκαμε',
+				'restype': 'RhmPathAorOristEmeis',
+			},
+			{
+				'replace': 'ωθήκατε',
+				'restype': 'RhmPathAorOristEseis',
+			},
+			{
+				'replace': 'ώθηκαν',
+				'restype': 'RhmPathAorOristAytoi',
+			},
+			{
+				'replace': 'ωθώ',
+				'restype': ['RhmPathAorYpotEgw', 'RhmPathStigmMellEgw'],
+			},
+			{
+				'replace': 'ωθείς',
+				'restype': ['RhmPathAorYpotEsy', 'RhmPathStigmMellEsy'],
+			},
+			{
+				'replace': 'ωθεί',
+				'restype': ['RhmPathAorYpotAytos', 'RhmPathAorApar', 'RhmPathStigmMellAytos'],
+			},
+			{ # Same with above
+				'replace': 'ωθεί',
+				'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos', 'RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'],
+			},
+			{ # Variation of above
+				'replace': 'ωμένος',
+				'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos'],
+			},
+			{ # plural form of the above
+				'replace': 'ωμένοι',
+				'restype': ['RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'],
+			},
+			{
+				'replace': 'ωθούμε',
+				'restype': ['RhmPathAorYpotEmeis', 'RhmPathStigmMellEmeis'],
+			},
+			{
+				'replace': 'ωθείτε',
+				'restype': ['RhmPathAorYpotEseis', 'RhmPathStigmMellEseis'],
+			},
+			{
+				'replace': 'ωθούν',
+				'restype': ['RhmPathAorYpotAytoi', 'RhmPathStigmMellAytoi'],
+			},
+			{
+				'replace': 'ώσου',
+				'restype': 'RhmPathAorProstEgw',
+			},
+			{
+				'replace': 'ωθείτε',
+				'restype': 'RhmPathAorProstEmeis',
+			},
+			{
+				'replace': 'ωθεί',
+				'restype': ['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos', 'RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'],
+			},
+			{ # Same with above for Ypotaktikh
+				'replace': 'ωθεί',
+				'restype': ['RhmPathPrkYpotEgw', 'RhmPathPrkYpotEsy', 'RhmPathPrkYpotAytos', 'RhmPathPrkYpotEmeis', 'RhmPathPrkYpotEseis', 'RhmPathPrkYpotAytoi'],
+			},
+			{ # Same with above for Syntelesmenos Mellontas
+				'replace': 'ωθεί',
+				'restype': ['RhmPathSyntelMellEgw', 'RhmPathSyntelMellEsy', 'RhmPathSyntelMellAytos', 'RhmPathSyntelMellEmeis', 'RhmPathSyntelMellEseis', 'RhmPathSyntelMellAytoi'],
+			},
+			{ # Variation of the above
+				'replace': 'ωμένος',
+				'restype': ['RhmPathSyntelMellEgw', 'RhmPathSyntelMellEsy', 'RhmPathSyntelMellAytos'],
+			},
+			{ # plural of the above
+				'replace': 'ωμένοι',
+				'restype': ['RhmPathSyntelMellEmeis', 'RhmPathSyntelMellEseis', 'RhmPathSyntelMellAytoi'],
+			},
+			{
+				'replace': 'ωμένος',
+				'restype': 'RhmPathPrkMtx',
+			},
+			# End of Pathhtikh Fwnh
 			]
 	},
-	'P2': # Δροσίζω
+	'P2.1': # Δροσίζω
 	{
 		'match': 'ίζω$',
 		'actions':
