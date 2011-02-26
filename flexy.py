@@ -26,16 +26,56 @@ from __future__ import print_function
 import os, re, sys, string
 from optparse import OptionParser
 
+def flexit(word, variation, rule):
+	if variation not in rule:
+		die("I don't know how to do technique %s" % variation, 5)
+	if 'preaction' in globals():
+		word = preaction(word)
+	curule = rule[variation]
+	if 'actions' in curule:
+		curule = {0: curule}
+	for variationkey, detail in curule.iteritems():
+		matchpattern = defsearchy = getRE(detail['match'])
+		if 'search' in detail:
+			defsearchy = getRE(detail['search'])
+		if not matchpattern.search(word):
+			continue
+		for action in detail['actions']:
+			new = word
+			for i in ['', '2']:
+				searchkey = 'search' + i
+				matchkey = 'match' + i
+				replacekey = 'replace' + i
+				searchy = defsearchy
+				if searchkey in action:
+					searchy = getRE(action[searchkey])
+				doreplace = True
+				if matchkey in action:
+					doreplace = False
+					if getRE(action[matchkey]).search(new):
+						doreplace = True
+				if doreplace:
+					if replacekey in action:
+						new = searchy.sub(action[replacekey], new)
+			if 'callfunc' in action:
+				new = action['callfunc'](new)
+			if 'postaction' in globals():
+				new = postaction(new)
+			if isinstance(action['restype'], basestring):
+				action['restype'] = [action['restype']]
+			for result in action['restype']:
+				print(new, result)
+
 version="0.3pre"
 execfile('utils.py')
 
-usage = "Usage: %prog [<options>] <word> <rule id>"
+usage = "Usage: %prog [<options>] <word> [<rule id>]"
 parser = OptionParser(usage=usage, version="%%prog %s" % version)
 parser.add_option("-f", "--file", dest="filename", default='greek.py',
                   help="use FILE for rules definitions", metavar="FILE")
 (options, args) = parser.parse_args()
 
-if len(args) < 2:
+if len(args) < 1:
 	parser.error("Incorrect number of arguments")
 if not os.path.isfile(options.filename):
 	die("File %s doesn't exist!" % options.filename, 4)
@@ -43,45 +83,8 @@ else:
 	execfile(options.filename)
 
 word = args[0]
-variation = args[1]
-
-if variation not in rule:
-	die("I don't know how to do technique %s" % variation, 5)
-
-curule = rule[variation]
-if 'actions' in curule:
-	curule = {0: curule}
-if 'preaction' in locals():
-	word = preaction(word)
-for variationkey, detail in curule.iteritems():
-	matchpattern = defsearchy = getRE(detail['match'])
-	if 'search' in detail:
-		defsearchy = getRE(detail['search'])
-	if not matchpattern.search(word):
-		continue
-	for action in detail['actions']:
-		new = word
-		for i in ['', '2']:
-			searchkey = 'search' + i
-			matchkey = 'match' + i
-			replacekey = 'replace' + i
-			searchy = defsearchy
-			if searchkey in action:
-				searchy = getRE(action[searchkey])
-			doreplace = True
-			if matchkey in action:
-				doreplace = False
-				if getRE(action[matchkey]).search(new):
-					doreplace = True
-			if doreplace:
-				if replacekey in action:
-					new = searchy.sub(action[replacekey], new)
-		if 'callfunc' in action:
-			new = action['callfunc'](new)
-		if 'postaction' in locals():
-			new = postaction(new)
-		if isinstance(action['restype'], basestring):
-			action['restype'] = [action['restype']]
-		for result in action['restype']:
-			print(new, result)
-sys.exit(0)
+if len(args) >= 2:
+	flexit(word, args[1], rule)
+else:
+	for avariation in rule:
+		flexit(word, avariation, rule)
