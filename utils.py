@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+import re, sys, string
+
 def getRE(patttern):
 	return re.compile(patttern, re.I | re.L)
 
@@ -15,4 +18,9 @@ def tr(fr, to, word):
 def die(msg, exitcode=1):
 	print(msg)
 	sys.exit(exitcode)
+
+def method_exists(classname, methodname):
+	if hasattr(classname, methodname) and callable(getattr(classname, methodname)):
+		return True
+	return False
 

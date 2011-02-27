@@ -17,6 +17,9 @@
 #   You should have received a copy of the GNU General Public License
 #   along with Flexy.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import print_function
+import re, string
+from utils import *
 
 def translate(alist, word):
 	for what in alist:
@@ -96,7 +99,7 @@ def _transfertonos(word, direction):
 	return word
 
 
-rule = {
+rules = {
 	'O1':
 	{
 		'match': 'άς$',

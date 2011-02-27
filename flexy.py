@@ -26,12 +26,13 @@ from __future__ import print_function
 import os, re, sys, string
 from optparse import OptionParser
 
-def flexit(word, variation, rule):
-	if variation not in rule:
+def flexit(word, variation, langdef):
+	rules = langdef.rules
+	if variation not in rules:
 		die("I don't know how to do technique %s" % variation, 5)
-	if 'preaction' in globals():
-		word = preaction(word)
-	curule = rule[variation]
+	if method_exists(langdef, 'preaction'):
+		word = langdef.preaction(word)
+	curule = rules[variation]
 	if 'actions' in curule:
 		curule = {0: curule}
 	for variationkey, detail in curule.iteritems():
@@ -59,32 +60,32 @@ def flexit(word, variation, rule):
 						new = searchy.sub(action[replacekey], new)
 			if 'callfunc' in action:
 				new = action['callfunc'](new)
-			if 'postaction' in globals():
-				new = postaction(new)
+			if method_exists(langdef, 'postaction'):
+				new = langdef.postaction(new)
 			if isinstance(action['restype'], basestring):
 				action['restype'] = [action['restype']]
 			for result in action['restype']:
 				print(new, result)
 
 version="0.3pre"
-execfile('utils.py')
+from utils import *
 
 usage = "Usage: %prog [<options>] <word> [<rule id>]"
 parser = OptionParser(usage=usage, version="%%prog %s" % version)
-parser.add_option("-f", "--file", dest="filename", default='greek.py',
-                  help="use FILE for rules definitions", metavar="FILE")
+parser.add_option("-l", "--language", dest="language", default='greek',
+                  help="use LANGUAGE for rules definitions", metavar="LANGUAGE")
 (options, args) = parser.parse_args()
 
 if len(args) < 1:
 	parser.error("Incorrect number of arguments")
-if not os.path.isfile(options.filename):
-	die("File %s doesn't exist!" % options.filename, 4)
+if not os.path.isfile(options.language + '.py'):
+	die("File %s doesn't exist!" % options.language + '.py', 4)
 else:
-	execfile(options.filename)
+	exec("import " + options.language + " as langdef")
 
 word = args[0]
 if len(args) >= 2:
-	flexit(word, args[1], rule)
+	flexit(word, args[1], langdef)
 else:
-	for avariation in rule:
-		flexit(word, avariation, rule)
+	for avariation in langdef.rules:
+		flexit(word, avariation, langdef)
