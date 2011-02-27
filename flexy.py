@@ -25,6 +25,8 @@
 from __future__ import print_function
 import os, re, sys, string
 from optparse import OptionParser
+from utils import *
+version="0.3pre"
 
 def flexit(word, variation, langdef):
 	rules = langdef.rules
@@ -66,9 +68,6 @@ def flexit(word, variation, langdef):
 				action['restype'] = [action['restype']]
 			for result in action['restype']:
 				print(new, result)
-
-version="0.3pre"
-from utils import *
 
 usage = "Usage: %prog [<options>] <word> [<rule id>]"
 parser = OptionParser(usage=usage, version="%%prog %s" % version)
