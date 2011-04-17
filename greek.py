@@ -758,7 +758,7 @@ rules['P2.1a'] = { # αγαλιάζω, αθεΐζω, αναδακρύζω
 				'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'],
 			},
 			{ # Variation of above
-				'replace': 'μενο',
+				'replace': 'σμενο',
 				'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'],
 				'callfunc': transfertonosdown,
 			},
