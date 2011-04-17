@@ -49,6 +49,10 @@ def flexit(word, variation, langdef):
 				searchkey = 'search' + i
 				matchkey = 'match' + i
 				replacekey = 'replace' + i
+				if method_exists(langdef, 'preaction'):
+					for tmp in [searchkey, matchkey, replacekey]:
+						if tmp in action:
+							action[tmp] = langdef.preaction(action[tmp])
 				searchy = defsearchy
 				if searchkey in action:
 					searchy = getRE(action[searchkey])
