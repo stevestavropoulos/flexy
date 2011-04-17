@@ -69,6 +69,12 @@ def transfertonostwice(word):
 def transfertonos(word):
 	return _transfertonos(word, 'down')
 
+def transfertonosdown(word):
+	return transfertonos(word)
+
+def transfertonosdowntwice(word):
+	return transfertonostwice(word)
+
 def transfertonosup(word):
 	return _transfertonos(word, 'up')
 
@@ -324,10 +330,10 @@ rules = {
 				'callfunc': transfertonostwice,
 			},
 			]
-	},
-	'P1': # Κλειδώνω
-	{
-		'match': 'ώνω$',
+	}
+}
+rules['P1a'] = { # Κλειδώνω
+		'match': '(ώνω|ώνομαι)$',
 		'actions':
 			[
 			{
@@ -477,33 +483,39 @@ rules = {
 				'restype': ['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
 			},
 			# End of Energhtikh Fwnh
+			]
+	}
+rules['P1b'] = { # Κλειδώνω
+		'match': '(ώνω|ώνομαι)$',
+		'actions':
+			[
 			{
 				'replace': 'ώνομαι',
-				'restype': ['RhmPathEnestOristEgw', 'RhmPathE3akolMellEgw'],
+				'restype': ['RhmPathEnestOristEgw', 'RhmPathEnestYpotEgw', 'RhmPathE3akolMellEgw'],
 			},
 			{
 				'replace': 'ώνεσαι',
-				'restype': ['RhmPathEnestOristEsy', 'RhmPathE3akolMellEsy'],
+				'restype': ['RhmPathEnestOristEsy', 'RhmPathEnestYpotEsy', 'RhmPathE3akolMellEsy'],
 			},
 			{
 				'replace': 'ώνου',
-				'restype': 'RhmPathEnestYpotEsy',
+				'restype': 'RhmPathEnestProstEsy',
 			},
 			{
 				'replace': 'ώνεται',
-				'restype': ['RhmPathEnestOristAytos', 'RhmPathE3akolMellAytos'],
+				'restype': ['RhmPathEnestOristAytos', 'RhmPathEnestYpotAytos', 'RhmPathE3akolMellAytos'],
 			},
 			{
 				'replace': 'ωνόμαστε',
-				'restype': ['RhmPathEnestOristEmeis', 'RhmPathE3akolMellEmeis'],
+				'restype': ['RhmPathEnestOristEmeis', 'RhmPathEnestYpotEmeis', 'RhmPathE3akolMellEmeis'],
 			},
 			{
 				'replace': 'ώνεστε',
-				'restype': ['RhmPathEnestOristEseis', 'RhmPathEnestYpotEseis', 'RhmPathE3akolMellEseis'],
+				'restype': ['RhmPathEnestOristEseis', 'RhmPathEnestYpotEseis', 'RhmPathEnestProstEseis', 'RhmPathE3akolMellEseis'],
 			},
 			{
 				'replace': 'ώνονται',
-				'restype': ['RhmPathEnestOristAytoi', 'RhmPathE3akolMellAytoi'],
+				'restype': ['RhmPathEnestOristAytoi', 'RhmPathEnestYpotAytoi', 'RhmPathE3akolMellAytoi'],
 			},
 			{
 				'replace': 'ωνόμουν',
@@ -623,85 +635,370 @@ rules = {
 			},
 			# End of Pathhtikh Fwnh
 			]
-	},
-	'P2.1': # Δροσίζω
-	{
-		'match': 'ίζω$',
+	}
+rules['P1'] =  {
+		'match': '(ώνω|ώνομαι)$',
+		'actions': rules['P1a']['actions'] + rules['P1b']['actions'],
+	}
+rules['P2.1a'] = { # αγαλιάζω, αθεΐζω, αναδακρύζω
+		'match': '(ζω|ζομαι)$',
 		'actions':
 			[
 			{
-				'replace': 'ίζω',
-				'restype': ['RhmEnergEnestOristEgw', 'RhmEnergEnestYpotEgw'],
+				'replace': 'ζω',
+				'restype': ['RhmEnergEnestOristEgw', 'RhmEnergEnestYpotEgw', 'RhmEnergE3akolMellEgw'],
 			},
 			{
-				'replace': 'ίζεις',
-				'restype': ['RhmEnergEnestOristEsy', 'RhmEnergEnestYpotEsy'],
+				'replace': 'ζεις',
+				'restype': ['RhmEnergEnestOristEsy', 'RhmEnergEnestYpotEsy', 'RhmEnergE3akolMellEsy'],
 			},
 			{
-				'replace': 'ίζει',
-				'restype': ['RhmEnergEnestOristAytos', 'RhmEnergEnestYpotAytos'],
+				'replace': 'ζει',
+				'restype': ['RhmEnergEnestOristAytos', 'RhmEnergEnestYpotAytos', 'RhmEnergE3akolMellAytos'],
 			},
 			{
-				'replace': 'ίζουμε',
-				'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis'],
+				'replace': 'ζουμε',
+				'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis', 'RhmEnergE3akolMellEmeis'],
 			},
 			{
-				'replace': 'ίζομε',
-				'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis'],
+				'replace': 'ζετε',
+				'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis', 'RhmEnergE3akolMellEseis'],
 			},
 			{
-				'replace': 'ίζετε',
-				'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis'],
+				'replace': 'ζουν',
+				'restype': ['RhmEnergEnestOristAytoi', 'RhmEnergEnestYpotAytoi', 'RhmEnergE3akolMellAytoi'],
 			},
 			{
-				'replace': 'ίζουν',
-				'restype': ['RhmEnergEnestOristAytoi', 'RhmEnergEnestYpotAytoi'],
-			},
-			{
-				'replace': 'ίζε',
+				'replace': 'ζε',
 				'restype': 'RhmEnergEnestProstEsy',
 				'callfunc': transfertonosup,
 			},
 			{
-				'replace': 'ίζετε',
-				'restype': 'RhmEnergEnestProstEseis',
-			},
-			{
-				'replace': 'ίζοντας',
+				'replace': 'ζοντας',
 				'restype': 'RhmEnergEnestMetox',
 			},
 			{
-				'replace': 'ίζα',
+				'replace': 'ζα',
 				'restype': 'RhmEnergPrtOristEgw',
 				'callfunc': transfertonosup,
 			},
 			{
-				'replace': 'ίζες',
+				'replace': 'ζες',
 				'restype': 'RhmEnergPrtOristEsy',
 				'callfunc': transfertonosup,
 			},
 			{
-				'replace': 'ίζε',
+				'replace': 'ζε',
 				'restype': 'RhmEnergPrtOristAytos',
 				'callfunc': transfertonosup,
 			},
 			{
-				'replace': 'ίζαμε',
+				'replace': 'ζαμε',
 				'restype': 'RhmEnergPrtOristEmeis',
 			},
 			{
-				'replace': 'ίζατε',
+				'replace': 'ζατε',
 				'restype': 'RhmEnergPrtOristEseis',
 			},
 			{
-				'replace': 'ίζαν',
+				'replace': 'ζαν',
 				'restype': 'RhmEnergPrtOristAytoi',
 				'callfunc': transfertonosup,
 			},
+			{
+				'replace': 'σα',
+				'restype': 'RhmEnergAorOristEgw',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'σες',
+				'restype': 'RhmEnergAorOristEsy',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'σε',
+				'restype': 'RhmEnergAorOristAytos',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'σαμε',
+				'restype': 'RhmEnergAorOristEmeis',
+			},
+			{
+				'replace': 'σατε',
+				'restype': 'RhmEnergAorOristEseis',
+			},
+			{
+				'replace': 'σαν',
+				'restype': 'RhmEnergAorOristAytoi',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'σω',
+				'restype': ['RhmEnergAorYpotEgw', 'RhmEnergStigmMellEgw'],
+			},
+			{
+				'replace': 'σεις',
+				'restype': ['RhmEnergAorYpotEsy', 'RhmEnergStigmMellEsy'],
+			},
+			{
+				'replace': 'σει',
+				'restype': ['RhmEnergAorYpotAytos', 'RhmEnergAorApar', 'RhmEnergStigmMellAytos'],
+			},
+			{ # Same with above
+				'replace': 'σει',
+				'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'],
+			},
+			{ # Variation of above
+				'replace': 'μενο',
+				'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'σουμε',
+				'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
+			},
+			{ # Variation of above
+				'replace': 'σομε',
+				'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
+			},
+			{
+				'replace': 'σετε',
+				'restype': ['RhmEnergAorYpotEseis', 'RhmEnergStigmMellEseis'],
+			},
+			{
+				'replace': 'σουν',
+				'restype': ['RhmEnergAorYpotAytoi', 'RhmEnergStigmMellAytoi'],
+			},
+			{
+				'replace': 'σε',
+				'restype': 'RhmEnergAorProstEsy',
+				'callfunc': transfertonosup,
+			},
+			{
+				'replace': 'στε',
+				'restype': 'RhmEnergAorProstEseis',
+			},
+			{
+				'replace': 'σει',
+				'restype': ['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'],
+			},
+			{ # Variation of the above
+				'replace': 'σμενο',
+				'restype': ['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{ # Same for Ypotaktikh
+				'replace': 'σει',
+				'restype': ['RhmEnergPrkYpotEgw', 'RhmEnergPrkYpotEsy', 'RhmEnergPrkYpotAytos', 'RhmEnergPrkYpotEmeis', 'RhmEnergPrkYpotEseis', 'RhmEnergPrkYpotAytoi'],
+			},
+			{ # Variation of the above
+				'replace': 'σμενο',
+				'restype': ['RhmEnergPrkYpotEgw', 'RhmEnergPrkYpotEsy', 'RhmEnergPrkYpotAytos', 'RhmEnergPrkYpotEmeis', 'RhmEnergPrkYpotEseis', 'RhmEnergPrkYpotAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{ # Same with above for Syntelesmenos Mellontas
+				'replace': 'σει',
+				'restype': ['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
+			},
+			{ # Variation of the above
+				'replace': 'σμενο',
+				'restype': ['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			# End of Energhtikh Fwnh
 			]
-	},
-	'P3':
-	{
+	}
+rules['P2.1b'] = { # αναλογίζομαι, ανασπάζομαι, αστεΐζομαι
+		'match': '(ζω|ζομαι)$',
+		'actions':
+			[
+			{
+				'replace': 'ζομαι',
+				'restype': ['RhmPathEnestOristEgw', 'RhmPathEnestYpotEgw', 'RhmPathE3akolMellEgw'],
+			},
+			{
+				'replace': 'ζεσαι',
+				'restype': ['RhmPathEnestOristEsy', 'RhmPathEnestYpotEsy', 'RhmPathE3akolMellEsy'],
+			},
+			{
+				'replace': 'ζου',
+				'restype': 'RhmPathEnestProstEsy',
+			},
+			{
+				'replace': 'ζεται',
+				'restype': ['RhmPathEnestOristAytos', 'RhmPathEnestYpotAytos', 'RhmPathE3akolMellAytos'],
+			},
+			{
+				'replace': 'ζομαστε',
+				'restype': ['RhmPathEnestOristEmeis', 'RhmPathEnestYpotEmeis', 'RhmPathE3akolMellEmeis'],
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'ζεστε',
+				'restype': ['RhmPathEnestOristEseis', 'RhmPathEnestYpotEseis',  'RhmPathEnestProstEseis', 'RhmPathE3akolMellEseis'],
+			},
+			{
+				'replace': 'ζονται',
+				'restype': ['RhmPathEnestOristAytoi', 'RhmPathEnestYpotAytoi', 'RhmPathE3akolMellAytoi'],
+			},
+			{
+				'replace': 'ζομουν',
+				'restype': 'RhmPathPrtOristEgw',
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'ζοσουν',
+				'restype': 'RhmPathPrtOristEsy',
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'ζοταν',
+				'restype': 'RhmPathPrtOristAytos',
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'ζομασταν',
+				'restype': 'RhmPathPrtOristEmeis',
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'ζοσασταν',
+				'restype': 'RhmPathPrtOristEseis',
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'ζονταν',
+				'restype': 'RhmPathPrtOristAytoi',
+			},
+			{
+				'replace': 'στηκα',
+				'restype': 'RhmPathAorOristEgw',
+			},
+			{
+				'replace': 'στηκες',
+				'restype': 'RhmPathAorOristEsy',
+			},
+			{
+				'replace': 'στηκε',
+				'restype': 'RhmPathAorOristAytos',
+			},
+			{
+				'replace': 'στηκαμε',
+				'restype': 'RhmPathAorOristEmeis',
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'στηκατε',
+				'restype': 'RhmPathAorOristEseis',
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'στηκαν',
+				'restype': 'RhmPathAorOristAytoi',
+			},
+			{
+				'replace': 'στω',
+				'restype': ['RhmPathAorYpotEgw', 'RhmPathStigmMellEgw'],
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'στεις',
+				'restype': ['RhmPathAorYpotEsy', 'RhmPathStigmMellEsy'],
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'στει',
+				'restype': ['RhmPathAorYpotAytos', 'RhmPathAorApar', 'RhmPathStigmMellAytos'],
+				'callfunc': transfertonosdown,
+			},
+			{ # Same with above
+				'replace': 'στει',
+				'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos', 'RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{ # Variation of above
+				'replace': 'σμενος',
+				'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos'],
+				'callfunc': transfertonosdown,
+			},
+			{ # plural form of the above
+				'replace': 'σμενοι',
+				'restype': ['RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'στουμε',
+				'restype': ['RhmPathAorYpotEmeis', 'RhmPathStigmMellEmeis'],
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'στειτε',
+				'restype': ['RhmPathAorYpotEseis', 'RhmPathStigmMellEseis'],
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'στουν',
+				'restype': ['RhmPathAorYpotAytoi', 'RhmPathStigmMellAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'σου',
+				'restype': 'RhmPathAorProstEsy',
+			},
+			{
+				'replace': 'στειτε',
+				'restype': 'RhmPathAorProstEseis',
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'στει',
+				'restype': ['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos', 'RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{ # Variation of the above
+				'replace': 'σμενος',
+				'restype': ['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos', 'RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{ # Same with above for Ypotaktikh
+				'replace': 'στει',
+				'restype': ['RhmPathPrkYpotEgw', 'RhmPathPrkYpotEsy', 'RhmPathPrkYpotAytos', 'RhmPathPrkYpotEmeis', 'RhmPathPrkYpotEseis', 'RhmPathPrkYpotAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{ # Variation of the above
+				'replace': 'σμενος',
+				'restype': ['RhmPathPrkYpotEgw', 'RhmPathPrkYpotEsy', 'RhmPathPrkYpotAytos', 'RhmPathPrkYpotEmeis', 'RhmPathPrkYpotEseis', 'RhmPathPrkYpotAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{ # Same with above for Syntelesmenos Mellontas
+				'replace': 'στει',
+				'restype': ['RhmPathSyntelMellEgw', 'RhmPathSyntelMellEsy', 'RhmPathSyntelMellAytos', 'RhmPathSyntelMellEmeis', 'RhmPathSyntelMellEseis', 'RhmPathSyntelMellAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{ # Variation of the above
+				'replace': 'σμενος',
+				'restype': ['RhmPathSyntelMellEgw', 'RhmPathSyntelMellEsy', 'RhmPathSyntelMellAytos'],
+				'callfunc': transfertonosdown,
+			},
+			{ # plural of the above
+				'replace': 'σμενοι',
+				'restype': ['RhmPathSyntelMellEmeis', 'RhmPathSyntelMellEseis', 'RhmPathSyntelMellAytoi'],
+				'callfunc': transfertonosdown,
+			},
+			{
+				'replace': 'σμενος',
+				'restype': 'RhmPathPrkMtx',
+				'callfunc': transfertonosdown,
+			},
+			# End of Pathhtikh Fwnh
+			]
+	}
+rules['P2.1'] =  { # δροσίζω, προσανατολίζω
+		'match': '(ζω|ζομαι)$',
+		'actions': rules['P2.1a']['actions'] + rules['P2.1b']['actions'],
+	}
+rules['P3'] = { # NOT complete. Just for testing of some corner cases
 		'match': 'ω$',
 		'actions':
 			[
@@ -751,5 +1048,4 @@ rules = {
 				'callfunc': transfertonosup,
 			},
 			]
-	},
-}
+	}
