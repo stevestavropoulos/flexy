@@ -29,12 +29,11 @@ from utils import *
 version="0.3pre"
 
 def flexit(word, variation, langdef):
-	rules = langdef.rules
-	if variation not in rules:
+	if variation not in langdef.rules:
 		die("I don't know how to do technique %s" % variation, 5)
 	if method_exists(langdef, 'preaction'):
 		word = langdef.preaction(word)
-	curule = rules[variation]
+	curule = langdef.rules[variation]
 	if 'actions' in curule:
 		curule = {0: curule}
 	for variationkey, detail in curule.iteritems():
