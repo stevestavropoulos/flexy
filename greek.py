@@ -92,17 +92,14 @@ def _transfertonos(word, direction):
 		if direction == 'down':
 			paliostonos = tr(tonismenafwnhenta, atonafwnhenta, symplegma.group(2))
 			neostonos = tr(atonafwnhenta, tonismenafwnhenta, symplegma.group(4))
+			return symplegma.group(1) + paliostonos + symplegma.group(3) + neostonos + symplegma.group(5)
 		else:
 			paliostonos = tr(tonismenafwnhenta, atonafwnhenta, symplegma.group(4))
 			neostonos = tr(atonafwnhenta, tonismenafwnhenta, symplegma.group(2))
+			return symplegma.group(1) + neostonos + symplegma.group(3) + paliostonos + symplegma.group(5)
 	else:
 		print('Could not detect ascent in %s (original: %s)' % (word, postaction(word)), file=sys.stderr)
 		return word # No match, no accent, do nothing more
-	if direction == 'down':
-		word = symplegma.group(1) + paliostonos + symplegma.group(3) + neostonos + symplegma.group(5)
-	else:
-		word = symplegma.group(1) + neostonos + symplegma.group(3) + paliostonos + symplegma.group(5)
-	return word
 
 
 rules = {
