@@ -60,9 +60,8 @@ def flexit(word, variation, langdef):
 					doreplace = False
 					if getRE(action[matchkey]).search(new):
 						doreplace = True
-				if doreplace:
-					if replacekey in action:
-						new = searchy.sub(action[replacekey], new)
+				if doreplace and replacekey in action:
+					new = searchy.sub(action[replacekey], new)
 			if 'callfunc' in action:
 				new = action['callfunc'](new)
 			if method_exists(langdef, 'postaction'):
