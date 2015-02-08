@@ -102,210 +102,193 @@ def _transfertonos(word, direction):
 		return word # No match, no accent, do nothing more
 
 
-rules = {
-	'O1':
-	{
-		'match': 'άς$',
-		'actions':
-			[
-			{
-				'replace': 'άς',
-				'restype': 'OusEnOnom',
-			},
-			{
-				'replace': 'ά',
-				'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-			},
-			{
-				'replace': 'άδες',
-				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			},
-			{
-				'replace': 'άδων',
-				'restype': 'OusPlGen',
-			},
-			]
-	},
-	'O2':
-	{
-		'match': 'ας$',
-		'actions':
-			[
-			{
-				'replace': 'ας',
-				'restype': 'OusEnOnom',
-			},
-			{
-				'replace': 'α',
-				'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-			},
-			{
-				'replace': 'ες',
-				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			},
-			{
-				'replace': 'ων',
-				'restype': 'OusPlGen',
-			},
-			]
-	},
-	'O3':
-	{
-		'match': 'ας$',
-		'actions':
-			[
-			{
-				'replace': 'ας',
-				'restype': 'OusEnOnom',
-			},
-			{
-				'replace': 'α',
-				'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-			},
-			{
-				'replace': 'ες',
-				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			},
-			{
-				'replace': 'ων',
-				'restype': 'OusPlGen',
-				'callfunc': transfertonos,
-			},
-			]
-	},
-	'O3a':
-	{
-		'match': 'ας$',
-		'actions':
-			[
-			{
-				'replace': 'ας',
-				'restype': 'OusEnOnom',
-			},
-			{
-				'replace': 'ος',
-				'restype': 'OusEnGen',
-				'callfunc': transfertonos,
-			},
-			{
-				'replace': 'α',
-				'restype': ['OusEnGen' 'OusEnAit', 'OusEnKlit'],
-			},
-			{
-				'replace': 'ες',
-				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			},
-			{
-				'replace': 'ων',
-				'restype': 'OusPlGen',
-				'callfunc': transfertonos,
-			},
-			]
-	},
-	'O4':
-	{
-		'match': 'ας$',
-		'actions':
-			[
-			{
-				'replace': 'ας',
-				'restype': 'OusEnOnom',
-			},
-			{
-				'replace': 'α',
-				'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-			},
-			{
-				'replace': 'αδες',
-				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-				'callfunc': transfertonos,
-			},
-			{
-				'replace': 'αδων',
-				'restype': 'OusPlGen',
-				'callfunc': transfertonos,
-			},
-			]
-	},
-	'O5':
-	{
-		'match': 'ας$',
-		'actions':
-			[
-			{
-				'replace': 'ας',
-				'restype': 'OusEnOnom',
-			},
-			{
-				'replace': 'α',
-				'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-			},
-			{
-				'replace': 'ες',
-				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			},
-			{
-				'replace': 'ων',
-				'restype': 'OusPlGen',
-				'callfunc': transfertonos,
-			},
-			]
-	},
-	'O5a':
-	{
-		0:
+rules = {}
+# αχταρμάς
+rules['O1nop'] = {
+	'match': 'άς$',
+	'actions':
+		[
 		{
-			'match': '[^(?:αντ)]ας$',
-			'search': 'ας$',
-			'actions':
-				[
-				{
-					'replace': 'ας',
-					'restype': 'OusEnOnom',
-				},
-				{
-					'replace': 'α',
-					'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-				},
-				{
-					'replace': 'αντες',
-					'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-				},
-				{
-					'replace': 'αντων',
-					'restype': 'OusPlGen',
-					'callfunc': transfertonos,
-				},
-				]
+			'replace': 'άς',
+			'restype': 'OusEnOnom',
 		},
-		1:
 		{
-			'match': 'αντας$',
-			'actions':
-				[
-				{
-					'replace': 'αντας',
-					'restype': 'OusEnOnom',
-				},
-				{
-					'replace': 'αντα',
-					'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-				},
-				{
-					'replace': 'αντες',
-					'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-				},
-				{
-					'replace': 'αντων',
-					'restype': 'OusPlGen',
-					'callfunc': transfertonos,
-				},
-				]
-		}
-	},
-	'O6':
+			'replace': 'ά',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		]
+}
+# αυγουλάς, ανανάς
+rules['O1'] =  {
+	'match': 'άς$',
+	'actions': rules['O1nop']['actions'] +
+		[
+		{
+			'replace': 'άδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'άδων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# παπατρέχας, Ποσειδώνας
+rules['O2nop'] = {
+	'match': 'ας$',
+	'actions':
+		[
+		{
+			'replace': 'ας',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'α',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		]
+}
+# καπιτάλας, μάγκας
+rules['O2nopgen'] = {
+	'match': 'ας$',
+	'actions': rules['O2nop']['actions'] +
+		[
+		{
+			'replace': 'ες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		]
+}
+# αιώνας
+rules['O2'] = {
+	'match': 'ας$',
+	'actions': rules['O2nopgen']['actions'] + 
+		[
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# Ποσειδώνας, βήχας, γιόκας
+rules['O3nop'] = {
+	'match': 'ας$',
+	'actions':
+		[
+		{
+			'replace': 'ας',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'α',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		]
+}
+# ασχημάντρας, γεροξούρας, μάπας
+rules['O3nopgen'] = {
+	'match': 'ας$',
+	'actions': rules['O3nop']['actions'] + 
+		[
+		{
+			'replace': 'ες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		]
+}
+# κανάγιας, τυχεράκιας
+rules['O3ides'] = {
+	'match': 'ας$',
+	'actions': rules['O3nop']['actions'] + 
+		[
+		{
+			'search': fwnhen + '*' + 'ας$',
+			'replace': 'ηδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'search': fwnhen + '*' + 'ας$',
+			'replace': 'ηδων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# βόας, γαλαξίας
+rules['O3'] = {
+	'match': 'ας$',
+	'actions': rules['O3nopgen']['actions'] +
+		[
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# αρχιδούκας, δούκας, μήνας, πόδας
+rules['O3a'] = {
+	'match': rules['O3']['match'],
+	'actions': rules['O3']['actions'] +
+		[
+		{
+			'replace': 'ος',
+			'restype': 'OusEnGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['O4'] = {
+	'match': 'ας$',
+	'actions':
+		[
+		{
+			'replace': 'ας',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'α',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		{
+			'replace': 'αδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'αδων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['O5'] = {
+	'match': 'ας$',
+	'actions':
+		[
+		{
+			'replace': 'ας',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'α',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		{
+			'replace': 'ες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['O5a'] = {
+0:
 	{
-		'match': 'ας$',
+		'match': '[^(?:αντ)]ας$',
+		'search': 'ας$',
 		'actions':
 			[
 			{
@@ -317,18 +300,66 @@ rules = {
 				'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
 			},
 			{
-				'replace': 'αδες',
+				'replace': 'αντες',
 				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-				'callfunc': transfertonostwice,
 			},
 			{
-				'replace': 'αδων',
+				'replace': 'αντων',
 				'restype': 'OusPlGen',
-				'callfunc': transfertonostwice,
+				'callfunc': transfertonos,
+			},
+			]
+	},
+1:
+	{
+		'match': 'αντας$',
+		'actions':
+			[
+			{
+				'replace': 'αντας',
+				'restype': 'OusEnOnom',
+			},
+			{
+				'replace': 'αντα',
+				'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+			},
+			{
+				'replace': 'αντες',
+				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			},
+			{
+				'replace': 'αντων',
+				'restype': 'OusPlGen',
+				'callfunc': transfertonos,
 			},
 			]
 	}
 }
+rules['O6'] = {
+	'match': 'ας$',
+	'actions':
+		[
+		{
+			'replace': 'ας',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'α',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		{
+			'replace': 'αδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'callfunc': transfertonostwice,
+		},
+		{
+			'replace': 'αδων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonostwice,
+		},
+		]
+}
+
 rules['P1a'] = { # Κλειδώνω
 		'match': '(ώνω|ώνομαι)$',
 		'actions':
