@@ -118,10 +118,9 @@ rules['O1nop'] = {
 		},
 		]
 }
-# αυγουλάς, ανανάς
-rules['O1'] =  {
+rules['O1p'] =  {
 	'match': 'άς$',
-	'actions': rules['O1nop']['actions'] +
+	'actions':
 		[
 		{
 			'replace': 'άδες',
@@ -132,6 +131,11 @@ rules['O1'] =  {
 			'restype': 'OusPlGen',
 		},
 		]
+}
+# αυγουλάς, ανανάς
+rules['O1'] =  {
+	'match': 'άς$',
+	'actions': rules['O1nop']['actions'] + rules['O1p']['actions']
 }
 # παπατρέχας, Ποσειδώνας
 rules['O2nop'] = {
@@ -173,28 +177,12 @@ rules['O2'] = {
 # Ποσειδώνας, βήχας, γιόκας
 rules['O3nop'] = {
 	'match': 'ας$',
-	'actions':
-		[
-		{
-			'replace': 'ας',
-			'restype': 'OusEnOnom',
-		},
-		{
-			'replace': 'α',
-			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-		},
-		]
+	'actions': rules['O2nop']['actions'],
 }
 # ασχημάντρας, γεροξούρας, μάπας
 rules['O3nopgen'] = {
 	'match': 'ας$',
-	'actions': rules['O3nop']['actions'] + 
-		[
-		{
-			'replace': 'ες',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-		},
-		]
+	'actions': rules['O2nopgen']['actions'],
 }
 # κανάγιας, τυχεράκιας
 rules['O3ides'] = {
