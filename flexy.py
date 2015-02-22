@@ -37,6 +37,10 @@ def flexit(word, variation, langdef):
 	if 'actions' in curule:
 		curule = {0: curule}
 	for variationkey, detail in curule.iteritems():
+		if method_exists(langdef, 'preaction'):
+			for tmp in ['search', 'match']:
+				if tmp in detail:
+					detail[tmp] = langdef.preaction(detail[tmp])
 		matchpattern = defsearchy = getRE(detail['match'])
 		if 'search' in detail:
 			defsearchy = getRE(detail['search'])
