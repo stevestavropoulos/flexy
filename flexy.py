@@ -5,7 +5,7 @@
 #
 #   Version 0.3pre
 #
-#   Copyright 2006,2009,2011 Steve Stavropoulos <steve@math.upatras.gr>
+#   Copyright 2006,2009,2011,2015 Steve Stavropoulos <steve@math.upatras.gr>
 #
 #   This file is part of Flexy.
 #
@@ -47,6 +47,7 @@ def flexit(word, variation, langdef):
 		if not matchpattern.search(word):
 			continue
 		for action in detail['actions']:
+			doneAction = False
 			new = word
 			for i in ['', '2']:
 				searchkey = 'search' + i
@@ -66,6 +67,9 @@ def flexit(word, variation, langdef):
 						doreplace = True
 				if doreplace and replacekey in action:
 					new = searchy.sub(action[replacekey], new)
+					doneAction = True
+			if not doneAction:
+				continue
 			if 'callfunc' in action:
 				new = action['callfunc'](new)
 			if method_exists(langdef, 'postaction'):
