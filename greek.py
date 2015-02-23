@@ -225,18 +225,21 @@ rules['O3a'] = {
 		},
 		]
 }
+# μπόγιας, μουστάκιας
+rules['O4nop'] = {
+	'match': 'ας$',
+	'actions': rules['O2nop']['actions'],
+}
+# πρεζάκιας, ρήγας
+rules['O4ides'] = {
+	'match': 'ας$',
+	'actions': rules['O3ides']['actions']
+}
+# κάλφας, μπάρμπας
 rules['O4'] = {
 	'match': 'ας$',
-	'actions':
+	'actions': rules['O4nop']['actions'] + 
 		[
-		{
-			'replace': 'ας',
-			'restype': 'OusEnOnom',
-		},
-		{
-			'replace': 'α',
-			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-		},
 		{
 			'replace': 'αδες',
 			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
@@ -249,18 +252,21 @@ rules['O4'] = {
 		},
 		]
 }
+# αντίπαπας, γαϊδουρόβηχας, κάπελας
+rules['O5nop'] = {
+	'match': 'ας$',
+	'actions': rules['O2nop']['actions'],
+}
+# αλητάμπουρας, άντρακλας, δράκουλας
+rules['O5nopgen'] = {
+	'match': 'ας$',
+	'actions': rules['O2nopgen']['actions'],
+}
+# ακτήμονας, άμβωνας
 rules['O5'] = {
 	'match': 'ας$',
-	'actions':
+	'actions': rules['O2nop']['actions'] +
 		[
-		{
-			'replace': 'ας',
-			'restype': 'OusEnOnom',
-		},
-		{
-			'replace': 'α',
-			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-		},
 		{
 			'replace': 'ες',
 			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
@@ -272,21 +278,14 @@ rules['O5'] = {
 		},
 		]
 }
+# γίγας, γίγαντας, άτλας, άτλαντας, ελέφας
 rules['O5a'] = {
 0:
 	{
-		'match': '[^(?:αντ)]ας$',
+		'match': '[^(αντ)]ας$',
 		'search': 'ας$',
-		'actions':
+		'actions': rules['O2nop']['actions'] +
 			[
-			{
-				'replace': 'ας',
-				'restype': 'OusEnOnom',
-			},
-			{
-				'replace': 'α',
-				'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-			},
 			{
 				'replace': 'αντες',
 				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
@@ -301,40 +300,67 @@ rules['O5a'] = {
 1:
 	{
 		'match': 'αντας$',
-		'actions':
+		'search': 'ας$',
+		'actions': rules['O2nop']['actions'] +
 			[
 			{
-				'replace': 'αντας',
-				'restype': 'OusEnOnom',
-			},
-			{
-				'replace': 'αντα',
-				'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-			},
-			{
-				'replace': 'αντες',
+				'replace': 'ες',
 				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
 			},
 			{
-				'replace': 'αντων',
+				'replace': 'ων',
 				'restype': 'OusPlGen',
 				'callfunc': transfertonos,
 			},
 			]
-	}
+	},
+2:
+	{
+		'match': 'ης$',
+		'actions':
+			[
+			{
+				'replace': 'ης',
+				'restype': 'OusEnOnom',
+			},
+			{
+				'replace': 'η',
+				'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+			},
+			{
+				'replace': 'ητες',
+				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			},
+			{
+				'replace': 'ητων',
+				'restype': 'OusPlGen',
+				'callfunc': transfertonos,
+			},
+			]
+	},
+3:
+	{
+		'match': 'ητας$',
+		'search': 'ας$',
+		'actions': rules['O2nop']['actions'] +
+			[
+			{
+				'replace': 'ες',
+				'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			},
+			{
+				'replace': 'ων',
+				'restype': 'OusPlGen',
+				'callfunc': transfertonos,
+			},
+			]
+	},
 }
+# τσέλιγκας, δέσποτας, δερβέναγας
 rules['O6'] = {
 	'match': 'ας$',
-	'actions':
+	'actions': rules['O2nop']['actions'] +
 		[
-		{
-			'replace': 'ας',
-			'restype': 'OusEnOnom',
-		},
-		{
-			'replace': 'α',
-			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
-		},
 		{
 			'replace': 'αδες',
 			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
@@ -347,6 +373,669 @@ rules['O6'] = {
 		},
 		]
 }
+# Ερμής
+rules['O7nop'] = {
+	'match': 'ής$',
+	'actions':
+		[
+		{
+			'replace': 'ής',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ή',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		]
+}
+# νικητής, δωρητής, εξεταστής
+rules['O7'] = {
+	'match': 'ής$',
+	'actions': rules['O7nop']['actions'] +
+		[
+		{
+			'replace': 'ές',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# γανωματής, ατζαμής, μουστακαλής, χατζής
+rules['O8'] = {
+	'match': 'ής$',
+	'actions': rules['O7nop']['actions'] +
+		[
+		{
+			'replace': 'ήδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ήδων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# βουτηχτής, πραματευτής, δουλευτής
+rules['O9'] = {
+	'match': 'ής$',
+	'actions': rules['O7nop']['actions'] +
+		[
+		{
+			'replace': 'ές',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'OusPlGen',
+		},
+		{
+			'replace': 'άδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'άδων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# πλάστης, Άδης, Άρης
+rules['O10nop'] = {
+	'match': 'ης$',
+	'actions':
+		[
+		{
+			'replace': 'ης',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'η',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		]
+}
+# ναύτης, αγύρτης, αιμοδότης
+rules['O10'] = {
+	'match': 'ης$',
+	'actions': rules['O10nop']['actions'] +
+		[
+		{
+			'replace': 'ες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# κοσμάκης
+rules['O11nop'] = {
+	'match': 'ης$',
+	'actions': rules['O10nop']['actions']
+}
+# γεροξούρας
+rules['O11nopgen'] = {
+	'match': 'ης$',
+	'actions': rules['O10nop']['actions'] +
+		[
+		{
+			'replace': 'ηδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		]
+}
+# μανάβης, εαυτούλης, φακίρης
+rules['O11'] = {
+	'match': 'ης$',
+	'actions': rules['O11nopgen']['actions'] +
+		[
+		{
+			'replace': 'ηδων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# τέντζερης
+rules['O12nop'] = {
+	'match': 'ης$',
+	'actions': rules['O10nop']['actions']
+}
+# φούρναρης, μάστορης 
+rules['O12'] = {
+	'match': 'ης$',
+	'actions': rules['O10nop']['actions'] +
+		[
+		{
+			'replace': 'ηδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ηδων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# καφές, φερετζές, κεφτές
+rules['O13'] = {
+	'match': 'ές$',
+	'actions':
+		[
+		{
+			'replace': 'ές',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'έ',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		{
+			'replace': 'έδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'έδων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# τάδες
+rules['O14nop'] = {
+	'match': 'ες$',
+	'actions':
+		[
+		{
+			'replace': 'ες',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ε',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		]
+}
+# κόντες, λεβάντες
+rules['O14'] = {
+	'match': 'ες$',
+	'actions': rules['O14nop']['actions'] +
+		[
+		{
+			'replace': 'ηδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ηδων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# παππούς
+rules['O15'] = {
+	'match': 'ούς$',
+	'actions':
+		[
+		{
+			'replace': 'ούς',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ού',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		{
+			'replace': 'ούδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ούδων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# νους, πλους, ρους
+rules['O15a'] = {
+	'match': 'ους$',
+	'actions':
+		[
+		{
+			'replace': 'ους',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ου',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		# special case: πλους
+		{
+			'match': '^πλους$',
+			'search': 'πλους',
+			'replace': 'πλόες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'match': '^πλους$',
+			'search': 'πλους',
+			'replace': 'πλοών',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# περίπλους, διάπλους, προπάππους, απόπλους
+rules['O16'] = {
+	'match': 'ους$',
+	'actions':
+		[
+		{
+			'replace': 'ους',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ου',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		{
+			'replace': 'οι',
+			'restype': ['OusPlOnom', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ους',
+			'restype': 'OusPlAit',
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# εγκεφαλισμός, Oυρανός, οχαδερφισμός 
+rules['O17nop'] = {
+	'match': 'ός$',
+	'actions':
+		[
+		{
+			'replace': 'ός',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ού',
+			'restype': 'OusEnGen',
+		},
+		{
+			'replace': 'ό',
+			'restype': 'OusEnAit',
+		},
+		{
+			'replace': 'έ',
+			'restype': 'OusEnKlit',
+		},
+		]
+}
+# ουρανός, αδερφός, ανιψιός, ωφελιμισμός
+rules['O17'] = {
+	'match': 'ός$',
+	'actions': rules['O17nop']['actions'] +
+		[
+		{
+			'replace': 'οί',
+			'restype': ['OusPlOnom', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ούς',
+			'restype': 'OusPlAit',
+		},
+		{
+			'replace': 'ών',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O18: κατάληξη ος, τονίζονται στην παραλήγουσα
+rules['O18nopnok'] = {
+	'match': 'ος$',
+	'actions':
+		[
+		{
+			'replace': 'ος',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ου',
+			'restype': 'OusEnGen',
+		},
+		{
+			'replace': 'ο',
+			'restype': 'OusEnAit',
+		},
+		]
+}
+# δρόμος, όχλος, νότος, σάλος
+rules['O18nop'] = {
+	'match': 'ος$',
+	'actions': rules['O18nopnok']['actions'] +
+		[
+		{
+			'replace': 'ε',
+			'restype': 'OusEnKlit',
+		},
+		]
+}
+rules['O18plu'] = {
+	'match': 'ος$',
+	'actions':
+		[
+		{
+			'replace': 'οι',
+			'restype': ['OusPlOnom', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ους',
+			'restype': 'OusPlAit',
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# δρόμος, ανθρωπολόγος, βιρτουόζος
+rules['O18'] = {
+	'match': 'ος$',
+	'actions': rules['O18nop']['actions'] + rules['O18plu']['actions']
+}
+# O18anop: ίδια με Ο18, αλλά στην κλιτική λήγουν σε ο αντί για ε
+rules['O18anop'] = {
+	'match': 'ος$',
+	'actions': rules['O18nopnok']['actions'] +
+		[
+		{
+			'replace': 'ο',
+			'restype': 'OusEnKlit',
+		},
+		]
+}
+# γέρος, μαέστρος, μπουλούκος 
+rules['O18a'] = {
+	'match': 'ος$',
+	'actions': rules['O18anop']['actions'] + rules['O18plu']['actions']
+}
+# ίδια με Ο18, αλλά τονίζονται στην προπαραλήγουσα και αλλάζει ο τόνος 
+rules['O19nop'] = {
+	'match': 'ος$',
+	'actions':
+		[
+		{
+			'replace': 'ος',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ου',
+			'restype': 'OusEnGen',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ο',
+			'restype': 'OusEnAit',
+		},
+		{
+			'replace': 'ε',
+			'restype': 'OusEnKlit',
+		},
+		]
+}
+# άγγελος, διάδικος, διάδρομος, κατάλογος
+rules['O19'] = {
+	'match': 'ος$',
+	'actions': rules['O19nop']['actions'] +
+		[
+		{
+			'replace': 'οι',
+			'restype': ['OusPlOnom', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ους',
+			'restype': 'OusPlAit',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# O20: ίδια με Ο18, αλλά τονίζονται στην προπαραλήγουσα
+rules['O20nop'] = rules['O18nop']
+rules['O20'] = rules['O18']
+# O20a: ίδια με O20, αλλά μπορεί να γίνει και μεταφορά τόνου
+# ψευδάργυρος
+rules['O20anop'] = {
+	'match': 'ος$',
+	'actions': rules['O20nop']['actions'] +
+		[
+		{
+			'replace': 'ου',
+			'restype': 'OusEnGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# πρόμαχος, πρόξενος, πτέραρχος
+rules['O20a'] = {
+	'match': 'ος$',
+	'actions': rules['O20anop']['actions'] + rules['O18plu']['actions'] +
+		[
+		{
+			'replace': 'ους',
+			'restype': 'OusPlAit',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# O21: κατάληξη σε έας
+# Mορφέας
+rules['O21nop'] = {
+	'match': 'έας$',
+	'actions':
+		[
+		{
+			'replace': 'έας',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'έα',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		]
+}
+# δεκανέας, ιππέας (όχι ιππείς), φονέας, φορέας
+rules['O21'] = {
+	'match': 'έας$',
+	'actions': rules['O21nop']['actions'] +
+		[
+		{
+			'replace': 'είς',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'έων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O22: κατάληξη σε ής
+# Ηρακλής
+rules['O22nop'] = {
+	'match': 'ής$',
+	'actions':
+		[
+		{
+			'replace': 'ής',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ή',
+			'restype': ['OusEnGen', 'OusEnAit', 'OusEnKlit'],
+		},
+		]
+}
+# ευγενής, ιθαγενής, συγγενής
+rules['O22'] = {
+	'match': 'ής$',
+	'actions': rules['O22nop']['actions'] +
+		[
+		{
+			'replace': 'είς',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O23: κατάληξη σε ά, πληθυντικός σε άδες
+# Xαλιμά
+rules['O23nop'] = {
+	'match': 'ά$',
+	'actions':
+		[
+		{
+			'replace': 'ά',
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
+		},
+		{
+			'replace': 'άς',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# μαμά, νταντά, τσατσά, οκά
+rules['O23'] = {
+	'match': 'ά$',
+	'actions': rules['O23nop']['actions'] +
+		[
+		{
+			'replace': 'άδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'άδων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O24: κατάληξη σε ιά, πληθυντικός σε ές
+# αραπιά, βλαχιά, ξηρά
+rules['O24nop'] = {
+	'match': 'ιά$',
+	'search': 'ά$',
+	'actions': rules['O23nop']['actions']
+}
+# καρδιά, απανεμιά, απονιά, αραπιά
+rules['O24'] = {
+	'match': 'ιά$',
+	'search': 'ά$',
+	'actions': rules['O24nop']['actions'] +
+		[
+		{
+			'replace': 'ές',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O25: κατάληξη σε α, κατεβάζει τόνο σε Αιτιατική Πληθυντικού
+# αντιβία, ενδοεπικοινωνία, κάρμα
+rules['O25nop'] = {
+	'match': 'α$',
+	'actions': 
+		[
+		{
+			'replace': 'α',
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
+		},
+		{
+			'replace': 'ας',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# ευφυΐα
+rules['O25anop'] = rules['O25nop']
+# O25a: ίδια με O25, αλλά δεν έχει Αιτιατική Πληθυντικού
+rules['O25a'] = {
+	'match': 'α$',
+	'actions': rules['O25anop']['actions'] +
+		[
+		{
+			'replace': 'ες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		]
+}
+# ακινησία, ώρα, ακολουθία
+rules['O25'] = {
+	'match': 'α$',
+	'actions': rules['O25a']['actions'] +
+		[
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# O26: ίδιο με O25 αλλά δεν κατεβάζει τόνο σε Αιτιατική Πληθυντικού
+# μητέρα, επικεφαλίδα, ζωστήρα, θαμπάδα
+rules['O26'] = {
+	'match': 'α$',
+	'actions': rules['O25a']['actions'] +
+		[
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O27: ίδιο με O25, αλλά κατεβάζει δύο συλλαβές τόνο σε Αιτιατική Πληθυντικού
+# εξώσφαιρα, ενάργεια, εγωπάθεια
+rules['O27nop'] = rules['O25nop']
+# θάλασσα, γέφυρα, δέσποινα, διάνοια
+rules['O27'] = {
+	'match': 'α$',
+	'actions': rules['O25a']['actions'] +
+		[
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonostwice,
+		},
+		]
+}
+# O27a: ίδιο με O25a
+# 
+rules['O27anop'] = rules['O25anop']
+# πέστροφα, φραγκόκοτα, χορτόπιτα, ψαρόσουπα
+rules['O27a'] = rules['O25a']
+# O28: ίδιο με O25
+# 
+rules['O28nop'] = rules['O25nop']
+# σάλπιγγα, γονιμότητα, δυνατότητα
+rules['O28'] = rules['O25']
+
 
 rules['P1a'] = { # Κλειδώνω
 		'match': '(ώνω|ώνομαι)$',
