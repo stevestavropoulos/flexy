@@ -101,6 +101,15 @@ def _transfertonos(word, direction):
 		print('Could not detect ascent in %s (original: %s)' % (word, postaction(word)), file=sys.stderr)
 		return word # No match, no accent, do nothing more
 
+# Αφαιρεί τον πρώτο τόνο όταν υπάρχουν δύο
+def deletefirsttonos(word):
+	symplegmare = re.compile('^(.*)(%s)(.*%s.*)$' % (tonismenofwnhen, tonismenofwnhen));
+	symplegma = symplegmare.match(word)
+	if symplegma:
+		notonos = tr(tonismenafwnhenta, atonafwnhenta, symplegma.group(2))
+		return symplegma.group(1) + notonos + symplegma.group(3)
+	else:
+		return word # No match, do nothing more
 
 rules = {}
 # αχταρμάς
@@ -1035,6 +1044,953 @@ rules['O27a'] = rules['O25a']
 rules['O28nop'] = rules['O25nop']
 # σάλπιγγα, γονιμότητα, δυνατότητα
 rules['O28'] = rules['O25']
+# O29α: κατάληξη σε ή, χωρίς γενική πληθυντικού
+# Χωρίς χρήση μάλλον...
+rules['O29anop'] = {
+	'match': 'ή$',
+	'actions':
+		[
+		{
+			'replace': 'ή',
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
+		},
+		{
+			'replace': 'ής',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# υπακοή, ζωγραφική, προσμονή, προσοχή
+rules['O29a'] = {
+	'match': 'ή$',
+	'actions': rules['O29anop']['actions'] +
+		[
+		{
+			'replace': 'ές',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		]
+}
+# O29: κατάληξη σε ή, με γενική πληθυντικού
+# αθλητιατρική, φυγή, γη, οργή
+rules['O29nop'] = rules['O29anop']
+# ψυχή, διαγωγή, διαλογή, ωδή, φωνή
+rules['O29'] = {
+	'match': 'ή$',
+	'actions': rules['O29a']['actions'] +
+		[
+		{
+			'replace': 'ών',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O30a: κατάληξη σε η, χωρίς γενική πληθυντικού
+# Χωρίς χρήση μάλλον...
+rules['O30anop'] = {
+	'match': 'η$',
+	'actions':
+		[
+		{
+			'replace': 'η',
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
+		},
+		{
+			'replace': 'ης',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# αγάπη, βιασύνη, ήβη, κήλη, μύτη
+rules['O30a'] = {
+	'match': 'η$',
+	'actions': rules['O30anop']['actions'] +
+		[
+		{
+			'replace': 'ες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		]
+}
+# O30: κατάληξη σε η, με γενική πληθυντικού
+# αίγλη, ειρήνη, εξοχοτάτη, μέθη, ειρήνη
+rules['O30nop'] = rules['O30anop']
+# βαζελίνη, βενζίνη, γνώμη, ζελατίνη
+rules['O30'] = {
+	'match': 'η$',
+	'actions': rules['O30a']['actions'] +
+		[
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# O31: 	κατάληξη σε η, χωρίς να κατεβάζει τόνο σε γενική πληθυντικού και
+#	με έξτρα μορφή σε εως σε γενική ενικού
+# πλάση, Πόλη, ζέση
+rules['O31nop'] = {
+	'match': 'η$',
+	'actions': rules['O30anop']['actions'] +
+		[
+		{
+			'replace': 'εως',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# σκέψη, θρέψη, καύση, κλάση
+rules['O31'] = {
+	'match': 'η$',
+	'actions': rules['O31nop']['actions'] +
+		[
+		{
+			'replace': 'εις',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'εων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# Ίδιο με O30a, αλλά τονίζονται στην προπαραλήγουσα αντί για την παραλήγουσα
+rules['O32nop'] = rules['O30anop']
+rules['O32'] = rules['O30a']
+# Ίδιο με O30anop
+rules['O32a'] = rules['O30anop']
+# O33: 	Ίδιο με O30a αλλά κατεβάζει τόνο σε όλο τον πληθυντικό και έξτρα μορφή
+#	σε εως με κατέβασμα τόνου σε γενική ενικού
+# διανόηση, μόρφωση, προΰπαρξη 
+rules['O33nop'] = {
+	'match': 'η$',
+	'actions': rules['O30anop']['actions'] +
+		[
+		{
+			'replace': 'εως',
+			'restype': 'OusEnGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# άθληση, αιώρηση, ώθηση, φώτιση
+rules['O33'] = {
+	'match': 'η$',
+	'actions': rules['O33nop']['actions'] +
+		[
+		{
+			'replace': 'εις',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'εων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# O34: κατάληξη σε ός
+# Ίσως χωρίς χρήση
+rules['O34nop'] = {
+	'match': 'ός$',
+	'actions':
+		[
+		{
+			'replace': 'ός',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ού',
+			'restype': 'OusEnGen',
+		},
+		{
+			'replace': 'ό',
+			'restype': ['OusEnAit', 'OusEnKlit'],
+		},
+		]
+}
+# οδός, δοκός, τροφός
+rules['O34'] = {
+	'match': 'ός$',
+	'actions': rules['O34nop']['actions'] +
+		[
+		{
+			'replace': 'οί',
+			'restype': ['OusPlOnom', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'OusPlGen',
+		},
+		{
+			'replace': 'ούς',
+			'restype': 'OusPlAit',
+		},
+		]
+}
+# O35: κατάληξη σε ος
+# βίβλος, Βίβλος, Ρόδος
+rules['O35nop'] = {
+	'match': 'ος$',
+	'actions':
+		[
+		{
+			'replace': 'ος',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ου',
+			'restype': 'OusEnGen',
+		},
+		{
+			'replace': 'ο',
+			'restype': ['OusEnAit', 'OusEnKlit'],
+		},
+		]
+}
+# διχοτόμος, λέμφος, λίθος, νόσος, παρθένος
+rules['O35'] = {
+	'match': 'ος$',
+	'actions': rules['O35nop']['actions'] +
+		[
+		{
+			'replace': 'οι',
+			'restype': ['OusPlOnom', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+		},
+		{
+			'replace': 'ους',
+			'restype': 'OusPlAit',
+		},
+		]
+}
+# O36: κατάληξη σε ος, κατεβάζει τόνο
+# Ίσως χωρίς χρήση...
+rules['O36nop'] = {
+	'match': 'ος$',
+	'actions':
+		[
+		{
+			'replace': 'ος',
+			'restype': 'OusEnOnom',
+		},
+		{
+			'replace': 'ου',
+			'restype': 'OusEnGen',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ο',
+			'restype': ['OusEnAit', 'OusEnKlit'],
+		},
+		]
+}
+# εγκύκλιος, διάλεκτος, διέξοδος, ήπειρος, κάθετος, υφήλιος
+rules['O36'] = {
+	'match': 'ος$',
+	'actions': rules['O36nop']['actions'] +
+		[
+		{
+			'replace': 'οι',
+			'restype': ['OusPlOnom', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ες',
+			'restype': ['OusPlOnom', 'OusPlAit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ους',
+			'restype': 'OusPlAit',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# O37: κατάληξη σε ού, πληθυντικός σε ούδες
+# Ίσως χωρίς χρήση
+rules['O37nop'] = {
+	'match': 'ού$',
+	'actions':
+		[
+		{
+			'replace': 'ού',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ούς',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# αλεπού, βιζιτού, καφετζού, μπουμπού
+rules['O37'] = {
+	'match': 'ού$',
+	'actions': rules['O37nop']['actions'] +
+		[
+		{
+			'replace': 'ούδες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ούδων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O37a: κατάληξη σε ω, πληθυντικός σε ες
+# μουρλέγκω, μπάμπω, τρελέγκω
+rules['O37anop'] = {
+	'match': 'ω$',
+	'actions':
+		[
+		{
+			'replace': 'ω',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ως',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# βάβω, τσουράπω, χαρχάλω
+rules['O37a'] = {
+	'match': 'ω$',
+	'actions': rules['O37anop']['actions'] +
+		[
+		{
+			'replace': 'ες',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O37b: κατάληξη σε ώ, χωρίς πληθυντικό και με έξτρα μορφή σε γενική ενικού
+# ηχώ
+rules['O37b'] = {
+	'match': 'ώ$',
+	'actions':
+		[
+		{
+			'replace': 'ώ',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ούς',
+			'restype': 'OusEnGen',
+		},
+		{
+			'replace': 'ώς',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# O38: κατάληξη σε ό, πληθυντικός σε ά
+# καθισιό, κοινό, ηθικό
+rules['O38nop'] = {
+	'match': 'ό$',
+	'actions':
+		[
+		{
+			'replace': 'ό',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ού',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# βουνό, αλλαντικό, γλυκό, γραφτό, ωό
+rules['O38'] = {
+	'match': 'ό$',
+	'actions': rules['O38nop']['actions'] +
+		[
+		{
+			'replace': 'ά',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O39: κατάληξη σε ο, πληθυντικός σε α
+# αντήλιο, κουμάντο, πασατέμπο
+rules['O39nop'] = {
+	'match': 'ο$',
+	'actions':
+		[
+		{
+			'replace': 'ο',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ου',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# επουράνια
+rules['O39nopgen'] = {
+	'match': 'ο$',
+	'actions': rules['O39nop']['actions'] +
+		[
+		{
+			'replace': 'α',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		]
+}
+# πεύκο, μεταλλείο, μοτίβο, ψώνιο
+rules['O39'] = {
+	'match': 'ο$',
+	'actions': rules['O39nopgen']['actions'] +
+		[
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O40: κατάληξη σε ο, πληθυντικός σε α, κατεβάζει τόνο σε γενική
+# χλώριο, ραδόνιο, νάτριο, κάλιο
+rules['O40nop'] = {
+	'match': 'ο$',
+	'actions':
+		[
+		{
+			'replace': 'ο',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ου',
+			'restype': 'OusEnGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# πρόσωπο, ραδιόφωνο, σκάνδαλο, σκιάδιο, ωράριο
+rules['O40'] = {
+	'match': 'ο$',
+	'actions': rules['O40nop']['actions'] +
+		[
+		{
+			'replace': 'α',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# O41: κατάληξη σε ο, πληθυντικός σε α, δεν κατεβάζει τόνο σε γενική
+# καταχείμωνο, μεσοβδόμαδο, κατακαλόκαιρο
+rules['O41nop'] = {
+	'match': 'ο$',
+	'actions':
+		[
+		{
+			'replace': 'ο',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ου',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# φώσφορο, σίδερο, αμαξάδικο, άμφιο
+rules['O41'] = {
+	'match': 'ο$',
+	'actions': rules['O41nop']['actions'] +
+		[
+		{
+			'replace': 'α',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O42: ίδιο με O41, αλλά μπορεί να κατεβάσει τόνο σε γενική
+# αγουρέλαιο
+rules['O42nop'] = {
+	'match': 'ο$',
+	'actions': rules['O41nop']['actions'] +
+		[
+		{
+			'replace': 'ου',
+			'restype': 'OusEnGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# βούτυρο, αυτόματο, άχυρο, βότανο, τρίκυκλο
+rules['O42'] = {
+	'match': 'ο$',
+	'actions': rules['O41']['actions'] +
+		[
+		{
+			'replace': 'ου',
+			'restype': 'OusEnGen',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# O43: κατάληξη σε ί, πληθυντικός σε ά, δεν κατεβάζει τόνο σε γενική
+# στρατί, τζιτζί
+rules['O43nop'] = {
+	'match': 'ί$',
+	'actions':
+		[
+		{
+			'replace': 'ί',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ιού',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# ασκί, παιδί, βρακί, ψωμί, σπυρί, σπαθί
+rules['O43'] = {
+	'match': 'ί$',
+	'actions': rules['O43nop']['actions'] +
+		[
+		{
+			'replace': 'ιά',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ιών',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O44a: κατάληξη σε ι, δεν έχει γενική
+# 
+rules['O44anop'] = {
+	'match': 'ι$',
+	'actions':
+		[
+		{
+			'replace': 'ι',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		]
+}
+# αρνάκι, τόπι, τροπάρι, πρεζάκι, πούλι 
+rules['O44a'] = {
+	'match': 'ι$',
+	'actions': rules['O44anop']['actions'] +
+		[
+		{
+			'replace': 'ια',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		]
+}
+# O44: κατάληξη σε ι, κατεβάζει τόνο σε γενική
+# ασβέστι, μούσκλο, θειάφι 
+rules['O44nop'] = {
+	'match': 'ι$',
+	'actions': rules['O44anop']['actions'] +
+		[
+		{
+			'replace': 'ιού',
+			'restype': 'OusEnGen',
+			'callfunc': deletefirsttonos,
+		},
+		]
+}
+# τραγούδι, βόδι, βόιδι (!), γρανάζι, δελφίνι
+rules['O44'] = {
+	'match': 'ι$',
+	'actions': rules['O44nop']['actions'] +
+		[
+		{
+			'replace': 'ια',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ιών',
+			'restype': 'OusPlGen',
+			'callfunc': deletefirsttonos,
+		},
+		]
+}
+# O45: κατάληξη σε ι, πληθυντικός σε άγια
+# 
+rules['O45nop'] = {
+	'match': 'ι$',
+	'actions':
+		[
+		{
+			'replace': 'ι',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'γιού',
+			'restype': 'OusEnGen',
+			'callfunc': deletefirsttonos,
+		},
+		]
+}
+# τσάι, κατώι, καλάι, μπόι, ρολόι
+rules['O45'] = {
+	'match': 'ι$',
+	'actions': rules['O45nop']['actions'] +
+		[
+		{
+			'replace': 'για',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'γιών',
+			'restype': 'OusPlGen',
+			'callfunc': deletefirsttonos,
+		},
+		]
+}
+# O46a: κατάληξη σε ος, πληθυντικός σε η, χωρίς γενική πληθυντικού
+# 
+rules['O46anop'] = {
+	'match': 'ος$',
+	'actions':
+		[
+		{
+			'replace': 'ος',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ους',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# μίσος, θάμπος, θάρρος, άγχος, σκότος
+rules['O46a'] = {
+	'match': 'ος$',
+	'actions': rules['O46anop']['actions'] +
+		[
+		{
+			'replace': 'η',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		]
+}
+# O46: ίδιο με O46a, αλλά και με γενική πληθυντικού
+# ψύχος
+rules['O46nop'] = rules['O46anop']
+# γένος, μέρος, έπος, νέφος, πέλος
+rules['O46'] = {
+	'match': 'ος$',
+	'actions': rules['O46a']['actions'] +
+		[
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# O46b: ίδιο με O46, αλλά χωρίς πληθυντικό
+# ψύχος
+rules['O46b'] = rules['O46nop']
+# O47: κατάληξη σε ος, πληθυντικός σε η, κατεβάζει τόνο
+# όνειδος
+rules['O47nop'] = {
+	'match': 'ος$',
+	'actions':
+		[
+		{
+			'replace': 'ος',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ους',
+			'restype': 'OusEnGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# έδαφος, όφελος, κέλυφος, έλεος, έρεβος
+rules['O47'] = {
+	'match': 'ος$',
+	'actions': rules['O47nop']['actions'] +
+		[
+		{
+			'replace': 'η',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonostwice,
+		},
+		]
+}
+# O48: κατάληξη σε α, πληθυντικός σε ατα
+# 
+rules['O48nop'] = {
+	'match': 'α$',
+	'actions':
+		[
+		{
+			'replace': 'α',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ατος',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# κύμα, αίμα, άρμα, βήμα, κλίμα, πνεύμα
+rules['O48'] = {
+	'match': 'α$',
+	'actions': rules['O48nop']['actions'] +
+		[
+		{
+			'replace': 'ατα',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ατων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# O49: κατάληξη σε α, πληθυντικός σε ατα, κατεβάζει τόνο
+# καστανόχωμα
+rules['O49nop'] = {
+	'match': 'α$',
+	'actions':
+		[
+		{
+			'replace': 'α',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ατος',
+			'restype': 'OusEnGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# όνομα, αλάτισμα, άλλαγμα, χρέωμα, χούφτωμα
+rules['O49'] = {
+	'match': 'α$',
+	'actions': rules['O49nop']['actions'] +
+		[
+		{
+			'replace': 'ατα',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ατων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonostwice,
+		},
+		]
+}
+# O50: κατάληξη σε ο, πληθυντικός σε ατα, κατεβάζει τόνο
+# 
+rules['O50nop'] = {
+	'match': 'ο$',
+	'actions':
+		[
+		{
+			'replace': 'ο',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ατος',
+			'restype': 'OusEnGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# γράψιμο, βάψιμο, βήξιμο, βράσιμο, βρέξιμο, κράξιμο, ντύσιμο
+rules['O50'] = {
+	'match': 'ο$',
+	'actions': rules['O50nop']['actions'] +
+		[
+		{
+			'replace': 'ατα',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ατων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonostwice,
+		},
+		]
+}
+# O51: κατάληξη σε ας, πληθυντικός σε ατα, κατεβάζει τόνο σε γεν. πληθυντικού
+# γήρας, ημίφως
+rules['O51nop'] = {
+	'match': 'ας$',
+	'actions':
+		[
+		{
+			'replace': 'ας',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ατος',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# κρέας, δέρας, κέρας, τέρας, άλας
+rules['O51'] = {
+	'match': 'ας$',
+	'actions': rules['O51nop']['actions'] +
+		[
+		{
+			'replace': 'ατα',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ατων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+# O51a: μόνο το φως και το ημίφως
+# ημίφως
+rules['O51anop'] = {
+	'match': 'ως$',
+	'actions':
+		[
+		{
+			'replace': 'ως',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'match': '^φως$',
+			'search': 'ως$',
+			'replace': 'ωτός',
+			'restype': 'OusEnGen',
+		},
+		{
+			'match': '^ημίφως$',
+			'search': 'ως$',
+			'replace': 'ους',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# φως
+rules['O51a'] = {
+	'match': 'ως$',
+	'actions': rules['O51anop']['actions'] +
+		[
+		{
+			'replace': 'ώτα',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'ώτων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O52: κατάληξη σε όν (και ον σκέτο), πληθυντικός σε όντα
+# 
+rules['O52nop'] = {
+	'match': '[οό]ν$',
+	'actions':
+		[
+		{
+			'search': '',
+			'replace': '',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'όντος',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# ον, παρόν, προσόν, προϊόν
+rules['O52'] = {
+	'match': '[οό]ν$',
+	'actions': rules['O52nop']['actions'] +
+		[
+		{
+			'replace': 'όντα',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'όντων',
+			'restype': 'OusPlGen',
+		},
+		]
+}
+# O53: κατάληξη σε ον, πληθυντικός σε οντα
+# όζον
+rules['O53nop'] = {
+	'match': 'ον$',
+	'actions':
+		[
+		{
+			'search': '',
+			'replace': '',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'οντος',
+			'restype': 'OusEnGen',
+		},
+		]
+}
+# μέλλον, διαφέρον, ενδιαφέρον, ζέον, καθήκον
+rules['O53'] = {
+	'match': 'ον$',
+	'actions': rules['O53nop']['actions'] +
+		[
+		{
+			'replace': 'οντα',
+			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+		},
+		{
+			'replace': 'οντων',
+			'restype': 'OusPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
 
 
 rules['P1a'] = { # Κλειδώνω
