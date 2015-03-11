@@ -1993,6 +1993,256 @@ rules['O53'] = {
 }
 
 
+# E1: κατάληξη σε ός, θηλυκό σε ή
+# καλός, αιολικός, αιχμηρός, ωχρός
+rules['E1o'] = {
+	'match': 'ός$',
+	'actions':
+		[
+		{
+			'replace': 'ός',
+			'restype': 'EpArsEnOnom',
+		},
+		{
+			'replace': 'ού',
+			'restype': 'EpArsEnGen',
+		},
+		{
+			'replace': 'ό',
+			'restype': 'EpArsEnAit',
+		},
+		{
+			'replace': 'έ',
+			'restype': 'EpArsEnKlit',
+		},
+		{
+			'replace': 'οί',
+			'restype': 'EpArsPlOnom',
+		},
+		{
+			'replace': 'ών',
+			'restype': 'EpArsPlGen',
+		},
+		{
+			'replace': 'ούς',
+			'restype': 'EpArsPlAit',
+		},
+		{
+			'replace': 'οί',
+			'restype': 'EpArsPlKlit',
+		},
+		]
+}
+rules['E1h'] = {
+	'match': 'ή$',
+	'actions':
+		[
+		{
+			'replace': 'ή',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ής',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ές',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'EpThPlGen',
+		},
+		]
+}
+rules['E1to'] = {
+	'match': 'ό$',
+	'actions':
+		[
+		{
+			'replace': 'ό',
+			'restype': ['EpOuEnOnom', 'EpOuEnAit', 'EpOuEnKlit'],
+		},
+		{
+			'replace': 'ού',
+			'restype': 'EpOuEnGen',
+		},
+		{
+			'replace': 'ά',
+			'restype': ['EpOuPlOnom', 'EpOuPlAit', 'EpOuPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'EpOuPlGen',
+		},
+		]
+}
+rules['E1'] = {
+	'match': '(ός|ή|ό)$',
+	'actions': rules['E1o']['actions'] + rules['E1h']['actions'] + rules['E1to']['actions']
+}
+# E2: ίδιο με E1, αλλά το θηλυκό είναι σε ιά
+# γλυκός, ελαφρός, νιος (!)
+rules['E2o'] = rules['E1o']
+rules['E2to'] = rules['E1to']
+rules['E2h'] = {
+	'match': 'ιά$',
+	'actions':
+		[
+		{
+			'replace': 'ιά',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ιάς',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ές',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'EpThPlGen',
+		},
+		]
+}
+rules['E2'] = {
+	'match': '(ός|ιά|ό)$',
+	'actions': rules['E2o']['actions'] + rules['E2h']['actions'] + rules['E2to']['actions']
+}
+# E3: κατάληξη σε ος, θηλυκό σε η
+# άσπρος, αφορεσμένος, βαρβάτος, γιομάτος
+rules['E3o'] = {
+	'match': 'ος$',
+	'actions':
+		[
+		{
+			'replace': 'ος',
+			'restype': 'EpArsEnOnom',
+		},
+		{
+			'replace': 'ου',
+			'restype': 'EpArsEnGen',
+		},
+		{
+			'replace': 'ο',
+			'restype': 'EpArsEnAit',
+		},
+		{
+			'replace': 'ε',
+			'restype': 'EpArsEnKlit',
+		},
+		{
+			'replace': 'οι',
+			'restype': 'EpArsPlOnom',
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpArsPlGen',
+		},
+		{
+			'replace': 'ους',
+			'restype': 'EpArsPlAit',
+		},
+		{
+			'replace': 'οι',
+			'restype': 'EpArsPlKlit',
+		},
+		]
+}
+rules['E3h'] = {
+	'match': 'η$',
+	'actions':
+		[
+		{
+			'replace': 'η',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ης',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ες',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpThPlGen',
+		},
+		]
+}
+rules['E3to'] = {
+	'match': 'ο$',
+	'actions':
+		[
+		{
+			'replace': 'ο',
+			'restype': ['EpOuEnOnom', 'EpOuEnAit', 'EpOuEnKlit'],
+		},
+		{
+			'replace': 'ου',
+			'restype': 'EpOuEnGen',
+		},
+		{
+			'replace': 'α',
+			'restype': ['EpOuPlOnom', 'EpOuPlAit', 'EpOuPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpOuPlGen',
+		},
+		]
+}
+rules['E3'] = {
+	'match': '(ος|η|ο)$',
+	'actions': rules['E3o']['actions'] + rules['E3h']['actions'] + rules['E3to']['actions']
+}
+# E4: ίδιο με E3, αλλά θηλυκό σε α
+# αστείος, ωραίος, ατόφιος, γαλάζιος
+rules['E4o'] = rules['E3o']
+rules['E4to'] = rules['E3to']
+rules['E4h'] = {
+	'match': 'α$',
+	'actions':
+		[
+		{
+			'replace': 'α',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ας',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ες',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpThPlGen',
+		},
+		]
+}
+rules['E4'] = {
+	'match': '(ος|α|ο)$',
+	'actions': rules['E4o']['actions'] + rules['E4h']['actions'] + rules['E4to']['actions']
+}
+# E5: ίδιο με E3, αλλά τονίζεται στην προπαραλήγουσα
+# όμορφος, άγευστος, ώριμος
+rules['E5o'] = rules['E3o']
+rules['E5h'] = rules['E3h']
+rules['E5to'] = rules['E3to']
+rules['E5'] = rules['E3']
+# E6: ίδιο με E4, αλλά τονίζεται στην προπαραλήγουσα
+# άγιος, αδέξιος, άθλιος, ύπτιος, χρόνιος, τέλειος
+rules['E6o'] = rules['E4o']
+rules['E6h'] = rules['E4h']
+rules['E6to'] = rules['E4to']
+rules['E6'] = rules['E4']
+
+
 rules['P1a'] = { # Κλειδώνω
 		'match': '(ώνω|ώνομαι)$',
 		'actions':
