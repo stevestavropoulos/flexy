@@ -2670,23 +2670,23 @@ rules['E10h'] = {
 		[
 		{
 			'replace': 'ής',
-			'restype': ['EpArsEnOnom', 'EpArsEnKlit'],
+			'restype': ['EpThEnOnom', 'EpThEnKlit'],
 		},
 		{
 			'replace': 'ούς',
-			'restype': 'EpArsEnGen',
+			'restype': 'EpThEnGen',
 		},
 		{
 			'replace': 'ή',
-			'restype': 'EpArsEnAit',
+			'restype': 'EpThEnAit',
 		},
 		{
 			'replace': 'είς',
-			'restype': ['EpArsPlOnom', 'EpArsPlAit', 'EpArsPlKlit'],
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
 		},
 		{
 			'replace': 'ών',
-			'restype': 'EpArsPlGen',
+			'restype': 'EpThPlGen',
 		},
 		]
 }
@@ -2751,23 +2751,23 @@ rules['E11h'] = {
 		[
 		{
 			'replace': 'ης',
-			'restype': ['EpArsEnOnom', 'EpArsEnKlit'],
+			'restype': ['EpThEnOnom', 'EpThEnKlit'],
 		},
 		{
 			'replace': 'ους',
-			'restype': 'EpArsEnGen',
+			'restype': 'EpThEnGen',
 		},
 		{
 			'replace': 'η',
-			'restype': 'EpArsEnAit',
+			'restype': 'EpThEnAit',
 		},
 		{
 			'replace': 'εις',
-			'restype': ['EpArsPlOnom', 'EpArsPlAit', 'EpArsPlKlit'],
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
 		},
 		{
 			'replace': 'ων',
-			'restype': 'EpArsPlGen',
+			'restype': 'EpThPlGen',
 			'callfunc': transfertonos,
 		},
 		]
@@ -2833,23 +2833,23 @@ rules['E11ah'] = {
 		[
 		{
 			'replace': 'ης',
-			'restype': ['EpArsEnOnom', 'EpArsEnKlit'],
+			'restype': ['EpThEnOnom', 'EpThEnKlit'],
 		},
 		{
 			'replace': 'ους',
-			'restype': 'EpArsEnGen',
+			'restype': 'EpThEnGen',
 		},
 		{
 			'replace': 'η',
-			'restype': 'EpArsEnAit',
+			'restype': 'EpThEnAit',
 		},
 		{
 			'replace': 'εις',
-			'restype': ['EpArsPlOnom', 'EpArsPlAit', 'EpArsPlKlit'],
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
 		},
 		{
 			'replace': 'ων',
-			'restype': 'EpArsPlGen',
+			'restype': 'EpThPlGen',
 		},
 		]
 }
@@ -2878,6 +2878,546 @@ rules['E11ato'] = {
 rules['E11a'] = {
 	'match': '(ης|ες)$',
 	'actions': rules['E11ao']['actions'] + rules['E11ah']['actions'] + rules['E11ato']['actions']
+}
+# E12: κατάληξη σε -ων, -ουσα, -ον
+# τρέχων, άρχων, αρμόζων, ισχύων, κατέχων, πάσχων, υποβόσκων, φέρων
+rules['E12o'] = {
+	'match': 'ων$',
+	'actions':
+		[
+		{
+			'replace': 'ων',
+			'restype': ['EpArsEnOnom', 'EpArsEnKlit'],
+		},
+		{
+			'replace': 'οντος',
+			'restype': 'EpArsEnGen',
+		},
+		{
+			'replace': 'οντα',
+			'restype': 'EpArsEnAit',
+		},
+		{
+			'replace': 'οντες',
+			'restype': ['EpArsPlOnom', 'EpArsPlAit', 'EpArsPlKlit'],
+		},
+		{
+			'replace': 'οντων',
+			'restype': 'EpArsPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E12h'] = {
+	'match': 'ουσα$',
+	'actions':
+		[
+		{
+			'replace': 'ουσα',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ουσης',
+			'restype': 'EpThEnGen',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ουσας',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ουσες',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ουσων',
+			'restype': 'EpThPlGen',
+			'callfunc': transfertonostwice,
+		},
+		]
+}
+rules['E12to'] = {
+	'match': 'ον$',
+	'actions':
+		[
+		{
+			'replace': 'ον',
+			'restype': ['EpOuEnOnom', 'EpOuEnAit', 'EpOuEnKlit'],
+		},
+		{
+			'replace': 'οντος',
+			'restype': 'EpOuEnGen',
+		},
+		{
+			'replace': 'οντα',
+			'restype': ['EpOuPlOnom', 'EpOuPlAit', 'EpOuPlKlit'],
+		},
+		{
+			'replace': 'οντων',
+			'restype': 'EpOuPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E12'] = {
+	'match': '(ων|ουσα|ον)$',
+	'actions': rules['E12o']['actions'] + rules['E12h']['actions'] + rules['E12to']['actions']
+}
+# E12a: κατάληξη σε -ών, -ούσα, -όν
+# ανιών, απών, παθών, παρελθών
+rules['E12ao'] = {
+	'match': 'ών$',
+	'actions':
+		[
+		{
+			'replace': 'ών',
+			'restype': ['EpArsEnOnom', 'EpArsEnKlit'],
+		},
+		{
+			'replace': 'όντος',
+			'restype': 'EpArsEnGen',
+		},
+		{
+			'replace': 'όντος',
+			'restype': 'EpArsEnAit',
+		},
+		{
+			'replace': 'όντες',
+			'restype': ['EpArsPlOnom', 'EpArsPlAit', 'EpArsPlKlit'],
+		},
+		{
+			'replace': 'όντων',
+			'restype': 'EpArsPlGen',
+		},
+		]
+}
+rules['E12ah'] = {
+	'match': 'ούσα$',
+	'actions':
+		[
+		{
+			'replace': 'ούσα',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ούσης',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ούσας',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ούσες',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ουσών',
+			'restype': 'EpThPlGen',
+		},
+		]
+}
+rules['E12ato'] = {
+	'match': 'όν$',
+	'actions':
+		[
+		{
+			'replace': 'όν',
+			'restype': ['EpOuEnOnom', 'EpOuEnAit', 'EpOuEnKlit'],
+		},
+		{
+			'replace': 'όντος',
+			'restype': 'EpOuEnGen',
+		},
+		{
+			'replace': 'όντα',
+			'restype': ['EpOuPlOnom', 'EpOuPlAit', 'EpOuPlKlit'],
+		},
+		{
+			'replace': 'όντων',
+			'restype': 'EpOuPlGen',
+		},
+		]
+}
+rules['E12a'] = {
+	'match': '(ών|ούσα|όν)$',
+	'actions': rules['E12ao']['actions'] + rules['E12ah']['actions'] + rules['E12ato']['actions']
+}
+# E12b: κατάληξη σε -ών, -ούσα, -ούν
+# συμπαθών, ανθών, διαφωνών, κρατών
+rules['E12bo'] = {
+	'match': 'ών$',
+	'actions':
+		[
+		{
+			'replace': 'ών',
+			'restype': ['EpArsEnOnom', 'EpArsEnKlit'],
+		},
+		{
+			'replace': 'ούντος',
+			'restype': 'EpArsEnGen',
+		},
+		{
+			'replace': 'ούντα',
+			'restype': 'EpArsEnAit',
+		},
+		{
+			'replace': 'ούντες',
+			'restype': ['EpArsPlOnom', 'EpArsPlAit', 'EpArsPlKlit'],
+		},
+		{
+			'replace': 'ούντων',
+			'restype': 'EpArsPlGen',
+		},
+		]
+}
+rules['E12bh'] = rules['E12ah']
+rules['E12bto'] = {
+	'match': 'ούν$',
+	'actions':
+		[
+		{
+			'replace': 'ούν',
+			'restype': ['EpOuEnOnom', 'EpOuEnAit', 'EpOuEnKlit'],
+		},
+		{
+			'replace': 'ούντος',
+			'restype': 'EpOuEnGen',
+		},
+		{
+			'replace': 'ούντα',
+			'restype': ['EpOuPlOnom', 'EpOuPlAit', 'EpOuPlKlit'],
+		},
+		{
+			'replace': 'ούντων',
+			'restype': 'EpOuPlGen',
+		},
+		]
+}
+rules['E12b'] = {
+	'match': '(ών|ούσα|ούν)$',
+	'actions': rules['E12bo']['actions'] + rules['E12bh']['actions'] + rules['E12bto']['actions']
+}
+# E12c: κατάληξη σε -είς, -είσα, -έν
+# διασωθείς, δοθείς, κατατεθείς, προσληφθείς, συμφωνηθείς
+rules['E12co'] = {
+	'match': 'είς$',
+	'actions':
+		[
+		{
+			'replace': 'είς',
+			'restype': ['EpArsEnOnom', 'EpArsEnKlit'],
+		},
+		{
+			'replace': 'έντος',
+			'restype': 'EpArsEnGen',
+		},
+		{
+			'replace': 'έντα',
+			'restype': 'EpArsEnAit',
+		},
+		{
+			'replace': 'έντες',
+			'restype': ['EpArsPlOnom', 'EpArsPlAit', 'EpArsPlKlit'],
+		},
+		{
+			'replace': 'έντων',
+			'restype': 'EpArsPlGen',
+		},
+		]
+}
+rules['E12ch'] = {
+	'match': 'είσα$',
+	'actions':
+		[
+		{
+			'replace': 'είσα',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'είσης',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'είσας',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'είσες',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'εισών',
+			'restype': 'EpThPlGen',
+		},
+		]
+}
+rules['E12cto'] = {
+	'match': 'έν$',
+	'actions':
+		[
+		{
+			'replace': 'έν',
+			'restype': ['EpOuEnOnom', 'EpOuEnAit', 'EpOuEnKlit'],
+		},
+		{
+			'replace': 'έντος',
+			'restype': 'EpOuEnGen',
+		},
+		{
+			'replace': 'έντα',
+			'restype': ['EpOuPlOnom', 'EpOuPlAit', 'EpOuPlKlit'],
+		},
+		{
+			'replace': 'έντων',
+			'restype': 'EpOuPlGen',
+		},
+		]
+}
+rules['E12c'] = {
+	'match': '(είς|είσα|έν)$',
+	'actions': rules['E12co']['actions'] + rules['E12ch']['actions'] + rules['E12cto']['actions']
+}
+# E12d: κατάληξη σε -είς, -είσα, -έν
+# λήξας, άπας, σύμπας, διατελέσας
+rules['E12do'] = {
+	'match': 'ας$',
+	'actions':
+		[
+		{
+			'replace': 'ας',
+			'restype': ['EpArsEnOnom', 'EpArsEnKlit'],
+		},
+		{
+			'replace': 'αντος',
+			'restype': 'EpArsEnGen',
+		},
+		{
+			'replace': 'αντα',
+			'restype': 'EpArsEnAit',
+		},
+		{
+			'replace': 'αντες',
+			'restype': ['EpArsPlOnom', 'EpArsPlAit', 'EpArsPlKlit'],
+		},
+		{
+			'replace': 'αντων',
+			'restype': 'EpArsPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E12dh'] = {
+	'match': 'ασα$',
+	'actions':
+		[
+		{
+			'replace': 'ασα',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ασης',
+			'restype': 'EpThEnGen',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ασας',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ασες',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ασών',
+			'restype': 'EpThPlGen',
+			'callfunc': deletefirsttonos,
+		},
+		]
+}
+rules['E12dto'] = {
+	'match': 'αν$',
+	'actions':
+		[
+		{
+			'replace': 'αν',
+			'restype': ['EpOuEnOnom', 'EpOuEnAit', 'EpOuEnKlit'],
+		},
+		{
+			'replace': 'αντος',
+			'restype': 'EpOuEnGen',
+		},
+		{
+			'replace': 'αντα',
+			'restype': ['EpOuPlOnom', 'EpOuPlAit', 'EpOuPlKlit'],
+		},
+		{
+			'replace': 'αντων',
+			'restype': 'EpOuPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E12d'] = {
+	'match': '(ας|ασα|αν)$',
+	'actions': rules['E12do']['actions'] + rules['E12dh']['actions'] + rules['E12dto']['actions']
+}
+# E12e: κατάληξη σε -ους, -ους, -ουν
+# βραδύνους, άνους, μικρόνους, οξύνους
+rules['E12eo'] = {
+	'match': 'ους$',
+	'actions':
+		[
+		{
+			'replace': 'ους',
+			'restype': 'EpArsEnOnom',
+		},
+		{
+			'replace': 'ου',
+			'restype': ['EpArsEnGen', 'EpArsEnAit'],
+		},
+		{
+			'replace': 'οες',
+			'restype': ['EpArsPlOnom', 'EpArsPlAit'],
+		},
+		{
+			'replace': 'οων',
+			'restype': 'EpArsPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E12eh'] = {
+	'match': 'ους$',
+	'actions':
+		[
+		{
+			'replace': 'ους',
+			'restype': 'EpThEnOnom',
+		},
+		{
+			'replace': 'ου',
+			'restype': ['EpThEnGen', 'EpThEnAit'],
+		},
+		{
+			'replace': 'οες',
+			'restype': ['EpThPlOnom', 'EpThPlAit'],
+		},
+		{
+			'replace': 'οων',
+			'restype': 'EpThPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E12eto'] = {
+	'match': 'ουν$',
+	'actions':
+		[
+		{
+			'replace': 'ουν',
+			'restype': ['EpOuEnOnom', 'EpOuEnAit'],
+		},
+		{
+			'replace': 'ου',
+			'restype': 'EpOuEnGen',
+		},
+		{
+			'replace': 'οα',
+			'restype': ['EpOuPlOnom', 'EpOuPlAit'],
+		},
+		{
+			'replace': 'οων',
+			'restype': 'EpOuPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E12e'] = {
+	'match': '(ους|ουν)$',
+	'actions': rules['E12eo']['actions'] + rules['E12eh']['actions'] + rules['E12eto']['actions']
+}
+# E12st: κατάληξη σε -ων, -ώσα, -ων
+# δρων, ζων, ενθουσιών, κυβερνών
+rules['E12sto'] = {
+	'match': '(ων|ών)$',
+	'actions':
+		[
+		{
+			'search': '',
+			'replace': '',
+			'restype': ['EpArsEnOnom', 'EpArsEnKlit'],
+		},
+		{
+			'replace': 'ώντος',
+			'restype': 'EpArsEnGen',
+		},
+		{
+			'replace': 'ώντα',
+			'restype': 'EpArsEnAit',
+		},
+		{
+			'replace': 'ώντες',
+			'restype': ['EpArsPlOnom', 'EpArsPlAit', 'EpArsPlKlit'],
+		},
+		{
+			'replace': 'ώντων',
+			'restype': 'EpArsPlGen',
+		},
+		]
+}
+rules['E12sth'] = {
+	'match': 'ώσα$',
+	'actions':
+		[
+		{
+			'replace': 'ώσα',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ώσης',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ώσας',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ώσες',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ωσών',
+			'restype': 'EpThPlGen',
+		},
+		]
+}
+rules['E12stto'] = {
+	'match': '(ων|ών)$',
+	'actions':
+		[
+		{
+			'search': '',
+			'replace': '',
+			'restype': ['EpOuEnOnom', 'EpOuEnAit', 'EpOuEnKlit'],
+		},
+		{
+			'replace': 'ώντος',
+			'restype': 'EpOuEnGen',
+		},
+		{
+			'replace': 'ώντα',
+			'restype': ['EpOuPlOnom', 'EpOuPlAit'],
+		},
+		{
+			'replace': 'ώντων',
+			'restype': 'EpOuPlGen',
+		},
+		]
+}
+rules['E12st'] = {
+	'match': '(ων|ών)$', # Δεν δεχόμαστε τη μορφή του θηλυκού ως εκκίνηση
+	'actions': rules['E12sto']['actions'] + rules['E12sth']['actions'] + rules['E12stto']['actions']
 }
 
 
