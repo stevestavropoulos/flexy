@@ -3407,7 +3407,7 @@ rules['E12stto'] = {
 		},
 		{
 			'replace': 'ώντα',
-			'restype': ['EpOuPlOnom', 'EpOuPlAit'],
+			'restype': ['EpOuPlOnom', 'EpOuPlAit', 'EpOuPlKlit'],
 		},
 		{
 			'replace': 'ώντων',
@@ -3418,6 +3418,458 @@ rules['E12stto'] = {
 rules['E12st'] = {
 	'match': '(ων|ών)$', # Δεν δεχόμαστε τη μορφή του θηλυκού ως εκκίνηση
 	'actions': rules['E12sto']['actions'] + rules['E12sth']['actions'] + rules['E12stto']['actions']
+}
+# E13: κατάληξη σε -ός, -ά, -ό
+# φθοροποιός, ειρηνοποιός, ζωοποιός, κακοποιός, χαροποιός
+rules['E13o'] = {
+	'match': '(ός)$',
+	'actions':
+		[
+		{
+			'replace': 'ός',
+			'restype': 'EpArsEnOnom',
+		},
+		{
+			'replace': 'ού',
+			'restype': 'EpArsEnGen',
+		},
+		{
+			'replace': 'ό',
+			'restype': 'EpArsEnAit',
+		},
+		{
+			'replace': 'έ',
+			'restype': 'EpArsEnKlit',
+		},
+		{
+			'replace': 'οί',
+			'restype': ['EpArsPlOnom', 'EpArsPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'EpArsPlGen',
+		},
+		{
+			'replace': 'ούς',
+			'restype': 'EpArsPlAit',
+		},
+		]
+}
+rules['E13oh'] = {
+	'match': '(ός)$',
+	'actions':
+		[
+		{
+			'replace': 'ός',
+			'restype': 'EpThEnOnom',
+		},
+		{
+			'replace': 'ού',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ό',
+			'restype': 'EpThEnAit',
+		},
+		{
+			'replace': 'έ',
+			'restype': 'EpThEnKlit',
+		},
+		{
+			'replace': 'οί',
+			'restype': ['EpThPlOnom', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'EpThPlGen',
+		},
+		{
+			'replace': 'ούς',
+			'restype': 'EpThPlAit',
+		},
+		]
+}
+rules['E13h'] = {
+	'match': 'ά$',
+	'actions':
+		[
+		{
+			'replace': 'ά',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'άς',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ές',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'EpThPlGen',
+		},
+		]
+}
+rules['E13to'] = {
+	'match': '(ό)$',
+	'actions':
+		[
+		{
+			'replace': 'ό',
+			'restype': ['EpOuEnOnom', 'EpOuEnAit', 'EpOuEnKlit'],
+		},
+		{
+			'replace': 'ού',
+			'restype': 'EpOuEnGen',
+		},
+		{
+			'replace': 'ά',
+			'restype': ['EpOuPlOnom', 'EpOuPlAit', 'EpOuPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'EpOuPlGen',
+		},
+		]
+}
+rules['E13'] = {
+	'match': '(ός|ά|ό)$',
+	'actions': rules['E13o']['actions'] + rules['E13oh']['actions'] +  rules['E13h']['actions'] + rules['E13to']['actions']
+}
+# E14: κατάληξη σε -ος, -α, -ο
+# ζημιογόνος, ελικοφόρος, εντομοφάγος, ιστιοφόρος, καινοτόμος, ωοτόκος
+rules['E14o'] = {
+	'match': '(ος)$',
+	'actions':
+		[
+		{
+			'replace': 'ος',
+			'restype': 'EpArsEnOnom',
+		},
+		{
+			'replace': 'ου',
+			'restype': 'EpArsEnGen',
+		},
+		{
+			'replace': 'ο',
+			'restype': 'EpArsEnAit',
+		},
+		{
+			'replace': 'ε',
+			'restype': 'EpArsEnKlit',
+		},
+		{
+			'replace': 'οι',
+			'restype': ['EpArsPlOnom', 'EpArsPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpArsPlGen',
+		},
+		{
+			'replace': 'ους',
+			'restype': 'EpArsPlAit',
+		},
+		]
+}
+rules['E14oh'] = {
+	'match': '(ος)$',
+	'actions':
+		[
+		{
+			'replace': 'ος',
+			'restype': 'EpThEnOnom',
+		},
+		{
+			'replace': 'ου',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ο',
+			'restype': 'EpThEnAit',
+		},
+		{
+			'replace': 'ε',
+			'restype': 'EpThEnKlit',
+		},
+		{
+			'replace': 'οι',
+			'restype': ['EpThPlOnom', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpThPlGen',
+		},
+		{
+			'replace': 'ους',
+			'restype': 'EpThPlAit',
+		},
+		]
+}
+rules['E14h'] = {
+	'match': 'α$',
+	'actions':
+		[
+		{
+			'replace': 'α',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ας',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ες',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpThPlGen',
+		},
+		]
+}
+rules['E14to'] = {
+	'match': '(ο)$',
+	'actions':
+		[
+		{
+			'replace': 'ο',
+			'restype': ['EpOuEnOnom', 'EpOuEnAit', 'EpOuEnKlit'],
+		},
+		{
+			'replace': 'ου',
+			'restype': 'EpOuEnGen',
+		},
+		{
+			'replace': 'α',
+			'restype': ['EpOuPlOnom', 'EpOuPlAit', 'EpOuPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpOuPlGen',
+		},
+		]
+}
+rules['E14'] = {
+	'match': '(ος|α|ο)$',
+	'actions': rules['E14o']['actions'] + rules['E14oh']['actions'] + rules['E14h']['actions'] + rules['E14to']['actions']
+}
+# E15: κατάληξη σε -ος, -α, -ο. Ίδιο με Ε14, με κάποιες έξτρα μορφές
+# ευκλείδειος, δαμόκλειος, έγγειος, έγκυος, διαγώνιος, λεόντειος
+rules['E15o'] = {
+	'match': '(ος)$',
+	'actions': rules['E14o']['actions'] +
+		[
+		{
+			'replace': 'ου',
+			'restype': 'EpArsEnGen',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpArsPlGen',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ους',
+			'restype': 'EpArsPlAit',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E15oh'] = {
+	'match': '(ος)$',
+	'actions': rules['E14oh']['actions'] +
+		[
+		{
+			'replace': 'ου',
+			'restype': 'EpThEnGen',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpThPlGen',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ους',
+			'restype': 'EpThPlAit',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E15h'] = {
+	'match': 'α$',
+	'actions':
+		[
+		{
+			'replace': 'α',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ας',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ες',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpThPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E15to'] = {
+	'match': '(ο)$',
+	'actions': rules['E14to']['actions'] +
+		[
+		{
+			'replace': 'ου',
+			'restype': 'EpOuEnGen',
+			'callfunc': transfertonos,
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpOuPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E15'] = {
+	'match': '(ος|α|ο)$',
+	'actions': rules['E15o']['actions'] + rules['E15oh']['actions'] + rules['E15h']['actions'] + rules['E15to']['actions']
+}
+# E16: κατάληξη σε -ός, -ή, -ό. Ίδιο με Ε13, αλλά -ή στο θηλυκό
+# ανενεργός, ηχαγωγός, προσαγωγός, ενεργός
+rules['E16o'] = rules['E13o']
+rules['E16oh'] = rules['E13oh']
+rules['E16h'] = {
+	'match': 'ή$',
+	'actions':
+		[
+		{
+			'replace': 'ή',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ής',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ές',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ών',
+			'restype': 'EpThPlGen',
+		},
+		]
+}
+rules['E16to'] = rules['E13to']
+rules['E16'] = {
+	'match': '(ός|ή|ό)$',
+	'actions': rules['E16o']['actions'] + rules['E16oh']['actions'] + rules['E16h']['actions'] + rules['E16to']['actions']
+}
+# E17: κατάληξη σε -ος, -η, -ο. Ίδιο με Ε15, αλλά θυληκό σε -η
+# διάδικος, 
+rules['E17o'] = rules['E15o']
+rules['E17oh'] = rules['E15oh']
+rules['E17h'] = {
+	'match': 'η$',
+	'actions':
+		[
+		{
+			'replace': 'η',
+			'restype': ['EpThEnOnom', 'EpThEnAit', 'EpThEnKlit'],
+		},
+		{
+			'replace': 'ης',
+			'restype': 'EpThEnGen',
+		},
+		{
+			'replace': 'ες',
+			'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+		},
+		{
+			'replace': 'ων',
+			'restype': 'EpThPlGen',
+			'callfunc': transfertonos,
+		},
+		]
+}
+rules['E17to'] = rules['E15to']
+rules['E17'] = {
+	'match': '(ος|η|ο)$',
+	'actions': rules['E17o']['actions'] +  rules['E17oh']['actions'] + rules['E17h']['actions'] + rules['E17to']['actions']
+}
+rules['E'] =  {
+0:
+	{
+		'match': '^πολύς$',
+		'search': 'ύς$',
+		'actions':
+			[
+			{
+				'replace': 'ύς',
+				'restype': 'EpArsEnOnom',
+			},
+			{
+				'replace': 'ύ',
+				'restype': ['EpArsEnGen', 'EpArsEnAit'],
+			},
+			{
+				'replace': 'λού',
+				'restype': 'EpArsEnGen',
+			},
+			{
+				'replace': 'λοί',
+				'restype': ['EpArsPlOnom', 'EpArsPlKlit'],
+			},
+			{
+				'replace': 'λών',
+				'restype': 'EpArsPlGen',
+			},
+			{
+				'replace': 'λούς',
+				'restype': 'EpArsPlAit',
+			},
+			{
+				'replace': 'λή',
+				'restype': ['EpThEnOnom', 'EpThEnAit'],
+			},
+			{
+				'replace': 'λής',
+				'restype': 'EpThEnGen',
+			},
+			{
+				'replace': 'λές',
+				'restype': ['EpThPlOnom', 'EpThPlAit', 'EpThPlKlit'],
+			},
+			{
+				'replace': 'λών',
+				'restype': 'EpThPlGen',
+			},
+			{
+				'replace': 'ύ',
+				'restype': ['EpOuEnOnom', 'EpOuEnGen', 'EpOuEnAit'],
+			},
+			{
+				'replace': 'λού',
+				'restype': 'EpOuEnGen',
+			},
+			{
+				'replace': 'λά',
+				'restype': ['EpOuPlOnom', 'EpOuPlAit', 'EpOuPlKlit'],
+			},
+			{
+				'replace': 'λών',
+				'restype': 'EpOuPlGen',
+			},
+			]
+	}
 }
 
 
