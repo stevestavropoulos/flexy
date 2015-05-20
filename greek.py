@@ -722,7 +722,7 @@ rules['O18nopnok'] = {
 		},
 		]
 }
-# δρόμος, όχλος, νότος, σάλος
+# όχλος, νότος, σάλος
 rules['O18nop'] = {
 	'match': 'ος$',
 	'actions': rules['O18nopnok']['actions'] +
