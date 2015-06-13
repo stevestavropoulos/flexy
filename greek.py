@@ -39,15 +39,17 @@ wordencoding = [
 	{'from': 'εύ', 'to': 'e'},
 	{'from': 'αύ', 'to': 'f'},
 
-	{'from': 'αι', 'to': 'k'},
-	{'from': 'ου', 'to': 'l'},
-	{'from': 'ει', 'to': 'm'},
-	{'from': 'οι', 'to': 'n'},
-	{'from': 'ευ', 'to': 'o'},
-	{'from': 'αυ', 'to': 'p'},
+	{'from': 'αι', 'to': 'n'},
+	{'from': 'ου', 'to': 'o'},
+	{'from': 'ει', 'to': 'p'},
+	{'from': 'οι', 'to': 'q'},
+	{'from': 'ευ', 'to': 'r'},
+	{'from': 'αυ', 'to': 's'},
 ]
-tonismenafwnhenta = 'abcdefάέήύίόώΐΰ';
-atonafwnhenta = 'klmnopαεηυιοωϊϋ';
+# We add g, h, i, j, k, l and m for use by the rules
+tonismenafwnhenta = 'abcdefάέήύίόώΐΰghijklm';
+# We add t, u, v, w, x, y and z for use by the rules
+atonafwnhenta = 'nopqrsαεηυιοωϊϋtuvwxyz';
 fwnhenta = tonismenafwnhenta + atonafwnhenta;
 symfwna = 'βγδζθκλμνξπρστφχψ';
 
