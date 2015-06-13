@@ -83,14 +83,22 @@ usage = "Usage: %prog [<options>] <word> [<rule id>]"
 parser = OptionParser(usage=usage, version="%%prog %s" % version)
 parser.add_option("-l", "--language", dest="language", default='greek',
                   help="use LANGUAGE for rules definitions", metavar="LANGUAGE")
+parser.add_option("--list-rules", dest="listrules", action="store_true",
+                  help="list all valid rules defined")
 (options, args) = parser.parse_args()
 
-if len(args) < 1:
-	parser.error("Incorrect number of arguments")
 if not os.path.isfile(options.language + '.py'):
 	die("File %s doesn't exist!" % options.language + '.py', 4)
 else:
 	exec("import " + options.language + " as langdef")
+
+if options.listrules:
+	for avariation in langdef.rules:
+		print (avariation)
+	sys.exit(0)
+
+if len(args) < 1:
+	parser.error("Incorrect number of arguments")
 
 word = args[0]
 if len(args) >= 2:
