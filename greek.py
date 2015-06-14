@@ -46,12 +46,16 @@ wordencoding = [
 	{'from': 'ευ', 'to': 'r'},
 	{'from': 'αυ', 'to': 's'},
 ]
-# We add g, h, i, j, k, l and m for use by the rules
-tonismenafwnhenta = 'abcdefάέήύίόώΐΰghijklm';
-# We add t, u, v, w, x, y and z for use by the rules
-atonafwnhenta = 'nopqrsαεηυιοωϊϋtuvwxyz';
+
+wordencoding += [{'from': 'λι', 'to': 'λx'}]
+# This doesn't work:
+#wordencoding += [{'from': 'λιώνω', 'to': 'λxώνω'}]
+
+tonismenafwnhenta = 'abcdefάέήύίόώΐΰ';
+atonafwnhenta = 'nopqrsαεηυιοωϊϋ';
 fwnhenta = tonismenafwnhenta + atonafwnhenta;
-symfwna = 'βγδζθκλμνξπρστφχψ';
+# We add x, y, z, for use by the rules
+symfwna = 'βγδζθκλμνξπρστφχψxyz';
 
 tonismenofwnhen = '[' + tonismenafwnhenta + ']'
 atonofwnhen = '[' + atonafwnhenta + ']'
@@ -3905,6 +3909,9 @@ rules['P1a'] = { # Κλειδώνω
 			},
 			{
 				'replace': 'ώνε',
+				'match2' : '^%s+%s' % (symfwno, tonismenofwnhen),
+				'search2': '^',
+				'replace2': 'ε',
 				'restype': 'RhmEnergEnestProstEsy',
 				'callfunc': transfertonosup,
 			},
