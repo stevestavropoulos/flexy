@@ -36,7 +36,7 @@ def flexit(word, variation, langdef):
 	curule = langdef.rules[variation]
 	if 'actions' in curule:
 		curule = {0: curule}
-	for variationkey, detail in curule.iteritems():
+	for variationkey, detail in curule.items():
 		if method_exists(langdef, 'preaction'):
 			for tmp in ['search', 'match']:
 				if tmp in detail:
@@ -74,7 +74,7 @@ def flexit(word, variation, langdef):
 				new = action['callfunc'](new)
 			if method_exists(langdef, 'postaction'):
 				new = langdef.postaction(new)
-			if isinstance(action['restype'], basestring):
+			if isinstance(action['restype'], str):
 				action['restype'] = [action['restype']]
 			for result in action['restype']:
 				print(new, result)
