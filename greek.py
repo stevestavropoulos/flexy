@@ -100,6 +100,12 @@ def _transfertonos(word, direction):
 			neostonos = tr(atonafwnhenta, tonismenafwnhenta, symplegma.group(2))
 			return symplegma.group(1) + neostonos + symplegma.group(3) + paliostonos + symplegma.group(5)
 	else:
+		if direction == 'up':
+			expression = '^%s+%s' % (symfwno, tonismenofwnhen)
+			symplegmare = re.compile(expression);
+			symplegma = symplegmare.match(word)
+			if symplegma:
+				return _transfertonos('ε' + word, direction)
 		print('Could not detect ascent in %s (original: %s)' % (word, postaction(word)), file=sys.stderr)
 		return word # No match, no accent, do nothing more
 
