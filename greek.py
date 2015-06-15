@@ -47,10 +47,6 @@ wordencoding = [
 	{'from': 'αυ', 'to': 's'},
 ]
 
-wordencoding += [{'from': 'λι', 'to': 'λx'}]
-# This doesn't work:
-#wordencoding += [{'from': 'λιώνω', 'to': 'λxώνω'}]
-
 tonismenafwnhenta = 'abcdefάέήύίόώΐΰ';
 atonafwnhenta = 'nopqrsαεηυιοωϊϋ';
 fwnhenta = tonismenafwnhenta + atonafwnhenta;
