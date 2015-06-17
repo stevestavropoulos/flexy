@@ -64,18 +64,12 @@ def preaction(word):
 def postaction(word):
 	return translateback(wordencoding, word)
 
-def transfertonostwice(word):
-	word = transfertonos(word)
-	return transfertonos(word)
-
-def transfertonos(word):
+def transfertonosdown(word):
 	return _transfertonos(word, 'down')
 
-def transfertonosdown(word):
-	return transfertonos(word)
-
 def transfertonosdowntwice(word):
-	return transfertonostwice(word)
+	word = transfertonosdown(word)
+	return transfertonosdown(word)
 
 def transfertonosup(word):
 	return _transfertonos(word, 'up')
@@ -226,7 +220,7 @@ rules['O3'] = {
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -238,7 +232,7 @@ rules['O3a'] = {
 		{
 			'replace': 'ος',
 			'restype': 'OusEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -260,12 +254,12 @@ rules['O4'] = {
 		{
 			'replace': 'αδες',
 			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'αδων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -291,7 +285,7 @@ rules['O5'] = {
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -310,7 +304,7 @@ rules['O5a'] = {
 			{
 				'replace': 'αντων',
 				'restype': 'OusPlGen',
-				'callfunc': transfertonos,
+				'callfunc': transfertonosdown,
 			},
 			]
 	},
@@ -327,7 +321,7 @@ rules['O5a'] = {
 			{
 				'replace': 'ων',
 				'restype': 'OusPlGen',
-				'callfunc': transfertonos,
+				'callfunc': transfertonosdown,
 			},
 			]
 	},
@@ -351,7 +345,7 @@ rules['O5a'] = {
 			{
 				'replace': 'ητων',
 				'restype': 'OusPlGen',
-				'callfunc': transfertonos,
+				'callfunc': transfertonosdown,
 			},
 			]
 	},
@@ -368,7 +362,7 @@ rules['O5a'] = {
 			{
 				'replace': 'ων',
 				'restype': 'OusPlGen',
-				'callfunc': transfertonos,
+				'callfunc': transfertonosdown,
 			},
 			]
 	},
@@ -381,12 +375,12 @@ rules['O6'] = {
 		{
 			'replace': 'αδες',
 			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			'callfunc': transfertonostwice,
+			'callfunc': transfertonosdowntwice,
 		},
 		{
 			'replace': 'αδων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonostwice,
+			'callfunc': transfertonosdowntwice,
 		},
 		]
 }
@@ -485,7 +479,7 @@ rules['O10'] = {
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -529,12 +523,12 @@ rules['O12'] = {
 		{
 			'replace': 'ηδες',
 			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ηδων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -792,7 +786,7 @@ rules['O19nop'] = {
 		{
 			'replace': 'ου',
 			'restype': 'OusEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ο',
@@ -816,12 +810,12 @@ rules['O19'] = {
 		{
 			'replace': 'ους',
 			'restype': 'OusPlAit',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -837,7 +831,7 @@ rules['O20anop'] = {
 		{
 			'replace': 'ου',
 			'restype': 'OusEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -849,12 +843,12 @@ rules['O20a'] = {
 		{
 			'replace': 'ους',
 			'restype': 'OusPlAit',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1011,7 +1005,7 @@ rules['O25'] = {
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1038,7 +1032,7 @@ rules['O27'] = {
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonostwice,
+			'callfunc': transfertonosdowntwice,
 		},
 		]
 }
@@ -1131,7 +1125,7 @@ rules['O30'] = {
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1178,7 +1172,7 @@ rules['O33nop'] = {
 		{
 			'replace': 'εως',
 			'restype': 'OusEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1190,12 +1184,12 @@ rules['O33'] = {
 		{
 			'replace': 'εις',
 			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'εων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1290,7 +1284,7 @@ rules['O36nop'] = {
 		{
 			'replace': 'ου',
 			'restype': 'OusEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ο',
@@ -1314,12 +1308,12 @@ rules['O36'] = {
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ους',
 			'restype': 'OusPlAit',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1487,7 +1481,7 @@ rules['O40nop'] = {
 		{
 			'replace': 'ου',
 			'restype': 'OusEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1503,7 +1497,7 @@ rules['O40'] = {
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1547,7 +1541,7 @@ rules['O42nop'] = {
 		{
 			'replace': 'ου',
 			'restype': 'OusEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1559,12 +1553,12 @@ rules['O42'] = {
 		{
 			'replace': 'ου',
 			'restype': 'OusEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1722,7 +1716,7 @@ rules['O46'] = {
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1742,7 +1736,7 @@ rules['O47nop'] = {
 		{
 			'replace': 'ους',
 			'restype': 'OusEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1754,12 +1748,12 @@ rules['O47'] = {
 		{
 			'replace': 'η',
 			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonostwice,
+			'callfunc': transfertonosdowntwice,
 		},
 		]
 }
@@ -1791,7 +1785,7 @@ rules['O48'] = {
 		{
 			'replace': 'ατων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1808,7 +1802,7 @@ rules['O49nop'] = {
 		{
 			'replace': 'ατος',
 			'restype': 'OusEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1820,12 +1814,12 @@ rules['O49'] = {
 		{
 			'replace': 'ατα',
 			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ατων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonostwice,
+			'callfunc': transfertonosdowntwice,
 		},
 		]
 }
@@ -1842,7 +1836,7 @@ rules['O50nop'] = {
 		{
 			'replace': 'ατος',
 			'restype': 'OusEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1854,12 +1848,12 @@ rules['O50'] = {
 		{
 			'replace': 'ατα',
 			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ατων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonostwice,
+			'callfunc': transfertonosdowntwice,
 		},
 		]
 }
@@ -1891,7 +1885,7 @@ rules['O51'] = {
 		{
 			'replace': 'ατων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -1995,7 +1989,7 @@ rules['O53'] = {
 		{
 			'replace': 'οντων',
 			'restype': 'OusPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -2749,7 +2743,7 @@ rules['E11o'] = {
 		{
 			'replace': 'ων',
 			'restype': 'EpArsPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -2776,7 +2770,7 @@ rules['E11h'] = {
 		{
 			'replace': 'ων',
 			'restype': 'EpThPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -2799,7 +2793,7 @@ rules['E11to'] = {
 		{
 			'replace': 'ων',
 			'restype': 'EpOuPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -2912,7 +2906,7 @@ rules['E12o'] = {
 		{
 			'replace': 'οντων',
 			'restype': 'EpArsPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -2927,7 +2921,7 @@ rules['E12h'] = {
 		{
 			'replace': 'ουσης',
 			'restype': 'EpThEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ουσας',
@@ -2940,7 +2934,7 @@ rules['E12h'] = {
 		{
 			'replace': 'ουσων',
 			'restype': 'EpThPlGen',
-			'callfunc': transfertonostwice,
+			'callfunc': transfertonosdowntwice,
 		},
 		]
 }
@@ -2963,7 +2957,7 @@ rules['E12to'] = {
 		{
 			'replace': 'οντων',
 			'restype': 'EpOuPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -3211,7 +3205,7 @@ rules['E12do'] = {
 		{
 			'replace': 'αντων',
 			'restype': 'EpArsPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -3226,7 +3220,7 @@ rules['E12dh'] = {
 		{
 			'replace': 'ασης',
 			'restype': 'EpThEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ασας',
@@ -3262,7 +3256,7 @@ rules['E12dto'] = {
 		{
 			'replace': 'αντων',
 			'restype': 'EpOuPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -3291,7 +3285,7 @@ rules['E12eo'] = {
 		{
 			'replace': 'οων',
 			'restype': 'EpArsPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -3314,7 +3308,7 @@ rules['E12eh'] = {
 		{
 			'replace': 'οων',
 			'restype': 'EpThPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -3337,7 +3331,7 @@ rules['E12eto'] = {
 		{
 			'replace': 'οων',
 			'restype': 'EpOuPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -3672,17 +3666,17 @@ rules['E15o'] = {
 		{
 			'replace': 'ου',
 			'restype': 'EpArsEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ων',
 			'restype': 'EpArsPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ους',
 			'restype': 'EpArsPlAit',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -3693,17 +3687,17 @@ rules['E15oh'] = {
 		{
 			'replace': 'ου',
 			'restype': 'EpThEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ων',
 			'restype': 'EpThPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ους',
 			'restype': 'EpThPlAit',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -3726,7 +3720,7 @@ rules['E15h'] = {
 		{
 			'replace': 'ων',
 			'restype': 'EpThPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -3737,12 +3731,12 @@ rules['E15to'] = {
 		{
 			'replace': 'ου',
 			'restype': 'EpOuEnGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		{
 			'replace': 'ων',
 			'restype': 'EpOuPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -3804,7 +3798,7 @@ rules['E17h'] = {
 		{
 			'replace': 'ων',
 			'restype': 'EpThPlGen',
-			'callfunc': transfertonos,
+			'callfunc': transfertonosdown,
 		},
 		]
 }
@@ -3911,9 +3905,6 @@ rules['P1a'] = { # Κλειδώνω
 			},
 			{
 				'replace': 'ώνε',
-				'match2' : '^%s+%s' % (symfwno, tonismenofwnhen),
-				'search2': '^',
-				'replace2': 'ε',
 				'restype': 'RhmEnergEnestProstEsy',
 				'callfunc': transfertonosup,
 			},
