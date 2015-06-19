@@ -31,6 +31,7 @@ version="0.3pre"
 def flexit(word, variation, langdef):
 	if variation not in langdef.rules:
 		die("I don't know how to do technique %s" % variation, 5)
+	baseword = word
 	if method_exists(langdef, 'preaction'):
 		word = langdef.preaction(word)
 	curule = langdef.rules[variation]
@@ -77,7 +78,7 @@ def flexit(word, variation, langdef):
 			if isinstance(action['restype'], str):
 				action['restype'] = [action['restype']]
 			for result in action['restype']:
-				print(new, result)
+				print(new, result, baseword, variation)
 
 usage = "Usage: %prog [<options>] <word> [<rule id>]"
 parser = OptionParser(usage=usage, version="%%prog %s" % version)
