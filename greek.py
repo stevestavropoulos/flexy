@@ -195,7 +195,7 @@ rules['O3nopgen'] = {
 	'match': 'ας$',
 	'actions': rules['O2nopgen']['actions'],
 }
-# κανάγιας, τυχεράκιας
+# κανάγιας, τυχεράκιας, αέρας
 rules['O3ides'] = {
 	'match': 'ας$',
 	'actions': rules['O3nop']['actions'] + 
@@ -289,7 +289,8 @@ rules['O5'] = {
 		},
 		]
 }
-# γίγας, γίγαντας, άτλας, άτλαντας, ελέφας
+# γίγας, γίγαντας, άτλας, άτλαντας, ελέφας,
+# έρπης, έρπητας, γόης, γόητας
 rules['O5a'] = {
 0:
 	{
@@ -3897,7 +3898,7 @@ rules['P1a'] = { # Κλειδώνω
 			},
 			{
 				'replace': 'ώνετε',
-				'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis', 'RhmEnergE3akolMellEseis'],
+				'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis', 'RhmEnergE3akolMellEseis', 'RhmEnergEnestProstEseis'],
 			},
 			{
 				'replace': 'ώνουν',
@@ -4182,7 +4183,7 @@ rules['P1b'] = { # Κλειδώνω
 			},
 			{
 				'replace': 'ωμένος',
-				'restype': 'RhmPathPrkMtx',
+				'restype': 'RhmPathPrkMetox',
 			},
 			# End of Pathhtikh Fwnh
 			]
@@ -4213,7 +4214,7 @@ rules['P2.1a'] = { # αγαλιάζω, αθεΐζω, αναδακρύζω
 			},
 			{
 				'replace': 'ζετε',
-				'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis', 'RhmEnergE3akolMellEseis'],
+				'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis', 'RhmEnergE3akolMellEseis', 'RhmEnergEnestProstEseis'],
 			},
 			{
 				'replace': 'ζουν',
@@ -4540,7 +4541,7 @@ rules['P2.1b'] = { # αναλογίζομαι, ανασπάζομαι, αστε�
 			},
 			{
 				'replace': 'σμενος',
-				'restype': 'RhmPathPrkMtx',
+				'restype': 'RhmPathPrkMetox',
 				'callfunc': transfertonosdown,
 			},
 			# End of Pathhtikh Fwnh
@@ -4591,7 +4592,7 @@ rules['P2.2a'] = {
 		{
 			'search' : 'ω|ομαι',
 			'replace': 'ετε',
-			'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis', 'RhmEnergE3akolMellEseis'],
+			'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis', 'RhmEnergE3akolMellEseis', 'RhmEnergEnestProstEseis'],
 		},
 		{
 			'search' : 'ω|ομαι',
@@ -4917,7 +4918,7 @@ rules['P2.2b'] = {
 		},
 		{
 			'replace': 'γμενος',
-			'restype': 'RhmPathPrkMtx',
+			'restype': 'RhmPathPrkMetox',
 			'callfunc': transfertonosdown,
 		},
 		# End of Pathhtikh Fwnh
