@@ -1326,7 +1326,7 @@ rules['O37nop'] = {
 		[
 		{
 			'replace': 'ού',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ούς',
@@ -1357,7 +1357,7 @@ rules['O37anop'] = {
 		[
 		{
 			'replace': 'ω',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ως',
@@ -1388,7 +1388,7 @@ rules['O37b'] = {
 		[
 		{
 			'replace': 'ώ',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ούς',
@@ -1408,7 +1408,7 @@ rules['O38nop'] = {
 		[
 		{
 			'replace': 'ό',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ού',
@@ -1439,7 +1439,7 @@ rules['O39nop'] = {
 		[
 		{
 			'replace': 'ο',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ου',
@@ -1477,7 +1477,7 @@ rules['O40nop'] = {
 		[
 		{
 			'replace': 'ο',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ου',
@@ -1510,7 +1510,7 @@ rules['O41nop'] = {
 		[
 		{
 			'replace': 'ο',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ου',
@@ -1571,7 +1571,7 @@ rules['O43nop'] = {
 		[
 		{
 			'replace': 'ί',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ιού',
@@ -1602,7 +1602,7 @@ rules['O44anop'] = {
 		[
 		{
 			'replace': 'ι',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		]
 }
@@ -1654,7 +1654,7 @@ rules['O45nop'] = {
 		[
 		{
 			'replace': 'ι',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'γιού',
@@ -1687,7 +1687,7 @@ rules['O46anop'] = {
 		[
 		{
 			'replace': 'ος',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ους',
@@ -1732,7 +1732,7 @@ rules['O47nop'] = {
 		[
 		{
 			'replace': 'ος',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ους',
@@ -1766,7 +1766,7 @@ rules['O48nop'] = {
 		[
 		{
 			'replace': 'α',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ατος',
@@ -1798,7 +1798,7 @@ rules['O49nop'] = {
 		[
 		{
 			'replace': 'α',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ατος',
@@ -1832,7 +1832,7 @@ rules['O50nop'] = {
 		[
 		{
 			'replace': 'ο',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ατος',
@@ -1866,7 +1866,7 @@ rules['O51nop'] = {
 		[
 		{
 			'replace': 'ας',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'ατος',
@@ -1898,7 +1898,7 @@ rules['O51anop'] = {
 		[
 		{
 			'replace': 'ως',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'match': '^φως$',
@@ -1938,7 +1938,7 @@ rules['O52nop'] = {
 		{
 			'search': '',
 			'replace': '',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'όντος',
@@ -1970,7 +1970,7 @@ rules['O53nop'] = {
 		{
 			'search': '',
 			'replace': '',
-			'restype': ['OusPlOnom', 'OusPlAit', 'OusPlKlit'],
+			'restype': ['OusEnOnom', 'OusEnAit', 'OusEnKlit'],
 		},
 		{
 			'replace': 'οντος',
