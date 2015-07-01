@@ -18,7 +18,7 @@
 #   along with Flexy.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import print_function
-import re, string
+import sys, re, string
 from utils import *
 
 def translate(alist, word):
@@ -47,11 +47,16 @@ wordencoding = [
 	{'from': 'αυ', 'to': 's'},
 ]
 
+# FIXME: BROKEN in python 2! Test Έλληνας O5
+# Convert capital letters to lowercase and back
+for letter in 'ΆΈΉΎΊΌΏΑΕΗΥΙΟΩ':
+	wordencoding.append({'from': letter, 'to': letter.lower() + '_'})
+
 tonismenafwnhenta = 'abcdefάέήύίόώΐΰ';
 atonafwnhenta = 'nopqrsαεηυιοωϊϋ';
 fwnhenta = tonismenafwnhenta + atonafwnhenta;
-# We add x, y, z, for use by the rules
-symfwna = 'βγδζθκλμνξπρστφχψxyz';
+# We add x, y, z, for use by the rules. _ is a marker for capital letter
+symfwna = 'βγδζθκλμνξπρστφχψxyz_';
 
 tonismenofwnhen = '[' + tonismenafwnhenta + ']'
 atonofwnhen = '[' + atonafwnhenta + ']'
