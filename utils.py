@@ -13,8 +13,10 @@ def tr(fr, to, word):
 		pos = fr.find(letter)
 		if pos != -1:
 			new.append(to[pos])
+		else:
+			new.append(letter)
 	return ''.join(new)
-    
+
 def die(msg, exitcode=1):
 	print(msg)
 	sys.exit(exitcode)
