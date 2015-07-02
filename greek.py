@@ -5631,6 +5631,7 @@ rules['P5.1a'] = {
 		{
 			'replace': var1 + 'ε',
 			'restype': 'RhmEnergAorProstEsy',
+			'callfunc': transfertonosup,
 		},
 		{
 			'replace': var1 + 'τε',
@@ -5967,6 +5968,7 @@ rules['P5.2a'] = {
 			'search': 'εύω|εύομαι',
 			'replace': 'έ' + var1 + 'ε',
 			'restype': 'RhmEnergAorProstEsy',
+			'callfunc': transfertonosup,
 		},
 		{
 			'search': 'εύω|εύομαι',
@@ -6132,7 +6134,8 @@ rules['P5.2b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'replace': var2 + 'ενος',
+			'search': 'εύω|εύομαι',
+			'replace': 'έ' + var2 + 'ενος',
 			'restype': 'RhmPathPrkMetox',
 			'callfunc': transfertonosdown,
 		},
