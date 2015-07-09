@@ -3,7 +3,7 @@
 #
 #   Flexy - Tool to inflect and in other ways "flex" words
 #
-#   Version 0.3pre
+#   Version 1.0
 #
 #   Copyright 2006,2009,2011,2015 Steve Stavropoulos <steve@math.upatras.gr>
 #
@@ -26,7 +26,7 @@ from __future__ import print_function
 import os, re, sys, string
 from optparse import OptionParser
 from utils import *
-version="0.3pre"
+version="1.0"
 
 def flexit(word, variation, langdef):
 	if variation not in langdef.rules:
