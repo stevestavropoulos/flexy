@@ -47,7 +47,7 @@ wordencoding = [
 	{'from': 'αυ', 'to': 's'},
 ]
 
-# FIXME: BROKEN in python 2! Test Έλληνας O5
+# FIXME: BROKEN in python 2! Test: Έλληνας O5
 # Convert capital letters to lowercase and back
 for letter in 'ΆΈΉΎΊΌΏΑΕΗΥΙΟΩ':
 	wordencoding.append({'from': letter, 'to': letter.lower() + '_'})
@@ -4572,77 +4572,77 @@ rules['P2.2abase'] = {
 	'actions':
 		[
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ω',
 			'restype': ['RhmEnergEnestOristEgw', 'RhmEnergEnestYpotEgw', 'RhmEnergE3akolMellEgw'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'εις',
 			'restype': ['RhmEnergEnestOristEsy', 'RhmEnergEnestYpotEsy', 'RhmEnergE3akolMellEsy'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ει',
 			'restype': ['RhmEnergEnestOristAytos', 'RhmEnergEnestYpotAytos', 'RhmEnergE3akolMellAytos'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ουμε',
 			'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis', 'RhmEnergE3akolMellEmeis'],
 		},
 		# alt.
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ομε',
 			'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis', 'RhmEnergE3akolMellEmeis'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ετε',
 			'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis', 'RhmEnergE3akolMellEseis', 'RhmEnergEnestProstEseis'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ουν',
 			'restype': ['RhmEnergEnestOristAytoi', 'RhmEnergEnestYpotAytoi', 'RhmEnergE3akolMellAytoi'],
 		},
 		# RhmEnergEnestProstEsy is added afterwards
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'οντας',
 			'restype': 'RhmEnergEnestMetox',
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'α',
 			'restype': 'RhmEnergPrtOristEgw',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ες',
 			'restype': 'RhmEnergPrtOristEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ε',
 			'restype': 'RhmEnergPrtOristAytos',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'αμε',
 			'restype': 'RhmEnergPrtOristEmeis',
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ατε',
 			'restype': 'RhmEnergPrtOristEseis',
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'αν',
 			'restype': 'RhmEnergPrtOristAytoi',
 			'callfunc': transfertonosup,
@@ -4731,7 +4731,7 @@ rules['P2.2a'] = {
 	'actions': rules['P2.2abase']['actions'] +
 		[
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ε',
 			'restype': 'RhmEnergEnestProstEsy',
 			'callfunc': transfertonosup,
@@ -4749,73 +4749,73 @@ rules['P2.2b'] = {
 	'actions':
 		[
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ομαι',
 			'restype': ['RhmPathEnestOristEgw', 'RhmPathEnestYpotEgw', 'RhmPathE3akolMellEgw'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'εσαι',
 			'restype': ['RhmPathEnestOristEsy', 'RhmPathEnestYpotEsy', 'RhmPathE3akolMellEsy'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ου',
 			'restype': 'RhmPathEnestProstEsy',
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'εται',
 			'restype': ['RhmPathEnestOristAytos', 'RhmPathEnestYpotAytos', 'RhmPathE3akolMellAytos'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ομαστε',
 			'restype': ['RhmPathEnestOristEmeis', 'RhmPathEnestYpotEmeis', 'RhmPathE3akolMellEmeis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'εστε',
 			'restype': ['RhmPathEnestOristEseis', 'RhmPathEnestYpotEseis',  'RhmPathEnestProstEseis', 'RhmPathE3akolMellEseis'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ονται',
 			'restype': ['RhmPathEnestOristAytoi', 'RhmPathEnestYpotAytoi', 'RhmPathE3akolMellAytoi'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ομουν',
 			'restype': 'RhmPathPrtOristEgw',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'οσουν',
 			'restype': 'RhmPathPrtOristEsy',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'οταν',
 			'restype': 'RhmPathPrtOristAytos',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ομασταν',
 			'restype': 'RhmPathPrtOristEmeis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'οσασταν',
 			'restype': 'RhmPathPrtOristEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ονταν',
 			'restype': 'RhmPathPrtOristAytoi',
 		},
@@ -5118,7 +5118,7 @@ rules['P3a'] = {
 	'actions': rules['P2.2abase']['actions'] +
 		[
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ε',
 			'restype': 'RhmEnergEnestProstEsy',
 		},
@@ -5145,81 +5145,81 @@ rules['P4a'] = {
 	'actions':
 		[
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ω',
 			'restype': ['RhmEnergEnestOristEgw', 'RhmEnergEnestYpotEgw', 'RhmEnergE3akolMellEgw'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'εις',
 			'restype': ['RhmEnergEnestOristEsy', 'RhmEnergEnestYpotEsy', 'RhmEnergE3akolMellEsy'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ει',
 			'restype': ['RhmEnergEnestOristAytos', 'RhmEnergEnestYpotAytos', 'RhmEnergE3akolMellAytos'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ουμε',
 			'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis', 'RhmEnergE3akolMellEmeis'],
 		},
 		# alt.
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ομε',
 			'restype': ['RhmEnergEnestOristEmeis', 'RhmEnergEnestYpotEmeis', 'RhmEnergE3akolMellEmeis'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ετε',
 			'restype': ['RhmEnergEnestOristEseis', 'RhmEnergEnestYpotEseis', 'RhmEnergE3akolMellEseis', 'RhmEnergEnestProstEseis'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ουν',
 			'restype': ['RhmEnergEnestOristAytoi', 'RhmEnergEnestYpotAytoi', 'RhmEnergE3akolMellAytoi'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ε',
 			'restype': 'RhmEnergEnestProstEsy',
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'οντας',
 			'restype': 'RhmEnergEnestMetox',
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'α',
 			'restype': 'RhmEnergPrtOristEgw',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ες',
 			'restype': 'RhmEnergPrtOristEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ε',
 			'restype': 'RhmEnergPrtOristAytos',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'αμε',
 			'restype': 'RhmEnergPrtOristEmeis',
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ατε',
 			'restype': 'RhmEnergPrtOristEseis',
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'αν',
 			'restype': 'RhmEnergPrtOristAytoi',
 			'callfunc': transfertonosup,
@@ -5312,73 +5312,73 @@ rules['P4b'] = {
 	'actions':
 		[
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ομαι',
 			'restype': ['RhmPathEnestOristEgw', 'RhmPathEnestYpotEgw', 'RhmPathE3akolMellEgw'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'εσαι',
 			'restype': ['RhmPathEnestOristEsy', 'RhmPathEnestYpotEsy', 'RhmPathE3akolMellEsy'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ου',
 			'restype': 'RhmPathEnestProstEsy',
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'εται',
 			'restype': ['RhmPathEnestOristAytos', 'RhmPathEnestYpotAytos', 'RhmPathE3akolMellAytos'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ομαστε',
 			'restype': ['RhmPathEnestOristEmeis', 'RhmPathEnestYpotEmeis', 'RhmPathE3akolMellEmeis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'εστε',
 			'restype': ['RhmPathEnestOristEseis', 'RhmPathEnestYpotEseis',  'RhmPathEnestProstEseis', 'RhmPathE3akolMellEseis'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ονται',
 			'restype': ['RhmPathEnestOristAytoi', 'RhmPathEnestYpotAytoi', 'RhmPathE3akolMellAytoi'],
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ομουν',
 			'restype': 'RhmPathPrtOristEgw',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'οσουν',
 			'restype': 'RhmPathPrtOristEsy',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'οταν',
 			'restype': 'RhmPathPrtOristAytos',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ομασταν',
 			'restype': 'RhmPathPrtOristEmeis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'οσασταν',
 			'restype': 'RhmPathPrtOristEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search' : 'ω|ομαι',
+			'search' : '(ω|ομαι)$',
 			'replace': 'ονταν',
 			'restype': 'RhmPathPrtOristAytoi',
 		},
@@ -5879,56 +5879,56 @@ rules['P5.2a'] = {
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'α',
 			'restype': 'RhmEnergAorOristEgw',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ες',
 			'restype': 'RhmEnergAorOristEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ε',
 			'restype': 'RhmEnergAorOristAytos',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'αμε',
 			'restype': 'RhmEnergAorOristEmeis',
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ατε',
 			'restype': 'RhmEnergAorOristEseis',
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'αν',
 			'restype': 'RhmEnergAorOristAytoi',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ω',
 			'restype': ['RhmEnergAorYpotEgw', 'RhmEnergStigmMellEgw'],
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'εις',
 			'restype': ['RhmEnergAorYpotEsy', 'RhmEnergStigmMellEsy'],
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ει',
 			'restype': ['RhmEnergAorYpotAytos', 'RhmEnergAorApar', 'RhmEnergStigmMellAytos'],
 		},
 		{ # Same with above
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ει',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -5936,7 +5936,7 @@ rules['P5.2a'] = {
 				['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
 		},
 		{ # Variation of above
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var2 + 'ενο',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -5945,33 +5945,33 @@ rules['P5.2a'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ουμε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{ # Variation of above
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ομε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ετε',
 			'restype': ['RhmEnergAorYpotEseis', 'RhmEnergStigmMellEseis'],
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ουν',
 			'restype': ['RhmEnergAorYpotAytoi', 'RhmEnergStigmMellAytoi'],
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ε',
 			'restype': 'RhmEnergAorProstEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'τε',
 			'restype': 'RhmEnergAorProstEseis',
 		},
@@ -6091,7 +6091,7 @@ rules['P5.2b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # Variation of above
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var2 + 'ενος',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos'] +
@@ -6100,7 +6100,7 @@ rules['P5.2b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # plural form of the above
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var2 + 'ενοι',
 			'restype': ['RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -6124,7 +6124,7 @@ rules['P5.2b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var1 + 'ου',
 			'restype': 'RhmPathAorProstEsy',
 		},
@@ -6134,7 +6134,7 @@ rules['P5.2b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'εύω|εύομαι',
+			'search': '(εύω|εύομαι)$',
 			'replace': 'έ' + var2 + 'ενος',
 			'restype': 'RhmPathPrkMetox',
 			'callfunc': transfertonosdown,
@@ -6604,56 +6604,56 @@ rules['P7.1a'] = {
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'α',
 			'restype': 'RhmEnergAorOristEgw',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ες',
 			'restype': 'RhmEnergAorOristEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ε',
 			'restype': 'RhmEnergAorOristAytos',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'αμε',
 			'restype': 'RhmEnergAorOristEmeis',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ατε',
 			'restype': 'RhmEnergAorOristEseis',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'αν',
 			'restype': 'RhmEnergAorOristAytoi',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ω',
 			'restype': ['RhmEnergAorYpotEgw', 'RhmEnergStigmMellEgw'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'εις',
 			'restype': ['RhmEnergAorYpotEsy', 'RhmEnergStigmMellEsy'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ει',
 			'restype': ['RhmEnergAorYpotAytos', 'RhmEnergAorApar', 'RhmEnergStigmMellAytos'],
 		},
 		{ # Same with above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ει',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -6661,7 +6661,7 @@ rules['P7.1a'] = {
 				['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
 		},
 		{ # Variation of above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var2 + 'ενο',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -6670,33 +6670,33 @@ rules['P7.1a'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ουμε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{ # Variation of above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ομε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ετε',
 			'restype': ['RhmEnergAorYpotEseis', 'RhmEnergStigmMellEseis'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ουν',
 			'restype': ['RhmEnergAorYpotAytoi', 'RhmEnergStigmMellAytoi'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ε',
 			'restype': 'RhmEnergAorProstEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var1 + 'ετε',
 			'restype': 'RhmEnergAorProstEseis',
 		},
@@ -6767,57 +6767,57 @@ rules['P7.1b'] = {
 			'restype': 'RhmPathPrtOristAytoi',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκα',
 			'restype': 'RhmPathAorOristEgw',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκες',
 			'restype': 'RhmPathAorOristEsy',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκε',
 			'restype': 'RhmPathAorOristAytos',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκαμε',
 			'restype': 'RhmPathAorOristEmeis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκατε',
 			'restype': 'RhmPathAorOristEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκαν',
 			'restype': 'RhmPathAorOristAytoi',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ω',
 			'restype': ['RhmPathAorYpotEgw', 'RhmPathStigmMellEgw'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'εις',
 			'restype': ['RhmPathAorYpotEsy', 'RhmPathStigmMellEsy'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathAorYpotAytos', 'RhmPathAorApar', 'RhmPathStigmMellAytos'],
 			'callfunc': transfertonosdown,
 		},
 		{ # Same with above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos', 'RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos', 'RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -6826,7 +6826,7 @@ rules['P7.1b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # Variation of above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var2 + 'ενος',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos'] +
@@ -6835,7 +6835,7 @@ rules['P7.1b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # plural form of the above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var2 + 'ενοι',
 			'restype': ['RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -6844,31 +6844,31 @@ rules['P7.1b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ουμε',
 			'restype': ['RhmPathAorYpotEmeis', 'RhmPathStigmMellEmeis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': ['RhmPathAorYpotEseis', 'RhmPathStigmMellEseis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ουν',
 			'restype': ['RhmPathAorYpotAytoi', 'RhmPathStigmMellAytoi'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': 'RhmPathAorProstEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': 'ά' + var2 + 'ενος',
 			'restype': 'RhmPathPrkMetox',
 			'callfunc': transfertonosdown,
@@ -6956,56 +6956,56 @@ rules['P7.2a'] = {
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'α',
 			'restype': 'RhmEnergAorOristEgw',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ες',
 			'restype': 'RhmEnergAorOristEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ε',
 			'restype': 'RhmEnergAorOristAytos',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'αμε',
 			'restype': 'RhmEnergAorOristEmeis',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ατε',
 			'restype': 'RhmEnergAorOristEseis',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'αν',
 			'restype': 'RhmEnergAorOristAytoi',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ω',
 			'restype': ['RhmEnergAorYpotEgw', 'RhmEnergStigmMellEgw'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'εις',
 			'restype': ['RhmEnergAorYpotEsy', 'RhmEnergStigmMellEsy'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ει',
 			'restype': ['RhmEnergAorYpotAytos', 'RhmEnergAorApar', 'RhmEnergStigmMellAytos'],
 		},
 		{ # Same with above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ει',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -7013,7 +7013,7 @@ rules['P7.2a'] = {
 				['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
 		},
 		{ # Variation of above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενο',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -7022,33 +7022,33 @@ rules['P7.2a'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ουμε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{ # Variation of above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ομε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ετε',
 			'restype': ['RhmEnergAorYpotEseis', 'RhmEnergStigmMellEseis'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ουν',
 			'restype': ['RhmEnergAorYpotAytoi', 'RhmEnergStigmMellAytoi'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ε',
 			'restype': 'RhmEnergAorProstEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ετε',
 			'restype': 'RhmEnergAorProstEseis',
 		},
@@ -7120,57 +7120,57 @@ rules['P7.2b'] = {
 			'restype': 'RhmPathPrtOristAytoi',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκα',
 			'restype': 'RhmPathAorOristEgw',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκες',
 			'restype': 'RhmPathAorOristEsy',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκε',
 			'restype': 'RhmPathAorOristAytos',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκαμε',
 			'restype': 'RhmPathAorOristEmeis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκατε',
 			'restype': 'RhmPathAorOristEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκαν',
 			'restype': 'RhmPathAorOristAytoi',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ω',
 			'restype': ['RhmPathAorYpotEgw', 'RhmPathStigmMellEgw'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'εις',
 			'restype': ['RhmPathAorYpotEsy', 'RhmPathStigmMellEsy'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathAorYpotAytos', 'RhmPathAorApar', 'RhmPathStigmMellAytos'],
 			'callfunc': transfertonosdown,
 		},
 		{ # Same with above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos', 'RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos', 'RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -7179,7 +7179,7 @@ rules['P7.2b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # Variation of above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos'] +
@@ -7188,7 +7188,7 @@ rules['P7.2b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # plural form of the above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενοι',
 			'restype': ['RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -7197,31 +7197,31 @@ rules['P7.2b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ουμε',
 			'restype': ['RhmPathAorYpotEmeis', 'RhmPathStigmMellEmeis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': ['RhmPathAorYpotEseis', 'RhmPathStigmMellEseis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ουν',
 			'restype': ['RhmPathAorYpotAytoi', 'RhmPathStigmMellAytoi'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': 'RhmPathAorProstEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': 'RhmPathPrkMetox',
 			'callfunc': transfertonosdown,
@@ -7244,7 +7244,7 @@ rules['P7.3a'] = {
 	'actions': rules['P7.2a']['actions'] +
 		[
 		{ # Variation of above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενο',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -7262,57 +7262,57 @@ rules['P7.3b'] = {
 	'actions': rules['P7.2b']['actions'] +
 		[
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκα',
 			'restype': 'RhmPathAorOristEgw',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκες',
 			'restype': 'RhmPathAorOristEsy',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκε',
 			'restype': 'RhmPathAorOristAytos',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκαμε',
 			'restype': 'RhmPathAorOristEmeis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκατε',
 			'restype': 'RhmPathAorOristEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκαν',
 			'restype': 'RhmPathAorOristAytoi',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ω',
 			'restype': ['RhmPathAorYpotEgw', 'RhmPathStigmMellEgw'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'εις',
 			'restype': ['RhmPathAorYpotEsy', 'RhmPathStigmMellEsy'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathAorYpotAytos', 'RhmPathAorApar', 'RhmPathStigmMellAytos'],
 			'callfunc': transfertonosdown,
 		},
 		{ # Same with above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos', 'RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos', 'RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -7321,7 +7321,7 @@ rules['P7.3b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # Variation of above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos'] +
@@ -7330,7 +7330,7 @@ rules['P7.3b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # plural form of the above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενοι',
 			'restype': ['RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -7339,31 +7339,31 @@ rules['P7.3b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ουμε',
 			'restype': ['RhmPathAorYpotEmeis', 'RhmPathStigmMellEmeis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': ['RhmPathAorYpotEseis', 'RhmPathStigmMellEseis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ουν',
 			'restype': ['RhmPathAorYpotAytoi', 'RhmPathStigmMellAytoi'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': 'RhmPathAorProstEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': 'RhmPathPrkMetox',
 			'callfunc': transfertonosdown,
@@ -7452,56 +7452,56 @@ rules['P7.4a'] = {
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'α',
 			'restype': 'RhmEnergAorOristEgw',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ες',
 			'restype': 'RhmEnergAorOristEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ε',
 			'restype': 'RhmEnergAorOristAytos',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'αμε',
 			'restype': 'RhmEnergAorOristEmeis',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ατε',
 			'restype': 'RhmEnergAorOristEseis',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'αν',
 			'restype': 'RhmEnergAorOristAytoi',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ω',
 			'restype': ['RhmEnergAorYpotEgw', 'RhmEnergStigmMellEgw'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'εις',
 			'restype': ['RhmEnergAorYpotEsy', 'RhmEnergStigmMellEsy'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ει',
 			'restype': ['RhmEnergAorYpotAytos', 'RhmEnergAorApar', 'RhmEnergStigmMellAytos'],
 		},
 		{ # Same with above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ει',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -7509,7 +7509,7 @@ rules['P7.4a'] = {
 				['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
 		},
 		{ # Variation of above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενο',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -7518,33 +7518,33 @@ rules['P7.4a'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ουμε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{ # Variation of above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ομε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ετε',
 			'restype': ['RhmEnergAorYpotEseis', 'RhmEnergStigmMellEseis'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ουν',
 			'restype': ['RhmEnergAorYpotAytoi', 'RhmEnergStigmMellAytoi'],
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ε',
 			'restype': 'RhmEnergAorProstEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var1 + 'ετε',
 			'restype': 'RhmEnergAorProstEseis',
 		},
@@ -7616,57 +7616,57 @@ rules['P7.4b'] = {
 			'restype': 'RhmPathPrtOristAytoi',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκα',
 			'restype': 'RhmPathAorOristEgw',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκες',
 			'restype': 'RhmPathAorOristEsy',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκε',
 			'restype': 'RhmPathAorOristAytos',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκαμε',
 			'restype': 'RhmPathAorOristEmeis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκατε',
 			'restype': 'RhmPathAorOristEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ηκαν',
 			'restype': 'RhmPathAorOristAytoi',
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ω',
 			'restype': ['RhmPathAorYpotEgw', 'RhmPathStigmMellEgw'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'εις',
 			'restype': ['RhmPathAorYpotEsy', 'RhmPathStigmMellEsy'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathAorYpotAytos', 'RhmPathAorApar', 'RhmPathStigmMellAytos'],
 			'callfunc': transfertonosdown,
 		},
 		{ # Same with above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos', 'RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos', 'RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -7675,7 +7675,7 @@ rules['P7.4b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # Variation of above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos'] +
@@ -7684,7 +7684,7 @@ rules['P7.4b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # plural form of the above
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενοι',
 			'restype': ['RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -7693,31 +7693,31 @@ rules['P7.4b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ουμε',
 			'restype': ['RhmPathAorYpotEmeis', 'RhmPathStigmMellEmeis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': ['RhmPathAorYpotEseis', 'RhmPathStigmMellEseis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ουν',
 			'restype': ['RhmPathAorYpotAytoi', 'RhmPathStigmMellAytoi'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': 'RhmPathAorProstEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'αίνω|αίνομαι',
+			'search': '(αίνω|αίνομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': 'RhmPathPrkMetox',
 			'callfunc': transfertonosdown,
@@ -7806,56 +7806,56 @@ rules['P8.1a'] = {
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'α',
 			'restype': 'RhmEnergAorOristEgw',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ες',
 			'restype': 'RhmEnergAorOristEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ε',
 			'restype': 'RhmEnergAorOristAytos',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'αμε',
 			'restype': 'RhmEnergAorOristEmeis',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ατε',
 			'restype': 'RhmEnergAorOristEseis',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'αν',
 			'restype': 'RhmEnergAorOristAytoi',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ω',
 			'restype': ['RhmEnergAorYpotEgw', 'RhmEnergStigmMellEgw'],
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'εις',
 			'restype': ['RhmEnergAorYpotEsy', 'RhmEnergStigmMellEsy'],
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ει',
 			'restype': ['RhmEnergAorYpotAytos', 'RhmEnergAorApar', 'RhmEnergStigmMellAytos'],
 		},
 		{ # Same with above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ει',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -7863,7 +7863,7 @@ rules['P8.1a'] = {
 				['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
 		},
 		{ # Variation of above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var2 + 'ενο',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -7872,33 +7872,33 @@ rules['P8.1a'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ουμε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{ # Variation of above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ομε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ετε',
 			'restype': ['RhmEnergAorYpotEseis', 'RhmEnergStigmMellEseis'],
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ουν',
 			'restype': ['RhmEnergAorYpotAytoi', 'RhmEnergStigmMellAytoi'],
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ε',
 			'restype': 'RhmEnergAorProstEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ετε',
 			'restype': 'RhmEnergAorProstEseis',
 		},
@@ -7970,57 +7970,57 @@ rules['P8.1b'] = {
 			'restype': 'RhmPathPrtOristAytoi',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκα',
 			'restype': 'RhmPathAorOristEgw',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκες',
 			'restype': 'RhmPathAorOristEsy',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκε',
 			'restype': 'RhmPathAorOristAytos',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκαμε',
 			'restype': 'RhmPathAorOristEmeis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκατε',
 			'restype': 'RhmPathAorOristEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκαν',
 			'restype': 'RhmPathAorOristAytoi',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ω',
 			'restype': ['RhmPathAorYpotEgw', 'RhmPathStigmMellEgw'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'εις',
 			'restype': ['RhmPathAorYpotEsy', 'RhmPathStigmMellEsy'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathAorYpotAytos', 'RhmPathAorApar', 'RhmPathStigmMellAytos'],
 			'callfunc': transfertonosdown,
 		},
 		{ # Same with above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos', 'RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos', 'RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -8029,7 +8029,7 @@ rules['P8.1b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # Variation of above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos'] +
@@ -8038,7 +8038,7 @@ rules['P8.1b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # plural form of the above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var2 + 'ενοι',
 			'restype': ['RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -8047,36 +8047,36 @@ rules['P8.1b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ουμε',
 			'restype': ['RhmPathAorYpotEmeis', 'RhmPathStigmMellEmeis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': ['RhmPathAorYpotEseis', 'RhmPathStigmMellEseis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ουν',
 			'restype': ['RhmPathAorYpotAytoi', 'RhmPathStigmMellAytoi'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': 'ύνσου',
 			'restype': 'RhmPathAorProstEsy',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': 'RhmPathAorProstEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': 'RhmPathPrkMetox',
 			'callfunc': transfertonosdown,
@@ -8165,56 +8165,56 @@ rules['P8.2a'] = {
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'α',
 			'restype': 'RhmEnergAorOristEgw',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ες',
 			'restype': 'RhmEnergAorOristEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ε',
 			'restype': 'RhmEnergAorOristAytos',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'αμε',
 			'restype': 'RhmEnergAorOristEmeis',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ατε',
 			'restype': 'RhmEnergAorOristEseis',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'αν',
 			'restype': 'RhmEnergAorOristAytoi',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ω',
 			'restype': ['RhmEnergAorYpotEgw', 'RhmEnergStigmMellEgw'],
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'εις',
 			'restype': ['RhmEnergAorYpotEsy', 'RhmEnergStigmMellEsy'],
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ει',
 			'restype': ['RhmEnergAorYpotAytos', 'RhmEnergAorApar', 'RhmEnergStigmMellAytos'],
 		},
 		{ # Same with above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ει',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -8222,7 +8222,7 @@ rules['P8.2a'] = {
 				['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
 		},
 		{ # Variation of above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var2 + 'ενο',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -8231,33 +8231,33 @@ rules['P8.2a'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ουμε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{ # Variation of above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ομε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ετε',
 			'restype': ['RhmEnergAorYpotEseis', 'RhmEnergStigmMellEseis'],
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ουν',
 			'restype': ['RhmEnergAorYpotAytoi', 'RhmEnergStigmMellAytoi'],
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ε',
 			'restype': 'RhmEnergAorProstEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var1 + 'ετε',
 			'restype': 'RhmEnergAorProstEseis',
 		},
@@ -8329,57 +8329,57 @@ rules['P8.2b'] = {
 			'restype': 'RhmPathPrtOristAytoi',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκα',
 			'restype': 'RhmPathAorOristEgw',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκες',
 			'restype': 'RhmPathAorOristEsy',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκε',
 			'restype': 'RhmPathAorOristAytos',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκαμε',
 			'restype': 'RhmPathAorOristEmeis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκατε',
 			'restype': 'RhmPathAorOristEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ηκαν',
 			'restype': 'RhmPathAorOristAytoi',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ω',
 			'restype': ['RhmPathAorYpotEgw', 'RhmPathStigmMellEgw'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'εις',
 			'restype': ['RhmPathAorYpotEsy', 'RhmPathStigmMellEsy'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathAorYpotAytos', 'RhmPathAorApar', 'RhmPathStigmMellAytos'],
 			'callfunc': transfertonosdown,
 		},
 		{ # Same with above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos', 'RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos', 'RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -8388,7 +8388,7 @@ rules['P8.2b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # Variation of above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos'] +
@@ -8397,7 +8397,7 @@ rules['P8.2b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # plural form of the above
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var2 + 'ενοι',
 			'restype': ['RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -8406,36 +8406,36 @@ rules['P8.2b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ουμε',
 			'restype': ['RhmPathAorYpotEmeis', 'RhmPathStigmMellEmeis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': ['RhmPathAorYpotEseis', 'RhmPathStigmMellEseis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ουν',
 			'restype': ['RhmPathAorYpotAytoi', 'RhmPathStigmMellAytoi'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': 'ύνσου',
 			'restype': 'RhmPathAorProstEsy',
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': 'RhmPathAorProstEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύνω|ύνομαι',
+			'search': '(ύνω|ύνομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': 'RhmPathPrkMetox',
 			'callfunc': transfertonosdown,
@@ -8525,56 +8525,56 @@ rules['P9a'] = {
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'α',
 			'restype': 'RhmEnergAorOristEgw',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ες',
 			'restype': 'RhmEnergAorOristEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ε',
 			'restype': 'RhmEnergAorOristAytos',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'αμε',
 			'restype': 'RhmEnergAorOristEmeis',
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ατε',
 			'restype': 'RhmEnergAorOristEseis',
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'αν',
 			'restype': 'RhmEnergAorOristAytoi',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ω',
 			'restype': ['RhmEnergAorYpotEgw', 'RhmEnergStigmMellEgw'],
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'εις',
 			'restype': ['RhmEnergAorYpotEsy', 'RhmEnergStigmMellEsy'],
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ει',
 			'restype': ['RhmEnergAorYpotAytos', 'RhmEnergAorApar', 'RhmEnergStigmMellAytos'],
 		},
 		{ # Same with above
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ει',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -8582,7 +8582,7 @@ rules['P9a'] = {
 				['RhmEnergSyntelMellEgw', 'RhmEnergSyntelMellEsy', 'RhmEnergSyntelMellAytos', 'RhmEnergSyntelMellEmeis', 'RhmEnergSyntelMellEseis', 'RhmEnergSyntelMellAytoi'],
 		},
 		{ # Variation of above
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var2 + 'ενο',
 			'restype': ['RhmEnergYpersEgw', 'RhmEnergYpersEsy', 'RhmEnergYpersAytos', 'RhmEnergYpersEmeis', 'RhmEnergYpersEseis', 'RhmEnergYpersAytoi'] +
 				['RhmEnergPrkOristEgw', 'RhmEnergPrkOristEsy', 'RhmEnergPrkOristAytos', 'RhmEnergPrkOristEmeis', 'RhmEnergPrkOristEseis', 'RhmEnergPrkOristAytoi'] +
@@ -8591,33 +8591,33 @@ rules['P9a'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ουμε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{ # Variation of above
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ομε',
 			'restype': ['RhmEnergAorYpotEmeis', 'RhmEnergStigmMellEmeis'],
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ετε',
 			'restype': ['RhmEnergAorYpotEseis', 'RhmEnergStigmMellEseis'],
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ουν',
 			'restype': ['RhmEnergAorYpotAytoi', 'RhmEnergStigmMellAytoi'],
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ε',
 			'restype': 'RhmEnergAorProstEsy',
 			'callfunc': transfertonosup,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var1 + 'ετε',
 			'restype': 'RhmEnergAorProstEseis',
 		},
@@ -8689,57 +8689,57 @@ rules['P9b'] = {
 			'restype': 'RhmPathPrtOristAytoi',
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ηκα',
 			'restype': 'RhmPathAorOristEgw',
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ηκες',
 			'restype': 'RhmPathAorOristEsy',
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ηκε',
 			'restype': 'RhmPathAorOristAytos',
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ηκαμε',
 			'restype': 'RhmPathAorOristEmeis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ηκατε',
 			'restype': 'RhmPathAorOristEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ηκαν',
 			'restype': 'RhmPathAorOristAytoi',
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ω',
 			'restype': ['RhmPathAorYpotEgw', 'RhmPathStigmMellEgw'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'εις',
 			'restype': ['RhmPathAorYpotEsy', 'RhmPathStigmMellEsy'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathAorYpotAytos', 'RhmPathAorApar', 'RhmPathStigmMellAytos'],
 			'callfunc': transfertonosdown,
 		},
 		{ # Same with above
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ει',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos', 'RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos', 'RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -8748,7 +8748,7 @@ rules['P9b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # Variation of above
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': ['RhmPathYpersEgw', 'RhmPathYpersEsy', 'RhmPathYpersAytos'] +
 				['RhmPathPrkOristEgw', 'RhmPathPrkOristEsy', 'RhmPathPrkOristAytos'] +
@@ -8757,7 +8757,7 @@ rules['P9b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{ # plural form of the above
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var2 + 'ενοι',
 			'restype': ['RhmPathYpersEmeis', 'RhmPathYpersEseis', 'RhmPathYpersAytoi'] +
 				['RhmPathPrkOristEmeis', 'RhmPathPrkOristEseis', 'RhmPathPrkOristAytoi'] +
@@ -8766,36 +8766,36 @@ rules['P9b'] = {
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ουμε',
 			'restype': ['RhmPathAorYpotEmeis', 'RhmPathStigmMellEmeis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': ['RhmPathAorYpotEseis', 'RhmPathStigmMellEseis'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ουν',
 			'restype': ['RhmPathAorYpotAytoi', 'RhmPathStigmMellAytoi'],
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': 'ύσου',
 			'restype': 'RhmPathAorProstEsy',
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var3 + 'ειτε',
 			'restype': 'RhmPathAorProstEseis',
 			'callfunc': transfertonosdown,
 		},
 		{
-			'search': 'ύω|ύομαι',
+			'search': '(ύω|ύομαι)$',
 			'replace': var2 + 'ενος',
 			'restype': 'RhmPathPrkMetox',
 			'callfunc': transfertonosdown,
