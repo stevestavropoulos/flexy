@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Κλιτικά παραδείγματα Λεξικού Κοινής Νεοελληνικής</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1253">
+<style>
+<!--
+  input  {font-size: 10px; font-family: Verdana, Arial, Helvetica, sans-serif}
+  FONT {font-size: 10px; font-family: Verdana, Arial, Helvetica, sans-serif}
+  .NormalText {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: normal}
+  .Title { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-style: normal; font-weight: bold; color: #6F023B}
+-->
+</style>
+<script language="JavaScript">
+  function show_window() {
+    with (selection_form)
+      if  (selection[0].checked == true)
+        self.location.href = "antonymies.htm";
+      else
+        if  (selection[1].checked == true)
+          self.location.href = "epitheta_metoches.htm";
+        else
+          if  (selection[2].checked == true)
+            self.location.href = "ousiastika.htm";
+          else
+            if  (selection[3].checked == true)
+              self.location.href = "P_eimai_echo.htm";
+            else
+              if  (selection[4].checked == true)
+                self.location.href = rima_select.options[rima_select.selectedIndex].value;
+  }
+</script>
+</head>
+<body text="#002E5B" link="#4E6FB0" vlink="#4E6FB0" alink="#4E6FB0" background="/images/back_bar.gif">
+  <form name="selection_form" action="javascript:show_window()">
+<TABLE width="530" align="left" border="0" cellpadding="0" cellspacing="0" vspace="15">
+  <TR>
+    <td width="40">
+    </td>
+    <td width="490" ><b><font class=Title>Επιλογή κλιτικών παραδειγμάτων</font></b><br>
+  <table  width="220" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td align="center" valign="middle" height="25"><font> 
+        <input type="radio" name="selection" checked>
+        </font></td>
+      <td height="25"><font>Αντωνυμίες</font></td>
+    </tr>
+    <tr> 
+      <td align="center" valign="middle" height="25"><font> 
+        <input type="radio" name="selection">
+        </font></td>
+      <td height="25"><font>Επίθετα και μετοχές</font></td>
+    </tr>
+    <tr> 
+      <td align="center" valign="middle" height="25"><font> 
+        <input type="radio" name="selection">
+        </font></td>
+      <td height="25"><font>Ουσιαστικά</font></td>
+    </tr>
+    <tr> 
+      <td align="center" valign="middle" height="25"><font> 
+        <input type="radio" name="selection">
+        </font></td>
+      <td height="25"><font>Τα ρήματα είμαι και έχω</font></td>
+    </tr>
+    <tr> 
+      <td align="center" valign="middle" height="25"><font> 
+        <input type="radio" name="selection">
+        </font></td>
+      <td height="25"><font>Ρήματα 
+        <select name="rima_select">
+          <option value="P__1.htm">Ρ1</option>
+          <option value="P__2_1.htm">Ρ2.1</option>
+          <option value="P__2_2.htm">Ρ2.2</option>
+          <option value="P__2_3.htm">Ρ2.3</option>
+          <option value="P__3.htm">Ρ3</option>
+          <option value="P__4.htm">Ρ4</option>
+          <option value="P__5_1.htm">Ρ5.1</option>
+          <option value="P__5_2.htm">Ρ5.2</option>
+          <option value="P__6.htm">Ρ6</option>
+          <option value="P__7_1.htm">Ρ7.1</option>
+          <option value="P__7_2.htm">Ρ7.2</option>
+          <option value="P__7_3.htm">Ρ7.3</option>
+          <option value="P__7_4.htm">Ρ7.4</option>
+          <option value="P__8_1.htm">Ρ8.1</option>
+          <option value="P__8_2.htm">Ρ8.2</option>
+          <option value="P__9.htm">Ρ9</option>
+          <option value="P_10__1.htm">Ρ10.1</option>
+          <option value="P_10__2.htm">Ρ10.2</option>
+          <option value="P_10__3.htm">Ρ10.3</option>
+          <option value="P_10__4.htm">Ρ10.4</option>
+          <option value="P_10__5.htm">Ρ10.5</option>
+          <option value="P_10__6.htm">Ρ10.6</option>
+          <option value="P_10__7.htm">Ρ10.7</option>
+          <option value="P_10__8.htm">Ρ10.8</option>
+          <option value="P_10__9.htm">Ρ10.9</option>
+          <option value="P_10_10.htm">Ρ10.10</option>
+          <option value="P_10_11.htm">Ρ10.11</option>
+          <option value="P_11.htm">Ρ11</option>
+          <option value="P_12.htm">Ρ12</option>
+        </select>
+        </font></td>
+    </tr>
+    <tr> 
+      <td colspan="2" align="center" valign="middle" width="220" height="35"><font> 
+        <input type="submit" value="Προβολή" name="submit">
+        </font></td>
+    </tr>
+  </table><font class=NormalText><br>
+              <a href=javascript:self.history.back()>Επιστροφή</a></font></td></tr></table>
+</form>
+</body>
+</html>
