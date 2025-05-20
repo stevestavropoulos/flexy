@@ -20,3 +20,19 @@ Options:
                         use LANGUAGE for rules definitions
   --list-rules          list all valid rules defined
 
+## Running Tests
+
+To run the automated tests, ensure you are in the root directory of the project.
+
+1.  **Permissions**:
+    Make sure the `run.sh` script is executable:
+    ```bash
+    chmod +x run.sh
+    ```
+
+2.  **Execution**:
+    Run the tests using the main test runner script:
+    ```bash
+    python run_tests.py
+    ```
+    The script will discover and run all unit and integration tests located in the `tests/` directory. Test results will be printed to the console.
