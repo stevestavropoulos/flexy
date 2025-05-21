@@ -23,10 +23,11 @@
 #   along with Flexy.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import print_function
-import os, re, sys, string
+import re, sys, string
+import importlib
 from optparse import OptionParser
 from utils import *
-version="1.0"
+version="1.1"
 
 def flexit(word, variation, langdef):
 	if variation not in langdef.rules:
@@ -88,10 +89,10 @@ parser.add_option("--list-rules", dest="listrules", action="store_true",
                   help="list all valid rules defined")
 (options, args) = parser.parse_args()
 
-if not os.path.isfile(options.language + '.py'):
-	die("File %s doesn't exist!" % options.language + '.py', 4)
-else:
-	exec("import " + options.language + " as langdef")
+try:
+        langdef = importlib.import_module(options.language)
+except ModuleNotFoundError:
+        die("File %s doesn't exist!" % (options.language + '.py'), 4)
 
 if options.listrules:
 	for avariation in langdef.rules:
