@@ -4,7 +4,7 @@ from __future__ import print_function
 import re, sys, string
 
 def getRE(patttern):
-	return re.compile(patttern, re.I | re.L)
+	return re.compile(patttern, re.I)
 
 def tr(fr, to, word):
 	"""poor man's unicode translate"""

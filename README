@@ -7,10 +7,6 @@ Dictionary: http://www.greek-language.gr/greekLang/modern_greek/tools/lexica/tri
 
 USAGE
 
-python2 (uses a wrapper to workaround unicode support issues):
-./run.sh [<options>] <word> [<rule id>]
-
-python3:
 python3 flexy.py [<options>] <word> [<rule id>]
 
 Options:

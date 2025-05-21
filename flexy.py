@@ -3,9 +3,9 @@
 #
 #   Flexy - Tool to inflect and in other ways "flex" words
 #
-#   Version 1.0
+#   Version 1.1
 #
-#   Copyright 2006,2009,2011,2015 Steve Stavropoulos <steve@math.upatras.gr>
+#   Copyright 2006,2009,2011,2015,2025 Steve Stavropoulos <steve@math.upatras.gr>
 #
 #   This file is part of Flexy.
 #

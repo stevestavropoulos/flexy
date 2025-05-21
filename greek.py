@@ -47,7 +47,6 @@ wordencoding = [
 	{'from': 'αυ', 'to': 's'},
 ]
 
-# FIXME: BROKEN in python 2! Test: Έλληνας O5
 # Convert capital letters to lowercase and back
 for letter in 'ΆΈΉΎΊΌΏΑΕΗΥΙΟΩ':
 	wordencoding.append({'from': letter, 'to': letter.lower() + '_'})
