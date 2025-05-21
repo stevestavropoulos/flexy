@@ -1,8 +1,7 @@
-Flexy - A tool to inflect and in other ways "flex" words
+Flexy - A tool to inflect and in other ways "flex" words.
+The included `greek.py` file defines rules for Greek word inflection based on Triantafyllidis resources:
 
-and
-
-greek.py - Rules for inflection of greek words based on http://www.komvos.edu.gr/dictionaries/triantafyllidis/TriLegent.htm
+http://www.komvos.edu.gr/dictionaries/triantafyllidis/TriLegent.htm
 Dictionary: http://www.greek-language.gr/greekLang/modern_greek/tools/lexica/triantafyllides/index.html
 
 USAGE
