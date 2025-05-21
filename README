@@ -1,10 +1,10 @@
-Flexy - A tool to inflect and in other ways "flex" words.
-The included `greek.py` file defines rules for Greek word inflection based on Triantafyllidis resources:
+# Flexy - A tool to inflect and in other ways "flex" words.
 
+The included `greek.py` file defines rules for Greek word inflection based on Triantafyllidis resources:
 http://www.komvos.edu.gr/dictionaries/triantafyllidis/TriLegent.htm
 Dictionary: http://www.greek-language.gr/greekLang/modern_greek/tools/lexica/triantafyllides/index.html
 
-USAGE
+## USAGE
 
 python3 flexy.py [<options>] <word> [<rule id>]
 
@@ -15,3 +15,6 @@ Options:
                         use LANGUAGE for rules definitions
   --list-rules          list all valid rules defined
 
+## Test
+
+You can test the greek rules with: python3 tests/test_greek_samples.py
